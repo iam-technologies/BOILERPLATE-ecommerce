@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { isClient } from '../../../serverServices/utils/isClient';
 import RatingsForm from './RatingsForm';
 
-const modalRoot = document.getElementById('modal-root');
+let modalRoot = '';
+if (isClient) modalRoot = document.getElementById('modal-root');
 
 
 const RatingContainer = ({ onClose, open, ...otherProps }) => ReactDOM.createPortal(

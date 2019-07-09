@@ -1,58 +1,43 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { changeTheme } from '../redux/actions/pageActions';
-import {Link} from '../routes'
+import React from 'react';
+import _get from 'lodash/get';
+
+import { api } from '../serverServices';
+import { Home } from '../components';
+import { SEO } from '../components/common';
 
 import Layout from '../components/Layout';
 
-class Index extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: ''
-    }
-  }
+const index = ({ data }) => {
+  const pageTitle = _get(data, 'title', '');
+  const seoTitle = _get(data, 'SEO.title', '');
+  const desc = _get(data, 'SEO.desc', '');
+  const attachment = _get(data, 'SEO.img.attachment', {});
+  return (
+    <Layout>
+      {/* <SEO
+        title={seoTitle || pageTitle}
+        description={desc || 'Home page'}
+        image={attachment}
+      /> */}
+      <Home data={data} />
+    </Layout>
+  );
+};
 
-  componentDidUpdate(prevProps) {
-    const { color } = this.props;
+export default index;
 
-    if (prevProps.color !== color) {
-      this.setState({ color })
-    }
-  }
+index.getInitialProps = async () => {
+  api.contents.getByKey('home', async (error, res) => {
+    let content = {};
+    if (res) { content = res.data; }
+    const imgUrl = await this.getImageUrl(content);
 
-  handleClick = (color) => {
-    this.props.changeTheme(color)
-  }
-
-  render() {
-
-    const { color } = this.state
-    return (
-      <Layout>
-        <div>
-          <h1 className="main-title " style={{ color }}>home</h1>
-          <button onClick={() => this.handleClick('red')}>red</button>
-          <button onClick={() => this.handleClick('aqua')}>aqua</button>
-          <Link  href={`/blog`}>
-            <a>go to post</a>
-          </Link>
-          <Link  href={`/blog/1`}>
-            <a>go to first post</a>
-          </Link>
-        </div>
-      </Layout>
-    )
-  }
-}
-
-function mapStateToProps(state) {
-  const { pageReducer } = state;
-  return pageReducer
-}
-
-
-
-
-export default connect(mapStateToProps, { changeTheme })(Index);
+    api.selections.getByKey('home', (err, response) => {
+      let selection = {};
+      if (response) { selection = response.data; }
+      const data = { content, selection, loaded: true, imgUrl };
+      return { data };
+    });
+  });
+};

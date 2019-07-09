@@ -18,6 +18,7 @@ import SelectInput from './SelectInput';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
 import SocialNav from './SocialNav';
+import SEO from './SEO';
 
 
 export {
@@ -38,7 +39,8 @@ export {
   RatingsForm,
   SelectAddress,
   SelectInput,
+  SocialNav,
+  SEO,
   TextArea,
-  TextInput,
-  SocialNav
+  TextInput
 };
