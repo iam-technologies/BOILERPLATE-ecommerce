@@ -6,4 +6,3 @@ const change = login => dispatch => dispatch({
 
 
 export default { change };
-
