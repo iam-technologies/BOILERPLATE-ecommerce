@@ -1,7 +1,7 @@
 import cookies from 'cookies-js';
 
 import configApi from '../config';
-import { isClient } from './isClient'
+import isClient from './isClient';
 
 if (isClient) cookies(window); // checar
 cookies.defaults = {
@@ -13,7 +13,7 @@ cookies.defaults = {
 
 
 const add = (cartId) => {
-  if (!isClient) return // checar
+  if (!isClient) return; // checar
 
   if (cookies.enabled) {
     cookies.set('cartId', cartId);
@@ -26,7 +26,7 @@ const add = (cartId) => {
 
 
 const get = () => {
-  if (!isClient) return // checar
+  if (!isClient) return; // checar
 
   if (cookies.enabled) return cookies.get('cartId');
 
@@ -42,7 +42,7 @@ const get = () => {
 
 
 const remove = () => {
-  if (!isClient) return // checar
+  if (!isClient) return; // checar
 
   if (cookies.enabled) {
     cookies.expire('cartId');

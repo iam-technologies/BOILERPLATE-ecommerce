@@ -1,26 +1,31 @@
 import React from 'react';
 import _get from 'lodash/get';
 
-import { api, imgServices } from '../serverServices';
-import { webpSupport } from '../utils/browser';
+import { api, getImageUrl } from '../serverServices';
+
 import { Home as HomeComp } from '../components';
 import { SEO } from '../components/common';
 
 import Layout from '../components/Layout';
 
+const DEFAULT_SEO = {
+  title: 'Canastillas y cestas regalo bebé | Regalos personalizados recién nacidos - Cocholate Decoración S.L.',
+  desc: 'Canastillas y cestas regalo personalizadas para bebé, regalos para recién nacidos y para la familia, cesta gemelar, cuadros nombre, detalles bordados,...y mucho más',
+  img: {}
+};
 
 const Home = ({ data }) => {
-  const pageTitle = _get(data, 'title', '');
-  const seoTitle = _get(data, 'SEO.title', '');
-  const desc = _get(data, 'SEO.desc', '');
-  const attachment = _get(data, 'SEO.img.attachment', {});
+  const title = _get(data, 'content.seoTitle.es', DEFAULT_SEO.title);
+  const desc = _get(data, 'content.seoDesc.es', DEFAULT_SEO.desc);
+  const attachment = _get(data, 'content.seoImg.attachment', DEFAULT_SEO.img);
+
   return (
     <Layout>
-      {/* <SEO
-        title={seoTitle || pageTitle}
-        description={desc || 'Home page'}
+      <SEO
+        title={title}
+        description={desc}
         image={attachment}
-      /> */}
+      />
       <HomeComp data={data} />
     </Layout>
   );
@@ -46,17 +51,3 @@ Home.getInitialProps = async () => {
 };
 
 export default HomeComp;
-
-
-async function getImageUrl(content) {
-  const img = _get(content, 'slider.0.imgUrl', '');
-  const imgUrl = imgServices.getUrl(img);
-  const imgPath = imgUrl.split('.');
-  const imgFormat = imgPath.pop();
-
-  const webpSup = await webpSupport();
-  if (imgFormat === 'webp' && !webpSup) {
-    return `${imgPath.join('.')}.jpg`;
-  }
-  return imgUrl;
-}

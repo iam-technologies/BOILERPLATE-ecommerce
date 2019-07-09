@@ -1,3 +1,3 @@
 const isClient = typeof window !== 'undefined';
 
-export { isClient }; //eslint-disable-line
+export default isClient;

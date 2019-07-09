@@ -3,7 +3,13 @@ import withRedux from 'next-redux-wrapper';
 import App from 'next/app';
 import { Provider } from 'react-redux';
 
-// import '../scss/main.scss';
+// Modules Libraries CSS
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
+// import 'odometer/themes/odometer-theme-default.css';
+
 import '../scss/_index.scss';
 import makeStore from '../redux';
 

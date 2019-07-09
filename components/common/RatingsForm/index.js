@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { isClient } from '../../../serverServices/utils/isClient';
+import { isClient } from '../../../serverServices/utils';
 import RatingsForm from './RatingsForm';
 
 let modalRoot = '';

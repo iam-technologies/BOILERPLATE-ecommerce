@@ -1,7 +1,7 @@
 import cookies from 'cookies-js';
 
 import configApi from '../config';
-import { isClient } from './isClient'
+import isClient from './isClient';
 
 if (isClient) cookies(window); // checar
 
@@ -14,7 +14,7 @@ cookies.defaults = {
 
 
 const add = ({ authToken, userId }) => {
-  if (!isClient) return // checar
+  if (!isClient) return; // checar
 
   if (cookies.enabled) {
     cookies.set('authToken', authToken);
@@ -32,7 +32,7 @@ const add = ({ authToken, userId }) => {
 
 
 const get = () => {
-  if (!isClient) return // checar
+  if (!isClient) return; // checar
 
   const sessionData = {};
 
@@ -58,7 +58,7 @@ const get = () => {
 
 
 const remove = () => {
-  if (!isClient) return // checar
+  if (!isClient) return; // checar
 
   if (cookies.enabled) {
     cookies.expire('authToken');
