@@ -24,7 +24,7 @@ const getUser = () => (dispatch) => {
 
   api.users.getById((error, res) => {
     if (res) {
-      window.ga('set', 'userId', res.data._id)
+      window.ga('set', 'userId', res.data._id);
       return dispatch(userSuccess(res.data));
     }
 

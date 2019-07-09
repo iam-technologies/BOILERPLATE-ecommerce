@@ -1,19 +1,18 @@
-import {CHANGE_THEME } from '../actions/pageActions';
+import { CHANGE_THEME } from '../actions/pageActions';
 
-const defaultState={
-    color:'tomato'
-}
+const defaultState = {
+  color: 'tomato'
+};
 
-export default (state=defaultState, action)=>{
-    let newValue;
+export default (state = defaultState, action) => {
+  let newValue;
 
-    switch(action.type){
+  switch (action.type) {
+    case CHANGE_THEME:
+      newValue = Object.assign({}, state, { color: action.payload.color });
+      return Object.assign({}, state, newValue);
 
-        case CHANGE_THEME:
-             newValue = Object.assign({}, state, { color: action.payload.color });
-             return Object.assign({}, state, newValue);
-
-        default:
-            return state;
-    }
-}
+    default:
+      return state;
+  }
+};
