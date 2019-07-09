@@ -101,12 +101,14 @@ class AddressBox extends Component {
           <div className="last_btns">
             {
               hiddenBtnChange ? null
-              : <button
-                type="button"
-                className="btn_address"
-                onClick={this.onClick}
-              >Cambiar Dirección
-              </button>
+                : (
+                  <button
+                    type="button"
+                    className="btn_address"
+                    onClick={this.onClick}
+                  >Cambiar Dirección
+                                    </button>
+                )
             }
             {
               !hiddenSaveAddress && user ? (
