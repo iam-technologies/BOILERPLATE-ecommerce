@@ -3,7 +3,8 @@ import withRedux from 'next-redux-wrapper';
 import App from 'next/app';
 import { Provider } from 'react-redux';
 
-import '../scss/main.scss';
+// import '../scss/main.scss';
+import '../scss/_index.scss';
 import makeStore from '../redux';
 
 

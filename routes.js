@@ -1,8 +1,7 @@
 const routes = require('next-routes');
 
 module.exports = routes()
-//   .add('/blog', 'postPage')
-//   .add('/blog/:slug', 'postPage')
+  .add('/blog/:id', 'blog/[id]')
 
 // LOGIN
   .add('/login-to', 'AsyncLoginTo')

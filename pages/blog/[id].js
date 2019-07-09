@@ -6,12 +6,11 @@ export default class postPage extends Component {
   }
 
   render() {
-    const { slug } = this.props;
-    console.log('this.props: ', this.props);
+    const { id } = this.props;
+
     return (
       <div>
-        <h1>this is post num {slug}</h1>
-        hola
+        <h1>this is post num {id}</h1>
       </div>
     );
   }
