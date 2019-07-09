@@ -1,15 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 
-class Layout extends Component {
-  render() {
-      const{children}=this.props;
-    return (
-      <Fragment>
-        <div> {children} </div>
-      </Fragment>
-    )
-  }
-}
+const Layout = ({ children }) => (
+  <div> {children} </div>
+);
 
 export default Layout;
-
