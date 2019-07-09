@@ -1,8 +1,10 @@
 import cookies from 'cookies-js';
 
 import configApi from '../config';
+import { isClient } from './isClient'
 
-cookies(window);
+if (isClient) cookies(window); // checar
+
 cookies.defaults = {
   domain: configApi.cookiesDomain || undefined,
   expires: configApi.cookiesExpires || 2592000,
@@ -12,6 +14,8 @@ cookies.defaults = {
 
 
 const add = ({ authToken, userId }) => {
+  if (!isClient) return // checar
+
   if (cookies.enabled) {
     cookies.set('authToken', authToken);
     cookies.set('userId', userId);
@@ -20,7 +24,7 @@ const add = ({ authToken, userId }) => {
   }
 
   // if cookies is disabled
-  if ('localStorage' in window && window.localStorage !== null) {
+  if (isClient && 'localStorage' in window && window.localStorage !== null) {
     localStorage.setItem('authToken', authToken);
     localStorage.setItem('userId', userId);
   }
@@ -28,6 +32,8 @@ const add = ({ authToken, userId }) => {
 
 
 const get = () => {
+  if (!isClient) return // checar
+
   const sessionData = {};
 
   if (cookies.enabled) {
@@ -38,7 +44,7 @@ const get = () => {
   }
 
   // if cookies is disabled
-  if ('localStorage' in window && window.localStorage !== null) {
+  if (isClient && 'localStorage' in window && window.localStorage !== null) {
     if (localStorage.authToken && localStorage.userId) {
       sessionData.authToken = localStorage.authToken;
       sessionData.userId = localStorage.userId;
@@ -52,6 +58,8 @@ const get = () => {
 
 
 const remove = () => {
+  if (!isClient) return // checar
+
   if (cookies.enabled) {
     cookies.expire('authToken');
     cookies.expire('userId');
@@ -60,7 +68,7 @@ const remove = () => {
   }
 
   // if cookies is disabled
-  if ('localStorage' in window && window.localStorage !== null) {
+  if (isClient && 'localStorage' in window && window.localStorage !== null) {
     if (localStorage.authToken && localStorage.userId) {
       localStorage.removeItem('authToken');
       localStorage.removeItem('userId');

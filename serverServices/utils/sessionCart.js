@@ -1,8 +1,9 @@
 import cookies from 'cookies-js';
 
 import configApi from '../config';
+import { isClient } from './isClient'
 
-cookies(window);
+if (isClient) cookies(window); // checar
 cookies.defaults = {
   domain: configApi.cookiesDomain || undefined,
   expires: configApi.cookiesCart || 604800,
@@ -12,6 +13,8 @@ cookies.defaults = {
 
 
 const add = (cartId) => {
+  if (!isClient) return // checar
+
   if (cookies.enabled) {
     cookies.set('cartId', cartId);
 
@@ -23,6 +26,8 @@ const add = (cartId) => {
 
 
 const get = () => {
+  if (!isClient) return // checar
+
   if (cookies.enabled) return cookies.get('cartId');
 
   // if cookies is disabled
@@ -37,6 +42,8 @@ const get = () => {
 
 
 const remove = () => {
+  if (!isClient) return // checar
+
   if (cookies.enabled) {
     cookies.expire('cartId');
 
