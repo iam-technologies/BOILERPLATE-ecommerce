@@ -33,12 +33,9 @@ const Home = ({ data }) => {
   );
 };
 
-
-Home.getInitialProps = async ({ query }) => {
-  console.log('query: ', query);
+Home.getInitialProps = async () => {
   api.contents.getByKey('home', async (error, res) => {
     console.log('res: ', res);
-
     let content = {};
 
     if (res) {
