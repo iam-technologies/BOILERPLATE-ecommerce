@@ -10,7 +10,7 @@ import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 // import 'slick-carousel/slick/slick-theme.css';
 // import 'odometer/themes/odometer-theme-default.css';
 
-import '../scss/_index.scss';
+import '../scss/_main.scss';
 import makeStore from '../redux';
 
 

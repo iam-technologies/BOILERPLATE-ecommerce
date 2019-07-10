@@ -9,7 +9,7 @@
 // @import 'node_modules/react-image-gallery/styles/scss/image-gallery-no-icon.scss';
 
 @import './tags';
-@import '../components/index';
+@import '../components/_index.scss';
 
 * {
 	box-sizing : border-box;
