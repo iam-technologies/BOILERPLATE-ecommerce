@@ -1,6 +1,8 @@
 // import Slider from 'rc-slider/lib/Slider';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from 'next/link';
+
 // import 'rc-slider/dist/rc-slider.min.css';
 
 import { api } from '../../../serverServices';

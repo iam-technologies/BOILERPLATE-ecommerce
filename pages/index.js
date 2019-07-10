@@ -2,10 +2,8 @@ import React, { Fragment } from 'react';
 import _get from 'lodash/get';
 
 import { api, getImageUrl } from '../serverServices';
-
 import { Home } from '../components';
 import Footer from '../components/Footer';
-
 import { SEO } from '../components/common';
 
 const DEFAULT_SEO = {
@@ -14,12 +12,7 @@ const DEFAULT_SEO = {
   img: {}
 };
 
-<<<<<<< HEAD
-const Home = ({ data }) => {
-  console.log('data: ', data);
-=======
-const HomePage = ({ data }) => {
->>>>>>> 88e256131c9094dfcc12d1ba1549ece8025f06da
+const HomePage = (data) => {
   const title = _get(data, 'content.seoTitle.es', DEFAULT_SEO.title);
   const desc = _get(data, 'content.seoDesc.es', DEFAULT_SEO.desc);
   const attachment = _get(data, 'content.seoImg.attachment', DEFAULT_SEO.img);
@@ -34,28 +27,21 @@ const HomePage = ({ data }) => {
       <Home data={data} />
       <Footer />
     </Fragment>
-
   );
 };
 
 HomePage.getInitialProps = async () => {
-  api.contents.getByKey('home', async (error, res) => {
-    console.log('res: ', res);
-    let content = {};
-
-    if (res) {
-      content = res.data;
-    }
-
-    const imgUrl = await getImageUrl(content);
-
-    api.selections.getByKey('home', (err, response) => {
-      let selection = {};
-      if (response) { selection = response.data; }
-      const data = { content, selection, loaded: true, imgUrl };
-      return { data };
-    });
+  const content = await api.contents.getByKey('home', (err, res) => {
+    return res ? res.data : null;
   });
+
+  const imgUrl = await getImageUrl(content);
+
+  const selection = await api.selections.getByKey('home', (err, res) => {
+    return res ? res.data : null;
+  });
+
+  return { content, selection, loaded: true, imgUrl };
 };
 
 export default HomePage;

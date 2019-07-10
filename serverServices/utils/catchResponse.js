@@ -5,10 +5,9 @@ const api = (response, callback) => {
   const { data } = response;
 
   if (data.ok) {
-    callback(null, response.data);
-  } else {
-    callback(response.data, null);
+    return callback(null, response.data);
   }
+  return callback(response.data, null);
 };
 
 

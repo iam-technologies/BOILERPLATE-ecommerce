@@ -34,6 +34,7 @@
     "react/no-did-update-set-state": 0,
     "max-len": 0,
     "react/jsx-one-expression-per-line": 0,
-    "react-in-jsx-scope": 0
+    "react-in-jsx-scope": 0,
+    "arrow-body-style": 0
   }
 }

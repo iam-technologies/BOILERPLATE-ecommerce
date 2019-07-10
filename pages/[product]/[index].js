@@ -7,7 +7,7 @@ const product = () => (
 );
 
 product.getInitialProps = async () => {
-  console.log('product page: ');
+  // console.log('product page: ');
 };
 
 export default product;

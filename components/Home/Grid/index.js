@@ -1,6 +1,7 @@
 import _get from 'lodash/get';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { imgServices } from '../../../serverServices';
 import { urlUtils } from '../../../utils';

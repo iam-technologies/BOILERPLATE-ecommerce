@@ -9,25 +9,24 @@ import Grid from './Grid';
 import PriceSlider from './PriceSlider';
 
 const Home = ({ content, selection, imgUrl = '', showHome, screen }) => {
-  useEffect(() => {
-    api.contents.getByKey('home', async (error, res) => {
-      console.log('res: ', res);
-      let contenido = {};
+  // useEffect(() => {
+  //   api.contents.getByKey('home', async (error, res) => {
+  //     let contenido = {};
 
-      if (res) {
-        contenido = res.data;
-      }
+  //     if (res) {
+  //       contenido = res.data;
+  //     }
 
-      const _imgUrl = await getImageUrl(contenido);
+  //     const _imgUrl = await getImageUrl(contenido);
 
-      api.selections.getByKey('home', (err, response) => {
-        let selecction = {};
-        if (response) { selecction = response.data; }
-        const data = { contenido, selecction, loaded: true, _imgUrl };
-        return { data };
-      });
-    });
-  }, []);
+  //     api.selections.getByKey('home', (err, response) => {
+  //       let selecction = {};
+  //       if (response) { selecction = response.data; }
+  //       const data = { contenido, selecction, loaded: true, _imgUrl };
+  //       return { data };
+  //     });
+  //   });
+  // }, []);
 
   const carouselItems = _get(content, 'slider', []);
   const grid = _get(content, 'grid', []);

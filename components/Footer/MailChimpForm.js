@@ -82,7 +82,7 @@ export default class MailChimpForm extends Component {
               required
             />
 
-            <div style={{ position: 'absolute', left: '-5000px'}} aria-hidden="true">
+            <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
               <input type="text" name="b_a42e3ed506f04dbf9af8abcfc_4da271a25c" tabIndex="-1" />
             </div>
 
@@ -116,13 +116,13 @@ export default class MailChimpForm extends Component {
 
             {
               showLegal && (
-                
-                  <div
-                    id="legal"
-                    className="legal-tooltip"
-                    dangerouslySetInnerHTML={{ __html: _.get(legal, 'longDesc.es', '') }}
-                  />
-               
+
+              <div
+                id="legal"
+                className="legal-tooltip"
+                dangerouslySetInnerHTML={{ __html: _.get(legal, 'longDesc.es', '') }}
+              />
+
               )
             }
 
