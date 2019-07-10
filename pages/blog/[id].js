@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class postPage extends Component {
-  static async getInitialProps({ query }) {
-    return query;
-  }
+const postPage = ({ id }) => (
+  <div>
+    <h1>this is post num {id}</h1>
+  </div>
+);
 
-  render() {
-    const { id } = this.props;
+postPage.getInitialProps = async ({ query }) => query;
 
-    return (
-      <div>
-        <h1>this is post num {id}</h1>
-      </div>
-    );
-  }
-}
+export default postPage;

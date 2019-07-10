@@ -3,36 +3,36 @@ const routes = require('next-routes');
 module.exports = routes()
   .add('/blog/:id', 'blog/[id]')
 
-// LOGIN
-  .add('/login-to', 'AsyncLoginTo')
-  .add('/forgot-password', 'Account')
-  .add('/reset-password/:token', 'Account')
+  // LOGIN
+  .add('/login-to', 'login-to')
+  .add('/forgot-password', 'forgot-password')
+  .add('/reset-password/:token', 'reset-password/[token]')
 
   // MI CUENTA
-  .add('/my-account', 'MyAccount')
-  .add('/addresses', 'Address')
-  .add('/profile', 'Profile')
+  .add('/my-account', 'my-account')
+  .add('/addresses', 'addresses')
+  .add('/profile', 'profile')
 
   // ORDERS
-  .add('/orders', 'OrderList')
-  .add('/orders/:id', 'Order')
-  .add('/favourites', 'Favourites')
+  .add('/orders', 'orders')
+  .add('/orders/:id', 'orders/[id]')
+  .add('/favourites', 'favourites')
 
   // CHECKOUT
-  .add('/checkout', 'Checkout')
-  .add('/budget-checkout', 'BudgetCheckout')
+  .add('/checkout', 'checkout')
+  .add('/budget-checkout', 'budget-checkout')
 
-  .add('/landing/:key', 'Landing')
-  .add('/legal/:key', 'Legal')
+  .add('/landing/:key', 'landing/[key]')
+  .add('/legal/:key', 'legal/[key]')
 
   // BÚSQUEDA
-  .add('/search/:query', 'Search')
-  .add('/budget/:price', 'SearchByBudget')
+  .add('/search/:query', 'search/[query]')
+  .add('/budget/:price', 'budget/[price]')
 
-  .add('/404', 'Page404')
+  .add('/404', 'page404')
 
-  .add('/comparador-de-productos/:name', 'CompareProducts')
+  .add('/comparador-de-productos/:name', 'comparador-de-productos/[name]')
 
   // CATEGORIAS / PRODUCTOS
-  .add('/:product', 'Product')
-  .add('/:product/:index', 'Product');
+  .add('/:product', '[product]')
+  .add('/:product/:index', '[product]/[index]');
