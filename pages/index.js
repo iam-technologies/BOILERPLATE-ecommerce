@@ -15,6 +15,7 @@ const DEFAULT_SEO = {
 };
 
 const Home = ({ data }) => {
+  console.log('data: ', data);
   const title = _get(data, 'content.seoTitle.es', DEFAULT_SEO.title);
   const desc = _get(data, 'content.seoDesc.es', DEFAULT_SEO.desc);
   const attachment = _get(data, 'content.seoImg.attachment', DEFAULT_SEO.img);
@@ -31,7 +32,9 @@ const Home = ({ data }) => {
   );
 };
 
-Home.getInitialProps = async () => {
+
+Home.getInitialProps = async ({ query }) => {
+  console.log('query: ', query);
   api.contents.getByKey('home', async (error, res) => {
     let content = {};
 
@@ -50,4 +53,4 @@ Home.getInitialProps = async () => {
   });
 };
 
-export default HomeComp;
+export default Home;
