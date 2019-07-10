@@ -29,6 +29,7 @@ const Home = ({ data }) => {
       />
       <HomeComp data={data} />
     </Layout>
+
   );
 };
 
@@ -36,6 +37,8 @@ const Home = ({ data }) => {
 Home.getInitialProps = async ({ query }) => {
   console.log('query: ', query);
   api.contents.getByKey('home', async (error, res) => {
+    console.log('res: ', res);
+
     let content = {};
 
     if (res) {

@@ -1,3 +1,5 @@
+import { isClient } from '../../serverServices/utils';
+
 export const UPDATE_WINDOW_RESIZE = 'UPDATE_WINDOW_RESIZE';
 
 
@@ -33,7 +35,7 @@ const update = (dispatch, oldStatus) => {
 const listener = () => (dispatch, oldStatus) => {
   update(dispatch, oldStatus);
 
-  window.addEventListener('resize', update.bind(this, dispatch, oldStatus));
+  if (isClient) window.addEventListener('resize', update.bind(this, dispatch, oldStatus));
 };
 
 
