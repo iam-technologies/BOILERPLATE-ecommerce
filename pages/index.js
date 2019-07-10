@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import _get from 'lodash/get';
 
 import { api, getImageUrl } from '../serverServices';
 
-import { Home as HomeComp } from '../components';
-import { SEO } from '../components/common';
+import { Home } from '../components';
+import Footer from '../components/Footer';
 
-import Layout from '../components/Layout';
+import { SEO } from '../components/common';
 
 const DEFAULT_SEO = {
   title: 'Canastillas y cestas regalo bebé | Regalos personalizados recién nacidos - Cocholate Decoración S.L.',
@@ -14,26 +14,31 @@ const DEFAULT_SEO = {
   img: {}
 };
 
+<<<<<<< HEAD
 const Home = ({ data }) => {
   console.log('data: ', data);
+=======
+const HomePage = ({ data }) => {
+>>>>>>> 88e256131c9094dfcc12d1ba1549ece8025f06da
   const title = _get(data, 'content.seoTitle.es', DEFAULT_SEO.title);
   const desc = _get(data, 'content.seoDesc.es', DEFAULT_SEO.desc);
   const attachment = _get(data, 'content.seoImg.attachment', DEFAULT_SEO.img);
 
   return (
-    <Layout>
+    <Fragment>
       <SEO
         title={title}
         description={desc}
         image={attachment}
       />
-      <HomeComp data={data} />
-    </Layout>
+      <Home data={data} />
+      <Footer />
+    </Fragment>
 
   );
 };
 
-Home.getInitialProps = async () => {
+HomePage.getInitialProps = async () => {
   api.contents.getByKey('home', async (error, res) => {
     console.log('res: ', res);
     let content = {};
@@ -53,4 +58,4 @@ Home.getInitialProps = async () => {
   });
 };
 
-export default Home;
+export default HomePage;
