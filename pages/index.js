@@ -28,11 +28,14 @@ const Home = ({ data }) => {
       />
       <HomeComp data={data} />
     </Layout>
+
   );
 };
 
 Home.getInitialProps = async () => {
   api.contents.getByKey('home', async (error, res) => {
+    console.log('res: ', res);
+
     let content = {};
 
     if (res) {
@@ -50,4 +53,4 @@ Home.getInitialProps = async () => {
   });
 };
 
-export default HomeComp;
+export default Home;

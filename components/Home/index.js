@@ -15,6 +15,7 @@ const Home = ({ content, selection, showHome, imgUrl = '', screen }) => {
   const seoHeading = _get(content, 'seoHeading.es', '');
   const seoText = _get(content, 'seoText.es', '');
 
+  window;
   return (
     <section className={`app-home animation_opacity${showHome ? '-remove' : ''}`}>
       <h1>this is the home page</h1>

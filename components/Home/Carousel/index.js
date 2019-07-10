@@ -6,7 +6,6 @@ import React, { Component } from 'react';
 import { imgServices } from '../../../serverServices';
 import { urlUtils } from '../../../utils';
 
-
 export default class Carousel extends Component {
   getSlide(elem) {
     const imgUrl = _get(elem, 'imgUrl', '');

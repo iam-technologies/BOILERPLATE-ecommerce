@@ -1,4 +1,5 @@
 import { api } from '../../serverServices';
+import { isClient } from '../../serverServices/utils';
 
 export const USER_BEGIN = 'USER_BEGIN';
 export const USER_SUCCESS = 'USER_SUCCESS';
@@ -23,7 +24,7 @@ const getUser = () => (dispatch) => {
   dispatch(userBegin());
 
   api.users.getById((error, res) => {
-    if (res) {
+    if (res && isClient) {
       window.ga('set', 'userId', res.data._id);
       return dispatch(userSuccess(res.data));
     }

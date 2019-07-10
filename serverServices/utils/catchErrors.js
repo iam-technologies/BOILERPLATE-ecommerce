@@ -1,9 +1,10 @@
 import session from './session';
+import isClient from './isClient';
 
 const errorNotAuth = (response, data) => {
   if (data.status === 'error' && response.status === 401) {
     session.remove();
-    window.history.back();
+    if (isClient) window.history.back();
   }
 };
 
