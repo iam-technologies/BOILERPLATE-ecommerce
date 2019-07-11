@@ -1,20 +1,14 @@
 import _get from 'lodash/get';
-import React, { Component } from 'react';
+import React from 'react';
 // import { Link } from 'react-router-dom';
 import Link from 'next/link';
 
 import { imgServices } from '../../../serverServices';
 import { urlUtils } from '../../../utils';
 
-export default class Grid extends Component {
-  constructor(props) {
-    super(props);
-
-    this.getGrid = this.getGrid.bind(this);
-  }
-
-  getGrid(items) {
-    return items.map((item, index) => {
+const Grid = ({ items }) => {
+  const getGrid = (elems) => {
+    return elems.map((item) => {
       const color = _get(item, 'color', '#B6CFD4');
       const imgUrl = _get(item, 'imgUrl', '');
       const text = _get(item, 'text.es', '');
@@ -45,28 +39,23 @@ export default class Grid extends Component {
           key={item.id}
           to={link}
         >
-          <a
-            className="categories_link"
-            style={{ background }}
-          >
+          <a className="categories_link" style={{ background }}>
             <p>{text}</p>
           </a>
         </Link>
       );
     });
-  }
+  };
 
-  render() {
-    const { items } = this.props;
+  if (items.length < 1) return null;
 
-    if (items.length < 1) return null;
+  const grid = getGrid(items);
 
-    const grid = this.getGrid(items);
+  return (
+    <div className={`home_categories home_categories_${items.length}`}>
+      { grid }
+    </div>
+  );
+};
 
-    return (
-      <div className={`home_categories home_categories_${items.length}`}>
-        { grid }
-      </div>
-    );
-  }
-}
+export default Grid;
