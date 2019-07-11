@@ -29,8 +29,8 @@ const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) 
       <Home
         content={content}
         selection={selection}
-        // loaded={loaded}
-        // imgUrl={imgUrl}
+        loaded={loaded}
+        imgUrl={imgUrl}
       />
     </Layout>
   );
@@ -46,7 +46,6 @@ HomePage.getInitialProps = async () => {
   const selection = await api.selections.getByKey('home', (err, res) => {
     return res ? res.data : null;
   });
-  console.log('selection: ', selection);
 
   return { content, selection, loaded: true, imgUrl };
 };

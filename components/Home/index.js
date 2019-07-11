@@ -9,7 +9,6 @@ import Grid from './Grid';
 import PriceSlider from './PriceSlider';
 
 const Home = ({ content, selection, imgUrl = '', loaded, screen = 'm' }) => {
-  console.log('selection: ', selection);
   const [show, setshow] = useState(false);
 
   useEffect(() => {
