@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Alert from 'react-s-alert';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 
 import { api } from '../../../serverServices';
@@ -56,6 +56,7 @@ class Product extends React.Component {
 
     api.products.getOne(paramUrl, '', userId, (error, res) => {
       if (res) {
+        console.log('res: ', res);
         const product = res.data;
 
         this.setState({ product, loaded: true });
@@ -80,7 +81,7 @@ class Product extends React.Component {
 
   render() {
     const { product, loaded, refundsText } = this.state;
-    const { location } = this.props;
+    const { location = '' } = this.props;
 
     const productName = _.get(product, 'name.es', 'Producto de cocholate');
     const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
@@ -91,11 +92,11 @@ class Product extends React.Component {
 
     return (
       <section className="app-product" itemScope itemType="http://schema.org/Product">
-
+        {/*
         <Helmet>
           <title>{_.get(product, 'seoTitle.es', productName)}</title>
           <meta name="description" content={_.get(product, 'seoDesc.es', productDesc)} />
-        </Helmet>
+        </Helmet> */}
 
         <MobileHeader
           hiddenSandwich

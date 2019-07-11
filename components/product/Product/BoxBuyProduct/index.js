@@ -2,7 +2,6 @@ import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Loader from 'react-loaders';
-import Odometer from 'react-odometerjs';
 import PropTypes from 'prop-types';
 import React, { Fragment, Component } from 'react';
 
@@ -12,7 +11,9 @@ import { withWindowResize } from '../../../hoc';
 import { ButtonInput, FavouritesBtn } from '../../../common';
 import Stepper from './Stepper';
 import Notify from './Notify';
-
+import { isClient } from '../../../../serverServices/utils';
+// import Odometer from 'react-odometerjs';
+const Odometer = (isClient) ? require('react-odometerjs') : undefined;
 
 class BoxBuyProduct extends Component {
   constructor(props) {
@@ -152,7 +153,9 @@ class BoxBuyProduct extends Component {
                   {
                     oldPrice && <p className="a_p-buy_p-old_price">{oldPrice}</p>
                   }
-                  <span itemProp="price" content={priceCalc.getUnicode(item, config)}><Odometer value={priceCalc.get(item, config)} format="(.ddd),dd" /></span>
+                  <span itemProp="price" content={priceCalc.getUnicode(item, config)}>
+                    <Odometer value={priceCalc.get(item, config)} format="(.ddd),dd" />
+                  </span>
                   <span itemProp="priceCurrency" content="EUR">€</span>
                   <span className="small_text">iva incl.</span>
                 </div>
