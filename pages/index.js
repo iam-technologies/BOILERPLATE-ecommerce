@@ -14,10 +14,12 @@ const DEFAULT_SEO = {
   img: ''
 };
 
-const HomePage = (data) => {
-  const title = _get(data, 'content.seoTitle.es', DEFAULT_SEO.title);
-  const desc = _get(data, 'content.seoDesc.es', DEFAULT_SEO.desc);
-  const attachment = _get(data, 'content.seoImg.attachment', DEFAULT_SEO.img);
+const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) => {
+  console.log('selection: ', selection);
+  console.log('content: ', content);
+  const title = _get(content, 'seoTitle.es', DEFAULT_SEO.title);
+  const desc = _get(content, 'seoDesc.es', DEFAULT_SEO.desc);
+  const attachment = _get(content, 'seoImg.attachment', DEFAULT_SEO.img);
 
   return (
     <Layout>
@@ -26,7 +28,12 @@ const HomePage = (data) => {
         description={desc}
         image={attachment}
       />
-      <Home data={data} />
+      <Home
+        content={content}
+        // selection={selection}
+        // loaded={loaded}
+        // imgUrl={imgUrl}
+      />
     </Layout>
   );
 };

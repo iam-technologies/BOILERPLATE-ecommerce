@@ -8,13 +8,14 @@ import { MobileHeader, Instagram } from '../common';
 import Grid from './Grid';
 import PriceSlider from './PriceSlider';
 
-const Home = ({ content, selection, imgUrl = '', showHome, screen }) => {
+const Home = ({ content, selection, imgUrl = '', loaded, screen = 'm' }) => {
   const [show, setshow] = useState(false);
 
   useEffect(() => {
-    setshow(showHome);
-  }, [showHome]);
+    setshow(loaded);
+  }, [loaded]);
 
+  console.log('content: ', content);
   const carouselItems = _get(content, 'slider', []);
   const grid = _get(content, 'grid', []);
   const desc = _get(selection, 'desc.es', '');

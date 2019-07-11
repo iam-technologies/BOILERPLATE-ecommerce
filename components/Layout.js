@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Footer from './Footer';
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <Fragment>
       {children}
       <Footer />
-    </div>
+    </Fragment>
   );
 }
