@@ -15,8 +15,6 @@ const DEFAULT_SEO = {
 };
 
 const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) => {
-  console.log('selection: ', selection);
-  console.log('content: ', content);
   const title = _get(content, 'seoTitle.es', DEFAULT_SEO.title);
   const desc = _get(content, 'seoDesc.es', DEFAULT_SEO.desc);
   const attachment = _get(content, 'seoImg.attachment', DEFAULT_SEO.img);
@@ -30,7 +28,7 @@ const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) 
       />
       <Home
         content={content}
-        // selection={selection}
+        selection={selection}
         // loaded={loaded}
         // imgUrl={imgUrl}
       />
@@ -48,6 +46,7 @@ HomePage.getInitialProps = async () => {
   const selection = await api.selections.getByKey('home', (err, res) => {
     return res ? res.data : null;
   });
+  console.log('selection: ', selection);
 
   return { content, selection, loaded: true, imgUrl };
 };

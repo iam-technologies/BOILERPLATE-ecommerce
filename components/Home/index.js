@@ -9,13 +9,13 @@ import Grid from './Grid';
 import PriceSlider from './PriceSlider';
 
 const Home = ({ content, selection, imgUrl = '', loaded, screen = 'm' }) => {
+  console.log('selection: ', selection);
   const [show, setshow] = useState(false);
 
   useEffect(() => {
     setshow(loaded);
   }, [loaded]);
 
-  console.log('content: ', content);
   const carouselItems = _get(content, 'slider', []);
   const grid = _get(content, 'grid', []);
   const desc = _get(selection, 'desc.es', '');

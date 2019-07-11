@@ -44,10 +44,13 @@ export default class Grid extends Component {
         <Link
           key={item.id}
           to={link}
-          className="categories_link"
-          style={{ background }}
         >
-          <p>{text}</p>
+          <a
+            className="categories_link"
+            style={{ background }}
+          >
+            <p>{text}</p>
+          </a>
         </Link>
       );
     });
