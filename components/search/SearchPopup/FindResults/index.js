@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Loader from 'react-loaders';
 import React from 'react';
 import PropTypes from 'prop-types';

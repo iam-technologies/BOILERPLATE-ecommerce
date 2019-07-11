@@ -11,7 +11,7 @@ const DEFAULT_SEO = {
   desc: `Canastillas y cestas regalo personalizadas para bebé, 
     regalos para recién nacidos y para la familia, cesta gemelar, 
     cuadros nombre, detalles bordados,...y mucho más`,
-  img: {}
+  img: ''
 };
 
 const HomePage = (data) => {

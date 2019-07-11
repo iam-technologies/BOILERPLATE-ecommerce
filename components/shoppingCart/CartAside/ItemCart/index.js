@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Dialog from 'material-ui/Dialog';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
