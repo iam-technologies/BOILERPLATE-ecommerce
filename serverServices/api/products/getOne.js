@@ -13,6 +13,7 @@ export default (newUrl = '', paramsQuery, userId, callback) => {
   const { lang } = { lang: '', ...paramsQuery };
 
   const url = `/products/${newUrl}`;
+
   const headers = addHeaders();
 
   const params = {};
@@ -25,6 +26,6 @@ export default (newUrl = '', paramsQuery, userId, callback) => {
   }
 
   return axios({ method: 'get', url, headers, params })
-    .then(response => catchResponse.api(response, callback))
+    .then(response => console.log('response: ', response) || catchResponse.api(response, callback))
     .catch(error => catchErrors.api(error, callback));
 };

@@ -37,34 +37,34 @@ class Product extends React.Component {
   }
 
 
-  componentDidUpdate(prevProps) {
-    const { location } = this.props;
+  // componentDidUpdate(prevProps) {
+  //   const { location } = this.props;
 
-    if (prevProps.location.pathname !== location.pathname) {
-      this.setState({ loaded: false });
+  //   if (prevProps.location.pathname !== location.pathname) {
+  //     this.setState({ loaded: false });
 
-      this.getItems();
-    }
-  }
+  //     this.getItems();
+  //   }
+  // }
 
   getItems() {
-    const { history, user } = this.props;
-    const paramUrl = urlUtils.getParamsUrl('product', this.props);
+    const { history, user, url } = this.props;
+    // const paramUrl = urlUtils.getParamsUrl('product', this.props);
+    const paramUrl = url.slice(1);
+    console.log('paramUrl: ', paramUrl);
 
     let userId = 'unlogged_user';
     if (user) userId = user._id;
 
     api.products.getOne(paramUrl, '', userId, (error, res) => {
       if (res) {
-        console.log('res: ', res);
         const product = res.data;
 
         this.setState({ product, loaded: true });
-        return;
       }
 
       // Alert.warning('La url introducida no existe');
-      history.push('/404');
+      // history.push('/404');
     });
   }
 
@@ -81,14 +81,16 @@ class Product extends React.Component {
 
   render() {
     const { product, loaded, refundsText } = this.state;
-    const { location = '' } = this.props;
+    const { location, url } = this.props;
 
     const productName = _.get(product, 'name.es', 'Producto de cocholate');
     const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
 
     if (!loaded) return null;
 
-    const indexEdit = urlUtils.getParamsUrl('index', this.props);
+    // const indexEdit = urlUtils.getParamsUrl('index', this.props);
+    const indexEdit = url.slice(1);
+    console.log('indexEdit: ', indexEdit);
 
     return (
       <section className="app-product" itemScope itemType="http://schema.org/Product">
@@ -118,10 +120,10 @@ class Product extends React.Component {
             item={product}
           />
 
-          <BoxBuyProduct
+          {/* <BoxBuyProduct
             item={product}
             index={indexEdit === '' ? -1 : Number(indexEdit)}
-          />
+          /> */}
         </section>
 
         <section className="app-product-box_information">

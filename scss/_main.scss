@@ -2,11 +2,11 @@
 @import './vars';
 
 
-// @import 'node_modules/loaders.css/src/animations/ball-pulse.scss';
-// @import 'node_modules/loaders.css/src/animations/ball-beat.scss';
-// @import 'node_modules/loaders.css/src/animations/ball-clip-rotate.scss';
-// @import 'node_modules/loaders.css/src/animations/ball-spin-fade-loader.scss';
-// @import 'node_modules/react-image-gallery/styles/scss/image-gallery-no-icon.scss';
+@import 'node_modules/loaders.css/src/animations/ball-pulse.scss';
+@import 'node_modules/loaders.css/src/animations/ball-beat.scss';
+@import 'node_modules/loaders.css/src/animations/ball-clip-rotate.scss';
+@import 'node_modules/loaders.css/src/animations/ball-spin-fade-loader.scss';
+@import 'node_modules/react-image-gallery/styles/scss/image-gallery-no-icon.scss';
 
 @import './tags';
 @import '../components/_index.scss';
@@ -50,18 +50,18 @@ body, html {
   z-index         : 5;
 }
 
-// .animation_opacity {
-//   @include transition(opacity 500ms);
-//   @include opacity(0);
-// }
-// .animation_opacity-remove {
-//   @extend .animation_opacity;
-//   @include opacity(1);
-// }
-// .ball-beat {
-//   div {
-//     height: 13px;
-//     margin: 5px 2px 0;
-//     width : 13px;
-//   }
-// }
+.animation_opacity {
+  @include transition(opacity 500ms);
+  @include opacity(0);
+}
+.animation_opacity-remove {
+  @extend .animation_opacity;
+  @include opacity(1);
+}
+.ball-beat {
+  div {
+    height: 13px;
+    margin: 5px 2px 0;
+    width : 13px;
+  }
+}
