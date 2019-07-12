@@ -7,7 +7,7 @@ const resetPassword = () => (
 );
 
 resetPassword.getInitialProps = async () => {
-  console.log('resetPassword page: ');
+
 };
 
 export default resetPassword;

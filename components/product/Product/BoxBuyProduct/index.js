@@ -13,7 +13,7 @@ import Stepper from './Stepper';
 import Notify from './Notify';
 import { isClient } from '../../../../serverServices/utils';
 // import Odometer from 'react-odometerjs';
-const Odometer = (isClient) ? require('react-odometerjs') : undefined;
+const Odometer = (isClient) ? require('react-odometerjs').default : undefined;
 
 class BoxBuyProduct extends Component {
   constructor(props) {

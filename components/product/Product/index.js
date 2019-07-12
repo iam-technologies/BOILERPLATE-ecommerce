@@ -51,7 +51,6 @@ class Product extends React.Component {
     const { history, user, url } = this.props;
     // const paramUrl = urlUtils.getParamsUrl('product', this.props);
     const paramUrl = url.slice(1);
-    console.log('paramUrl: ', paramUrl);
 
     let userId = 'unlogged_user';
     if (user) userId = user._id;
@@ -90,7 +89,6 @@ class Product extends React.Component {
 
     // const indexEdit = urlUtils.getParamsUrl('index', this.props);
     const indexEdit = url.slice(1);
-    console.log('indexEdit: ', indexEdit);
 
     return (
       <section className="app-product" itemScope itemType="http://schema.org/Product">
@@ -120,10 +118,10 @@ class Product extends React.Component {
             item={product}
           />
 
-          {/* <BoxBuyProduct
+          <BoxBuyProduct
             item={product}
             index={indexEdit === '' ? -1 : Number(indexEdit)}
-          /> */}
+          />
         </section>
 
         <section className="app-product-box_information">

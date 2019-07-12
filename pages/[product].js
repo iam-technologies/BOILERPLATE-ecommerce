@@ -3,7 +3,6 @@ import { Product, Layout } from '../components';
 
 const product = ({ serverUrl }) => (
   <Layout>
-    <h1>this is a page</h1>
     <Product url={serverUrl} />
   </Layout>
 );
