@@ -7,7 +7,7 @@ import { api } from '../../serverServices';
 import { ButtonInput, ArrowTop } from '../common';
 import ProductList from '../product/ProductList';
 import FilterUI from './FilterUI';
-import Compare from '../Compare';
+// import Compare from '../Compare'; //checar
 
 
 export default class Filter extends React.Component {
@@ -21,7 +21,7 @@ export default class Filter extends React.Component {
       options: { skip: 0 },
       products: [],
       clickCompare: false,
-      selected: [],
+      selected: []
     };
 
     this.getProducts = this.getProducts.bind(this);
@@ -46,9 +46,9 @@ export default class Filter extends React.Component {
     const prevOptions = prevState.options;
     const prevLoaded = prevState.loaded;
 
-    if (prevTextId !== textId 
+    if (prevTextId !== textId
       || callServices !== prevCallServices
-      || loaded !== prevLoaded 
+      || loaded !== prevLoaded
       || !_.isEqual(options, prevOptions)
       || !_.isEqual(filters, prevFilters)
     ) {
@@ -80,7 +80,7 @@ export default class Filter extends React.Component {
     this.setState({ loaded: false, options });
   }
 
-  
+
   onClickCompare() {
     this.setState({ clickCompare: true });
   }
@@ -163,7 +163,7 @@ export default class Filter extends React.Component {
               selected={selected}
             />
           ) : (
-            category.minPrice ? <h3 className="app-filter-info">Lo sentimos, actualmente no hay productos en este rango de precios.</h3> 
+            category.minPrice ? <h3 className="app-filter-info">Lo sentimos, actualmente no hay productos en este rango de precios.</h3>
               : <h3 className="app-filter-info">Lo sentimos, actualmente no hay productos en esta categoría.</h3>)
         }
 
