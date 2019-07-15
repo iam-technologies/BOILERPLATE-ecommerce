@@ -26,7 +26,7 @@ module.exports = routes()
   .add('/legal/:key', 'legal/[key]')
 
   // BÚSQUEDA
-  .add('/search/:query', 'search/[query]')
+  .add('/search/:key', 'search/[key]')
   .add('/budget/:price', 'budget/[price]')
 
   .add('/404', '404')

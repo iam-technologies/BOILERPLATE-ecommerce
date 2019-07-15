@@ -1,9 +1,12 @@
 import React from 'react';
 
+import { Search, Layout } from '../../components';
+
 const search = () => (
-  <div>
+  <Layout>
     <h1>this is a page</h1>
-  </div>
+    <Search />
+  </Layout>
 );
 
 search.getInitialProps = async () => {
