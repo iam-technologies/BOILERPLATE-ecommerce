@@ -27,18 +27,18 @@ module.exports = withCSS(withSass({
     //   })
     // );
 
-    // config.plugins.push(new webpack.DefinePlugin(env));
+    config.plugins.push(new webpack.DefinePlugin(env));
 
-    // config.module.rules.push({
-    //   test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-    //   use: {
-    //     loader: 'url-loader',
-    //     options: {
-    //       limit: 100000,
-    //       name: '[name].[ext]'
-    //     }
-    //   }
-    // });
+    config.module.rules.push({
+      test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          name: '[name].[ext]'
+        }
+      }
+    });
 
     return config;
   }
