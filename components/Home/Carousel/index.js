@@ -30,9 +30,10 @@ export default class Carousel extends Component {
           && (
           <Link
             to={link}
-            className="carousel_btn"
           >
-            {btnText}
+            <a className="carousel_btn">
+              {btnText}
+            </a>
           </Link>
           )
         }

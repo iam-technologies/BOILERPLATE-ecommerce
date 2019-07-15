@@ -1,7 +1,10 @@
 import config from './config';
 
 
-const getUrl = (img, size = 'original', folder = '') => `${config.urlImages}${folder ? `${folder}/` : ''}${size}/${img}`;
+const getUrl = (img, size = 'original', folder = '') => {
+  console.log('image', `${config.urlImages}${folder ? `${folder}/` : ''}${size}/${img}`);
+  return `${config.urlImages}${folder ? `${folder}/` : ''}${size}/${img}`;
+};
 
 
 const encodeBase64 = (image, callback) => {

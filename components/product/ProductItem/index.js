@@ -39,46 +39,50 @@ export default class ProductItem extends React.PureComponent {
           )
         }
         <Link
-          className={`product_box_ui${isSearch ? '-s_p' : ''}`}
-          onClick={this.onClick}
+          // className={`product_box_ui${isSearch ? '-s_p' : ''}`}
+          // onClick={this.onClick}
           to={{
             pathname: urlUtils.linkToProduct(location, item),
             state: { lastLocation: location }
           }}
         >
-          {
-            textBadge || badgePrice ? (
-              <Badge
-                products
-                discount={!!badgePrice}
-              >
-                {badgePrice || textBadge}
-              </Badge>
-            ) : null
-          }
-          <div className="product_box_ui-img">
+          <a
+            className={`product_box_ui${isSearch ? '-s_p' : ''}`}
+            onClick={this.onClick}
+          >
             {
-              img && img.length > 0 ? (
-                <Image
-                  alt={_.get(alt, '0', name)}
-                  src={img[0]}
-                />
-              ) : ''
+              textBadge || badgePrice ? (
+                <Badge
+                  products
+                  discount={!!badgePrice}
+                >
+                  {badgePrice || textBadge}
+                </Badge>
+              ) : null
             }
-          </div>
-
-          <div className="product_box_ui-desc">
-            <div className="product_box_ui-title">{name}</div>
-            <div className="product_box_ui-price">
+            <div className="product_box_ui-img">
               {
-                oldPrice && <p className="product_box_ui-old_price">{oldPrice}</p>
+                img && img.length > 0 ? (
+                  <Image
+                    alt={_.get(alt, '0', name)}
+                    src={img[0]}
+                  />
+                ) : ''
               }
-              <p
-                className={oldPrice ? 'product_box_ui-offer_price' : ''}
-              >{dataFormat.formatCurrency(priceCalc.get(item))}
-              </p>
             </div>
-          </div>
+            <div className="product_box_ui-desc">
+              <div className="product_box_ui-title">{name}</div>
+              <div className="product_box_ui-price">
+                {
+                  oldPrice && <p className="product_box_ui-old_price">{oldPrice}</p>
+                }
+                <p
+                  className={oldPrice ? 'product_box_ui-offer_price' : ''}
+                >{dataFormat.formatCurrency(priceCalc.get(item))}
+                </p>
+              </div>
+            </div>
+          </a>
         </Link>
       </div>
     );

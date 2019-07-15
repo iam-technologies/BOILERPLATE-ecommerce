@@ -15,8 +15,6 @@ const DEFAULT_SEO = {
 };
 
 const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) => {
-  console.log('selection: ', selection);
-  console.log('content: ', content);
   const title = _get(content, 'seoTitle.es', DEFAULT_SEO.title);
   const desc = _get(content, 'seoDesc.es', DEFAULT_SEO.desc);
   const attachment = _get(content, 'seoImg.attachment', DEFAULT_SEO.img);
@@ -30,9 +28,9 @@ const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) 
       />
       <Home
         content={content}
-        // selection={selection}
-        // loaded={loaded}
-        // imgUrl={imgUrl}
+        selection={selection}
+        loaded={loaded}
+        imgUrl={imgUrl}
       />
     </Layout>
   );
