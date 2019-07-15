@@ -26,16 +26,19 @@ class Category extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { history } = this.props;
-    const prevHistory = prevProps.history;
+    // const { history } = this.props;
+    // const prevHistory = prevProps.history;
+    const { id } = this.props;
+    const prevId = prevProps.id;
 
     const { loaded, categoryId } = this.state;
     const prevLoaded = prevState.loaded;
     const prevCategoryId = prevState.categoryId;
 
     if (loaded !== prevLoaded
-      || categoryId !== prevCategoryId
-      || !_.isEqual(history, prevHistory)
+      || categoryId !== prevCategoryId
+      // || !_.isEqual(history, prevHistory)
+      || !_.isEqual(id, prevId)
     ) {
       this.getCategory();
     }
@@ -51,16 +54,17 @@ class Category extends React.Component {
   }
 
   getCategory() {
-    const { loaded, categoryId } = this.state;
-    const { history } = this.props;
+    const { loaded/* , categoryId */ } = this.state;
+    // const { history } = this.props;
+    const { id } = this.props;
 
     if (loaded) return;
 
-    api.categories.getFilters(categoryId, '', (error, res) => {
+    api.categories.getFilters(id, '', (error, res) => {
       let category = {};
 
       if (res) { category = res.data; }
-      if (category === null) return history.push('/');
+      // if (category === null) return history.push('/');
 
       return this.setState({ loaded: true, category });
     });
@@ -69,7 +73,7 @@ class Category extends React.Component {
 
   render() {
     const { category } = this.state;
-    const { location, screen } = this.props;
+    const { /* location, */ pathname, screen } = this.props;
 
     const descMain = _.get(category, 'descMain.es', '');
 
@@ -102,7 +106,8 @@ class Category extends React.Component {
           _.get(category, '_id', '') !== '' && (
             <Filter
               category={category}
-              location={location.pathname}
+              // location={location.pathname}
+              location={pathname}
               textId={category._id}
               callServices="getByCategory"
             />

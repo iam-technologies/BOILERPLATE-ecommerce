@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { Product, Layout } from '../components';
+import { Product, Category, Layout } from '../components';
 import { api } from '../serverServices';
 import { routes as utilsRoutes } from '../utils';
 
 const product = ({ serverUrl, routes }) => {
   let type = '';
 
-  const isCategory = utilsRoutes.isCategory(serverUrl, routes);
-  if (isCategory) type = 'category';
+  const category = utilsRoutes.isCategory(serverUrl, routes);
+  if (category) type = 'category';
 
   const getItems = (entity) => {
     switch (entity) {
       case 'category':
-        return <div>this is a category</div>;
+        return <Category id={category._id} pathname={serverUrl} />;
       default:
         return <Product url={serverUrl} />;
     }

@@ -15,12 +15,14 @@ const getRoute = (id) => {
 
 
 const isCategory = (url, routes) => {
-  const category = routes.some((elem) => {
+  const category = routes.filter((elem) => {
     const categoryUrl = `/${elem.url.split('/').pop()}`;
     return categoryUrl === url;
   });
 
-  return category;
+  if (category.length > 0) return category[0];
+
+  return null;
 };
 
 export default {
