@@ -74,7 +74,7 @@ class SearchByBudget extends Component {
 
   getSearch() {
     const { loaded, options, filters, price } = this.state;
-    const { history } = this.props;
+    // const { history } = this.props;
 
     if (loaded) return;
 
@@ -85,7 +85,7 @@ class SearchByBudget extends Component {
       let search = {};
 
       if (res) { search = res.data; }
-      if (search === null) return history.push('/');
+      // if (search === null) return history.push('/');
 
       return this.setState({ loaded: true, search });
     });
