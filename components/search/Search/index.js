@@ -13,8 +13,8 @@ class Search extends React.Component {
 
     this.state = {
       loaded: false,
-      search: {},
-      query: ''
+      search: {}
+      // query: ''
     };
 
     this.getSearch = this.getSearch.bind(this);
@@ -28,22 +28,24 @@ class Search extends React.Component {
     this.getSearch();
   }
 
-  static getDerivedStateFromProps(props, state) {
-    const query = urlUtils.getParamsUrl('query', props);
+  // static getDerivedStateFromProps(props, state) {
+  //   const query = urlUtils.getParamsUrl('query', props);
 
-    if (query !== state.query) {
-      return {
-        query,
-        loaded: false
-      };
-    }
+  //   if (query !== state.query) {
+  //     return {
+  //       query,
+  //       loaded: false
+  //     };
+  //   }
 
-    return null;
-  }
+  //   return null;
+  // }
 
   getSearch() {
-    const { loaded, query } = this.state;
-    const { history } = this.props;
+    // const { loaded, query } = this.state;
+    // const { history } = this.props;
+    const { loaded } = this.state;
+    const { query } = this.props;
 
     if (loaded) return;
 
@@ -51,7 +53,7 @@ class Search extends React.Component {
       let search = {};
 
       if (res) { search = res.data; }
-      if (search === null) return history.push('/');
+      // if (search === null) return history.push('/');
 
       return this.setState({ loaded: true, search });
     });
@@ -59,8 +61,8 @@ class Search extends React.Component {
 
 
   render() {
-    const { query, search, loaded } = this.state;
-    const { location, screen } = this.props;
+    const { /* query, */ search, loaded } = this.state;
+    const { /* location, */ pathname, screen, query } = this.props;
 
     if (!loaded) return null;
 
@@ -85,7 +87,7 @@ class Search extends React.Component {
             <Filter
               category={search}
               callServices="getBySearch"
-              location={location.pathname}
+              location={pathname}
               textId={query}
             />
           )
