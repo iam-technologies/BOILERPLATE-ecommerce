@@ -55,7 +55,8 @@ class SearchByBudget extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    const price = urlUtils.getParamsUrl('price', props);
+    const { price } = props;
+    // const price = urlUtils.getParamsUrl('price', props);
 
     if (price !== state.price) {
       const newPrice = parseInt(price, 10);

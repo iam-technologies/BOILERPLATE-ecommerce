@@ -32,7 +32,7 @@ const ProductItem = ({ isSearch, item, location, clickCompare, onSelect, onClick
       <Link
         // className={`product_box_ui${isSearch ? '-s_p' : ''}`}
         // onClick={this.onClick}
-        to={{
+        href={{
           pathname: urlUtils.linkToProduct(location, item),
           state: { lastLocation: location }
         }}

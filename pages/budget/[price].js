@@ -1,13 +1,18 @@
 import React from 'react';
 
-const searchByBudget = () => (
-  <div>
-    <h1>this is a page</h1>
-  </div>
+import { Layout, SearchByBudget } from '../../components';
+
+const searchByBudget = ({ price }) => (
+  <Layout>
+    <h1>this the budget page: {price}</h1>
+    <SearchByBudget price={price} />
+  </Layout>
 );
 
-searchByBudget.getInitialProps = async () => {
-  console.log('searchByBudget page: ');
+searchByBudget.getInitialProps = async ({ query }) => {
+  const { price } = query;
+
+  return { price };
 };
 
 export default searchByBudget;

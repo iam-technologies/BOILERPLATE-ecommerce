@@ -37,7 +37,7 @@ const Grid = ({ items }) => {
       return (
         <Link
           key={item.id}
-          to={link}
+          href={link}
         >
           <a className="categories_link" style={{ background }}>
             <p>{text}</p>
