@@ -14,7 +14,17 @@ const getRoute = (id) => {
 };
 
 
+const isCategory = (url, routes) => {
+  const category = routes.some((elem) => {
+    const categoryUrl = `/${elem.url.split('/').pop()}`;
+    return categoryUrl === url;
+  });
+
+  return category;
+};
+
 export default {
   addRoutes,
-  getRoute
+  getRoute,
+  isCategory
 };
