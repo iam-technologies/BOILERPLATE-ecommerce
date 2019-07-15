@@ -2,7 +2,7 @@ import React from 'react';
 
 const budgetCheckout = () => (
   <div>
-    <h1>this is a page</h1>
+    <h1>this is budgetCheckout page</h1>
   </div>
 );
 

@@ -10,6 +10,8 @@
 
 @import './tags';
 @import '../components/_index.scss';
+@import 'components/login';
+@import 'components/forgotPassword';
 
 * {
 	box-sizing : border-box;

@@ -2,7 +2,7 @@ import React from 'react';
 
 const checkout = () => (
   <div>
-    <h1>this is a page</h1>
+    <h1>this is Checkout page</h1>
   </div>
 );
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const product = () => (
   <div>
-    <h1>this is a page</h1>
+    <h1>this is INDEX a page</h1>
   </div>
 );
 
