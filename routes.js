@@ -29,7 +29,7 @@ module.exports = routes()
   .add('/search/:query', 'search/[query]')
   .add('/budget/:price', 'budget/[price]')
 
-  .add('/404', '404')
+  .add('/404', 'pageNotFound')
 
   .add('/comparador-de-productos/:name', 'comparador-de-productos/[name]')
 

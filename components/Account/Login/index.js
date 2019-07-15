@@ -64,7 +64,6 @@ class Login extends Component {
     });
   }
 
-
   onChange(path, value) {
     let finalValue = value;
 
@@ -73,7 +72,6 @@ class Login extends Component {
     }
     this.setState({ [path]: finalValue });
   }
-
 
   render() {
     const { email, password, errors, loading } = this.state;

@@ -68,7 +68,7 @@ export default class ResetPassword extends Component {
 
     return (
       <div className="reset_password">
-        <p className="title">Reiniciar AHORA contraseña</p>
+        <p className="title">Reiniciar contraseña</p>
 
         {
           !success ? (

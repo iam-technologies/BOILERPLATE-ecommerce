@@ -5,7 +5,7 @@ import { msgUI, checkFields } from '../../../utils';
 import { ButtonInput, TextInput } from '../../common';
 
 
-export default class ResetPassword extends Component {
+export default class ForgotPassword extends Component {
   constructor(props) {
     super(props);
 
