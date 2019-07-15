@@ -3,6 +3,7 @@ import _get from 'lodash/get';
 
 import ProductList from '../product/ProductList';
 // import { api, getImageUrl } from '../../serverServices';
+import { withWindowResize } from '../hoc';
 import Carousel from './Carousel';
 import { MobileHeader, Instagram } from '../common';
 import Grid from './Grid';
@@ -44,66 +45,4 @@ const Home = ({ content, selection, imgUrl = '', loaded, screen = 'm' }) => {
   );
 };
 
-// class Home extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = { showHome: false };
-//   }
-
-//   componentDidUpdate(prevProps) {
-//     const { loaded } = this.props;
-//     if (prevProps.loaded !== loaded) {
-//       this.setState({ showHome: true });
-//     }
-//   }
-
-//   render() {
-//     const { showHome } = this.state;
-//     const { screen, content, selection, imgUrl = '' } = this.props;
-
-//     return (
-//       <section className={`app-home animation_opacity${showHome ? '-remove' : ''}`}>
-//         <MobileHeader home logo />
-
-//         {
-//           (screen !== 'xs')
-//           && <Carousel items={_get(content, 'slider', [])} />
-//         }
-
-//         {
-//           (screen === 'xs')
-//           && <div className="app-home_hero" style={{ backgroundImage: `url(${imgUrl})` }} />
-//         }
-
-//         <PriceSlider />
-
-//         <Grid items={_get(content, 'grid', [])} />
-
-//         {
-//           screen !== 'xs' && (
-//             <Fragment>
-//               {/* <ProductList
-//                 title={_get(selection, 'desc.es', '')}
-//                 items={_get(selection, 'products', [])}
-//               /> */}
-
-//               <Instagram />
-//               <div className="app-home-info app-home-more_info">
-//                 <div
-//                   dangerouslySetInnerHTML={{ __html: _get(content, 'seoHeading.es', '') }}
-//                 />
-//                 <div
-//                   dangerouslySetInnerHTML={{ __html: _get(content, 'seoText.es', '') }}
-//                 />
-//               </div>
-//             </Fragment>
-//           )
-//         }
-
-//       </section>
-//     );
-//   }
-// }
-
-export default Home;
+export default withWindowResize(Home);

@@ -2,7 +2,6 @@ import config from './config';
 
 
 const getUrl = (img, size = 'original', folder = '') => {
-  console.log('image', `${config.urlImages}${folder ? `${folder}/` : ''}${size}/${img}`);
   return `${config.urlImages}${folder ? `${folder}/` : ''}${size}/${img}`;
 };
 

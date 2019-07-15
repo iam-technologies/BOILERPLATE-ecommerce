@@ -1,13 +1,13 @@
 import _get from 'lodash/get';
 import Link from 'next/link';
 import ImageGallery from 'react-image-gallery';
-import React, { Component } from 'react';
+import React from 'react';
 
 import { imgServices } from '../../../serverServices';
 import { urlUtils } from '../../../utils';
 
-export default class Carousel extends Component {
-  getSlide(elem) {
+const Carousel = ({ items }) => {
+  const getSlide = (elem) => {
     const imgUrl = _get(elem, 'imgUrl', '');
     const btnText = _get(elem, 'btnText.es', '');
     const linkUrl = _get(elem, 'linkUrl', '');
@@ -28,39 +28,33 @@ export default class Carousel extends Component {
         {
           (link && btnText)
           && (
-          <Link
-            to={link}
-          >
-            <a className="carousel_btn">
-              {btnText}
-            </a>
+          <Link to={link}>
+            <a className="carousel_btn">{btnText}</a>
           </Link>
           )
         }
       </div>
     );
-  }
+  };
 
-  render() {
-    const { items } = this.props;
+  if (items.length < 1) return null;
 
-    if (items.length < 1) return null;
+  const images = items.map(elem => ({ renderItem: () => getSlide(elem) }));
 
-    const images = items.map(elem => ({ renderItem: this.getSlide.bind(this, elem) }));
+  return (
+    <ImageGallery
+      autoPlay
+      disableArrowKeys
+      items={images}
+      showFullscreenButton={false}
+      showNav={false}
+      showPlayButton={false}
+      showThumbnails={false}
+      slideDuration={1200}
+      slideInterval={6000}
+      useTranslate3D={false}
+    />
+  );
+};
 
-    return (
-      <ImageGallery
-        autoPlay
-        disableArrowKeys
-        items={images}
-        showFullscreenButton={false}
-        showNav={false}
-        showPlayButton={false}
-        showThumbnails={false}
-        slideDuration={1200}
-        slideInterval={6000}
-        useTranslate3D={false}
-      />
-    );
-  }
-}
+export default Carousel;

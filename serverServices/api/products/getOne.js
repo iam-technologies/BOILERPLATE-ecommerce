@@ -13,6 +13,7 @@ export default (newUrl = '', paramsQuery, userId, callback) => {
   const { lang } = { lang: '', ...paramsQuery };
 
   const url = `/products/${newUrl}`;
+
   const headers = addHeaders();
 
   const params = {};

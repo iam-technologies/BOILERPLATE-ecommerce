@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Alert from 'react-s-alert';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 
 import { api } from '../../../serverServices';
@@ -37,19 +37,20 @@ class Product extends React.Component {
   }
 
 
-  componentDidUpdate(prevProps) {
-    const { location } = this.props;
+  // componentDidUpdate(prevProps) {
+  //   const { location } = this.props;
 
-    if (prevProps.location.pathname !== location.pathname) {
-      this.setState({ loaded: false });
+  //   if (prevProps.location.pathname !== location.pathname) {
+  //     this.setState({ loaded: false });
 
-      this.getItems();
-    }
-  }
+  //     this.getItems();
+  //   }
+  // }
 
   getItems() {
-    const { history, user } = this.props;
-    const paramUrl = urlUtils.getParamsUrl('product', this.props);
+    const { history, user, url } = this.props;
+    // const paramUrl = urlUtils.getParamsUrl('product', this.props);
+    const paramUrl = url.slice(1);
 
     let userId = 'unlogged_user';
     if (user) userId = user._id;
@@ -59,11 +60,10 @@ class Product extends React.Component {
         const product = res.data;
 
         this.setState({ product, loaded: true });
-        return;
       }
 
       // Alert.warning('La url introducida no existe');
-      history.push('/404');
+      // history.push('/404');
     });
   }
 
@@ -80,22 +80,23 @@ class Product extends React.Component {
 
   render() {
     const { product, loaded, refundsText } = this.state;
-    const { location } = this.props;
+    const { location, url } = this.props;
 
     const productName = _.get(product, 'name.es', 'Producto de cocholate');
     const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
 
     if (!loaded) return null;
 
-    const indexEdit = urlUtils.getParamsUrl('index', this.props);
+    // const indexEdit = urlUtils.getParamsUrl('index', this.props);
+    const indexEdit = url.slice(1);
 
     return (
       <section className="app-product" itemScope itemType="http://schema.org/Product">
-
+        {/*
         <Helmet>
           <title>{_.get(product, 'seoTitle.es', productName)}</title>
           <meta name="description" content={_.get(product, 'seoDesc.es', productDesc)} />
-        </Helmet>
+        </Helmet> */}
 
         <MobileHeader
           hiddenSandwich
