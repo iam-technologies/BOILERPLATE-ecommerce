@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Router } from 'next/router';
+import Router from 'next/router';
 import Link from 'next/link';
 import Alert from 'react-s-alert';
 import React, { Component } from 'react';
@@ -100,7 +100,7 @@ class LoginTo extends Component {
 
     if (redirect) {
       // return <Redirect to={path} />;
-      return Router.pushRoute({ path });
+      return Router.push({ path });
     }
 
     return (

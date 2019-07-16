@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 // import { Helmet } from 'react-helmet';
 
-import { Router } from 'next/router';
+import Router from 'next/router';
 import { api } from '../../serverServices';
 import { withWindowResize } from '../hoc';
 import { MobileHeader } from '../common';
@@ -66,7 +66,7 @@ class Category extends React.Component {
 
       if (res) { category = res.data; }
       // if (category === null) return history.push('/');
-      if (category === null) return Router.pushRoute('/');
+      if (category === null) return Router.push('/');
 
 
       return this.setState({ loaded: true, category });

@@ -73,7 +73,7 @@ export default class NavbarDesktop extends React.Component {
 
         <div className="nav_top">
           <div className="logo">
-            <Link to="/"><img src="/images/logo.svg" alt="Cocholate" /></Link>
+            <Link href="/"><img src="/images/logo.svg" alt="Cocholate" /></Link>
           </div>
 
           <div className="right_btns">

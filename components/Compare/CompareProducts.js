@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React, { PureComponent } from 'react';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import Router from 'next/router'
 

@@ -5,7 +5,7 @@ import React from 'react';
 // import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 
-import { Router } from 'next/router';
+import Router from 'next/router';
 import { api } from '../../../serverServices';
 // import { urlUtils } from '../../../utils';
 import { MobileHeader } from '../../common';
@@ -66,7 +66,7 @@ class Product extends React.Component {
 
       Alert.warning('La url introducida no existe');
       // history.push('/404');
-      Router.pushRoute('/404');
+      Router.push('/404');
     });
   }
 

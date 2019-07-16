@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 
 import React, { Component } from 'react';
@@ -55,7 +54,7 @@ class MobileHeader extends Component {
         }
         {
           logo && (
-            <Link to="/" className="header_mobile_ui-logo">
+            <Link href="/" className="header_mobile_ui-logo">
               <img src="/images/logo.png" alt="Cocholate" />
             </Link>
           )
