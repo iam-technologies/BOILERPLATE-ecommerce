@@ -2,7 +2,7 @@ import React from 'react';
 
 const resetPassword = () => (
   <div>
-    <h1>this is a page</h1>
+    <h1>this is TOKEN page</h1>
   </div>
 );
 

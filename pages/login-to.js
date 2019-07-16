@@ -1,9 +1,11 @@
 import React from 'react';
+import LoginTo from '../components/Account/Login/LoginTo';
+import { Layout } from '../components';
 
 const loginTo = () => (
-  <div>
-    <h1>this is a page</h1>
-  </div>
+  <Layout>
+    <LoginTo />
+  </Layout>
 );
 
 loginTo.getInitialProps = async () => {
