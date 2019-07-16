@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Loader from 'react-loaders';
 
 import { Router } from 'next/router';
-import { urlUtils } from '../../../utils';
+// import { urlUtils } from '../../../utils';
 import { api } from '../../../serverServices';
 import { withWindowResize } from '../../hoc';
 import FilterUI from '../../Filter/FilterUI';

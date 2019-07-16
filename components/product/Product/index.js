@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import { Router } from 'next/router';
 import { api } from '../../../serverServices';
-import { urlUtils } from '../../../utils';
+// import { urlUtils } from '../../../utils';
 import { MobileHeader } from '../../common';
 import Nav from './Nav';
 import BoxSlider from './BoxSlider';
@@ -85,8 +85,8 @@ class Product extends React.Component {
     const { product, loaded, refundsText } = this.state;
     const { location, url } = this.props;
 
-    const productName = _.get(product, 'name.es', 'Producto de cocholate');
-    const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
+    // const productName = _.get(product, 'name.es', 'Producto de cocholate');
+    // const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
 
     if (!loaded) return null;
 
