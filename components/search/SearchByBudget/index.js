@@ -2,7 +2,8 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import Loader from 'react-loaders';
 
-import { urlUtils } from '../../../utils';
+import { Router } from 'next/router';
+// import { urlUtils } from '../../../utils';
 import { api } from '../../../serverServices';
 import { withWindowResize } from '../../hoc';
 import FilterUI from '../../Filter/FilterUI';
@@ -86,6 +87,7 @@ class SearchByBudget extends Component {
 
       if (res) { search = res.data; }
       // if (search === null) return history.push('/');
+      if (search === null) return Router.pushRoute('/');
 
       return this.setState({ loaded: true, search });
     });

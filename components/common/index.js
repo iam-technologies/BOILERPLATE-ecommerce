@@ -4,7 +4,6 @@ import ArrowTop from './ArrowTop';
 import Badge from './Badge';
 import ButtonInput from './ButtonInput';
 import CheckInput from './CheckInput';
-import CookiesPopup from './CookiesPopup';
 import FavouritesBtn from './FavouritesBtn';
 import Image from './Image';
 import Instagram from './Instagram';
@@ -28,7 +27,6 @@ export {
   Badge,
   ButtonInput,
   CheckInput,
-  CookiesPopup,
   FavouritesBtn,
   Image,
   Instagram,

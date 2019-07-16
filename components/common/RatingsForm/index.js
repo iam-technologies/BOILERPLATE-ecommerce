@@ -8,7 +8,6 @@ import RatingsForm from './RatingsForm';
 let modalRoot = '';
 if (isClient) modalRoot = document.getElementById('modal-root');
 
-
 const RatingContainer = ({ onClose, open, ...otherProps }) => ReactDOM.createPortal(
   <div
     className={`rating_form_ui ${open ? 'rating_form_ui-show' : ''}`}

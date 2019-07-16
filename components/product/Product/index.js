@@ -5,8 +5,9 @@ import React from 'react';
 // import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 
+import { Router } from 'next/router';
 import { api } from '../../../serverServices';
-import { urlUtils } from '../../../utils';
+// import { urlUtils } from '../../../utils';
 import { MobileHeader } from '../../common';
 import Nav from './Nav';
 import BoxSlider from './BoxSlider';
@@ -48,7 +49,8 @@ class Product extends React.Component {
   // }
 
   getItems() {
-    const { history, user, url } = this.props;
+    // const { history, user, url } = this.props;
+    const { user, url } = this.props;
     // const paramUrl = urlUtils.getParamsUrl('product', this.props);
     const paramUrl = url.slice(1);
 
@@ -62,8 +64,9 @@ class Product extends React.Component {
         this.setState({ product, loaded: true });
       }
 
-      // Alert.warning('La url introducida no existe');
+      Alert.warning('La url introducida no existe');
       // history.push('/404');
+      Router.pushRoute('/404');
     });
   }
 
@@ -82,8 +85,8 @@ class Product extends React.Component {
     const { product, loaded, refundsText } = this.state;
     const { location, url } = this.props;
 
-    const productName = _.get(product, 'name.es', 'Producto de cocholate');
-    const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
+    // const productName = _.get(product, 'name.es', 'Producto de cocholate');
+    // const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
 
     if (!loaded) return null;
 

@@ -1,8 +1,9 @@
 import React from 'react';
+import Legal from '../../components/Legal/Terms';
 
 const legal = () => (
   <div>
-    <h1>this is a page</h1>
+    <Legal />
   </div>
 );
 
