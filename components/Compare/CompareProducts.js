@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { PureComponent } from 'react';
 // import { Link } from 'react-router-dom';
 import Link from 'next/link';
+import Router from 'next/router'
 
 //import Name from './Name';
 import { withWindowResize } from '../hoc';
@@ -10,8 +11,9 @@ import { dataFormat, texts, priceCalc, urlUtils } from '../../utils';
 
 class CompareProducts extends PureComponent {
   goBack = e => {
-    const { history } = this.props;
-    history.goBack();
+    // const { history } = this.props;
+    // history.goBack();
+    Router.push('/');
   };
 
   render() {

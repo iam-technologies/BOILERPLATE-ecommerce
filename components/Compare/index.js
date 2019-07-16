@@ -22,11 +22,9 @@ class Compare extends Component {
 
   render() {
     const { clickCompare, selected, catName, selectedItems } = this.props;
-    console.log('catName: ', catName);
-    console.log('selectedItems: ', selectedItems);
     const showCompare = (selected && selected.length > 1) || false;
     const pathname = `/comparador-de-productos/${catName}`;
-    // const idString = selectedItems.map(el => el._id).join('-');
+    // const idString = selectedItems.map(el => el._id).join('-'); // TODO
     const idString = JSON.stringify(selectedItems);
 
     return (

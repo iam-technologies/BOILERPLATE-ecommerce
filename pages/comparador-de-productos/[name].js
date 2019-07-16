@@ -4,7 +4,6 @@ import { Layout, Compare } from '../../components';
 
 const compareProducts = ({ name, selectedItems }) => (
   <Layout>
-    {/* <h1>this is COMPARE PRODUCTS page</h1> */}
     <Compare catName={name} selectedItems={selectedItems} />
   </Layout>
 );
