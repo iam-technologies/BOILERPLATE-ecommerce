@@ -2,6 +2,7 @@ import React from 'react';
 import withRedux from 'next-redux-wrapper';
 import App from 'next/app';
 import { Provider } from 'react-redux';
+import CookiesPopup from '../components/CookiesPopup';
 
 // Modules Libraries CSS
 import 'react-s-alert/dist/s-alert-default.css';
@@ -28,6 +29,7 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <div>
+          <CookiesPopup />
           <Component {...pageProps} />
         </div>
       </Provider>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { isClient } from '../../serverServices/utils';
 
 export default class CookiesPopup extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class CookiesPopup extends Component {
   }
 
   acceptCookies() {
-    if (window.localStorage) {
+    if (isClient && window.localStorage) {
       window.localStorage.cocholate__accept__cookies = true;
     }
 
@@ -25,7 +26,7 @@ export default class CookiesPopup extends Component {
 
     return (
       <section>
-        { (window.localStorage && !window.localStorage.cocholate__accept__cookies)
+        { (isClient && window.localStorage && !window.localStorage.cocholate__accept__cookies)
           ? (
             <article className={`cookies-popup${show ? '' : '-hide'}`}>
               <p>Utilizamos cookies propias y de terceros para ofrecerte una mejor experiencia de navegación,
