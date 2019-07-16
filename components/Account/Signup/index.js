@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
+import { Router } from 'next/router';
 import { api } from '../../../serverServices';
 
 
@@ -24,7 +25,8 @@ export default class SignUp extends Component {
           api.account.login(email, password)
             .then((res) => {
               if (res.status === 'success') {
-                this.props.history.push('/');
+                // this.props.history.push('/');
+                Router.pushRoute('/');
               }
             });
         } else {
