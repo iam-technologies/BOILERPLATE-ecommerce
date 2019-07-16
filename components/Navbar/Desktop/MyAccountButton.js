@@ -25,11 +25,12 @@ class MyAccountButton extends Component {
 
     return (
       <Link
-        className="right_btns-link profile_icon"
         onClick={isLogin ? () => {} : this.onClick}
-        to="/my-account"
+        href="/my-account"
       >
-        <img src={`/images/icon_my-account${isLogin ? '_login' : ''}.png`} alt="User's My account" />
+        <a className="right_btns-link profile_icon">
+          <img src={`/images/icon_my-account${isLogin ? '_login' : ''}.png`} alt="User's My account" />
+        </a>
       </Link>
     );
   }

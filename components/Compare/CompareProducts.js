@@ -107,10 +107,12 @@ class CompareProducts extends PureComponent {
                       </div>
                     </div>
                     <Link href={{ pathname: urlUtils.linkToProduct('', item) }}>
-                      <ButtonInput
-                        label="AÑADIR AL CARRITO"
-                        onClick={() => {}}
-                      />
+                      <a>
+                        <ButtonInput
+                          label="AÑADIR AL CARRITO"
+                          onClick={() => {}}
+                        />
+                      </a>
                     </Link>
                   </div>
                 );

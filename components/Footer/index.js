@@ -79,7 +79,9 @@ class Footer extends Component {
             <div>
               <div className="logo">
                 <Link href="/">
-                  <img src="/images/logo.svg" alt="Cocholate" />
+                  <a>
+                    <img src="/images/logo.svg" alt="Cocholate" />
+                  </a>
                 </Link>
               </div>
 
@@ -116,19 +118,13 @@ class Footer extends Component {
             <div className="app_footer-legal">
               <p className="app_footer-title">INFORMACIÓN DE COMPRA</p>
               <p>
-                <Link href="/legal/refunds">
-                  Envío y devoluciones
-                </Link>
+                <Link href="/legal/refunds"><a>Envío y devoluciones</a></Link>
               </p>
               <p>
-                <Link href="/legal/terms-and-conditions">
-                  Términos y condiciones
-                </Link>
+                <Link href="/legal/terms-and-conditions"><a>Términos y condiciones</a></Link>
               </p>
               <p>
-                <Link href="/legal/cookies">
-                  Política de Cookies
-                </Link>
+                <Link href="/legal/cookies"><a>Política de Cookies</a></Link>
               </p>
             </div>
 

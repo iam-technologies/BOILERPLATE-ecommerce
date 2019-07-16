@@ -63,11 +63,8 @@ export default class PriceSlider extends Component {
             <p>{`${value}€`}</p>
           </div>
 
-          <Link
-            className="button_ui"
-            to={`/budget/${value}`}
-          >
-            Buscar
+          <Link href={`/budget/${value}`}>
+            <a className="button_ui">Buscar</a>
           </Link>
 
 

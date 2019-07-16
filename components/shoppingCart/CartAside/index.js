@@ -146,10 +146,12 @@ class CartAside extends Component {
                 isPopup && !disabled ? (
                   <div className="app_cart_aside-btn_to_buy">
                     <Link
-                      className="btn_buy"
                       onClick={this.onClosePopup}
-                      to="/checkout"
-                    >REALIZAR PEDIDO
+                      href="/checkout"
+                    >
+                      <a className="btn_buy">
+                      REALIZAR PEDIDO
+                      </a>
                     </Link>
                   </div>
                 ) : null

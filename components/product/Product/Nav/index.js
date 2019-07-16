@@ -28,11 +28,12 @@ export default class Nav extends React.Component {
         {
           lastLocation ? (
             <Link
-              className="a_p-nav-btn_return"
-              to={this.goBack()}
+              href={this.goBack()}
             >
-              <div className="icon_preview" />
-              <p>Volver al listado</p>
+              <a className="a_p-nav-btn_return">
+                <div className="icon_preview" />
+                <p>Volver al listado</p>
+              </a>
             </Link>
           ) : (
             <div />

@@ -76,9 +76,11 @@ export default class OrderList extends Component {
         </div>
 
         <div className="app-my_account-container link_container">
-          <Link className="link_return" to="/my-account">
-            <img src="/images/icon_back_checkout.png" alt="Volver a mi cuenta" />
-            <span>Volver a mi cuenta</span>
+          <Link href="/my-account">
+            <a className="link_return">
+              <img src="/images/icon_back_checkout.png" alt="Volver a mi cuenta" />
+              <span>Volver a mi cuenta</span>
+            </a>
           </Link>
         </div>
       </section>

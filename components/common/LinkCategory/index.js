@@ -8,11 +8,12 @@ import { urlUtils } from '../../../utils';
 
 const LinkCategory = ({ id, className, children, onClick }) => (
   <Link
-    to={urlUtils.linkToCategory(id)}
-    className={className}
+    href={urlUtils.linkToCategory(id)}
     onClick={onClick}
   >
-    {children}
+    <a className={className}>
+      {children}
+    </a>
   </Link>
 );
 

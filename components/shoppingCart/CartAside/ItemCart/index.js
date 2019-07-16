@@ -110,17 +110,18 @@ export default class ItemCart extends Component {
           to={linkTo}
         />
         <Link
-          className="center"
           onClick={this.onClosePopup}
-          to={linkTo}
+          href={linkTo}
           style={{ zIndex: 1000 - index }}
         >
-          <p className="title">{_.get(item, 'product.name.es')}</p>
-          {numItems > 0 && <div className="personalizacion" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>{ itemConfig }</div>}
-          <div className="price">
-            <p className="text-expand">{ numItems > 1 ? '...' : ''}</p>
-            { dataFormat.formatCurrency(price) }
-          </div>
+          <a className="center">
+            <p className="title">{_.get(item, 'product.name.es')}</p>
+            {numItems > 0 && <div className="personalizacion" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>{ itemConfig }</div>}
+            <div className="price">
+              <p className="text-expand">{ numItems > 1 ? '...' : ''}</p>
+              { dataFormat.formatCurrency(price) }
+            </div>
+          </a>
         </Link>
 
         <div className="right">

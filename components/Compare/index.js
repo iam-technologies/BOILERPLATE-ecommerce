@@ -33,19 +33,15 @@ class Compare extends Component {
           {
             showCompare && (
               <React.Fragment>
-                <Link
-                  href={{ pathname, query: { selectedItems: idString, catName } }}
-                  // to={{
-                  //   pathname,
-                  //   state: { selectedItems, catName }
-                  // }}
-                >
-                  <ButtonInput
-                    label="VER COMPARATIVA"
-                    icon="/images/icon_compare.png"
-                    className="compare_ui-button"
-                    onClick={() => { }}
-                  />
+                <Link href={{ pathname, query: { selectedItems: idString, catName } }}>
+                  <a>
+                    <ButtonInput
+                      label="VER COMPARATIVA"
+                      icon="/images/icon_compare.png"
+                      className="compare_ui-button"
+                      onClick={() => { }}
+                    />
+                  </a>
                 </Link>
                 { clickCompare && <span> Selecciona hasta 3 productos para comparar</span> }
               </React.Fragment>

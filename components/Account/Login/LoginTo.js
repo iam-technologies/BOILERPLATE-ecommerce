@@ -132,7 +132,7 @@ class LoginTo extends Component {
           />
 
           <p className="link_forgot">
-            <Link onClick={this.onClose} href="/forgot-password">Recuperar contraseña</Link>
+            <Link onClick={this.onClose} href="/forgot-password"><a>Recuperar contraseña</a></Link>
           </p>
 
           <div className="btn_login">
