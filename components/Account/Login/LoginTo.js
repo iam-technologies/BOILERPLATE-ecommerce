@@ -100,7 +100,7 @@ class LoginTo extends Component {
 
     if (redirect) {
       // return <Redirect to={path} />;
-      return Router.pushRoute({ path });
+      return Router.push({ path });
     }
 
     return (

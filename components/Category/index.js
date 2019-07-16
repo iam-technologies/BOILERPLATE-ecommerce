@@ -66,7 +66,7 @@ class Category extends React.Component {
 
       if (res) { category = res.data; }
       // if (category === null) return history.push('/');
-      if (category === null) return Router.pushRoute('/');
+      if (category === null) return Router.push('/');
 
 
       return this.setState({ loaded: true, category });

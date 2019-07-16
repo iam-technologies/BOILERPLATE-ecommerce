@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import React, { Component } from 'react';
 
 import { showLoginActs } from '../../../redux/actions';
@@ -27,7 +27,7 @@ class MyAccountButton extends Component {
       <Link
         className="right_btns-link profile_icon"
         onClick={isLogin ? () => {} : this.onClick}
-        to="/my-account"
+        href="/my-account"
       >
         <img src={`/images/icon_my-account${isLogin ? '_login' : ''}.png`} alt="User's My account" />
       </Link>

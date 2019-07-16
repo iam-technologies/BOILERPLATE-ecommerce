@@ -26,7 +26,7 @@ export default class SignUp extends Component {
             .then((res) => {
               if (res.status === 'success') {
                 // this.props.history.push('/');
-                Router.pushRoute('/');
+                Router.push('/');
               }
             });
         } else {

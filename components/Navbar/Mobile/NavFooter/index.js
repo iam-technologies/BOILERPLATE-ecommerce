@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import React from 'react';
 
 import CartNavBtn from '../../../shoppingCart/CartNavBtn';
@@ -17,7 +17,7 @@ export default ({ onCloseNav, pathname }) => (
       <Link
         onClick={onCloseNav}
         className="nav_footer-btns"
-        to="/"
+        href="/"
       >
         Inicio
       </Link>

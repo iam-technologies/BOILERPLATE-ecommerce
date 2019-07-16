@@ -17,8 +17,8 @@ export default class NavbarDesktop extends React.Component {
     this.state = {
       isHome: true,
       scroll: '',
-      top: '',
-      height: ''
+      top: ''
+      // height: ''
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -27,8 +27,8 @@ export default class NavbarDesktop extends React.Component {
   componentDidMount() {
     const el = document.querySelector('nav');
     this.setState({
-      top: el.offsetTop,
-      height: el.offsetHeight
+      top: el.offsetTop
+      // height: el.offsetHeight
     });
     window.addEventListener('scroll', this.handleScroll);
   }

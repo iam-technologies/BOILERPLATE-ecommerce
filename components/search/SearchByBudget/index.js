@@ -87,7 +87,7 @@ class SearchByBudget extends Component {
 
       if (res) { search = res.data; }
       // if (search === null) return history.push('/');
-      if (search === null) return Router.pushRoute('/');
+      if (search === null) return Router.push('/');
 
       return this.setState({ loaded: true, search });
     });

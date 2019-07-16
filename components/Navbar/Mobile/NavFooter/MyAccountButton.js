@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import React, { Component } from 'react';
 
 import { showLoginActs } from '../../../../redux/actions';
@@ -34,7 +34,7 @@ class MyAccountButton extends Component {
       <Link
         className="nav_footer-btns nav_footer-btn_right"
         onClick={this.onClick}
-        to="/my-account"
+        href="/my-account"
       >
         {isLogin ? 'Mi cuenta' : 'Iniciar sesión'}
       </Link>
