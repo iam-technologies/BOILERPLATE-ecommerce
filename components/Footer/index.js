@@ -1,5 +1,4 @@
 // import _ from 'lodash';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 
 import React, { Component } from 'react';
@@ -117,17 +116,17 @@ class Footer extends Component {
             <div className="app_footer-legal">
               <p className="app_footer-title">INFORMACIÓN DE COMPRA</p>
               <p>
-                <Link to="/legal/refunds">
+                <Link href="/legal/refunds">
                   Envío y devoluciones
                 </Link>
               </p>
               <p>
-                <Link to="/legal/terms-and-conditions">
+                <Link href="/legal/terms-and-conditions">
                   Términos y condiciones
                 </Link>
               </p>
               <p>
-                <Link to="/legal/cookies">
+                <Link href="/legal/cookies">
                   Política de Cookies
                 </Link>
               </p>

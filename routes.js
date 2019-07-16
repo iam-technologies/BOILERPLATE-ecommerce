@@ -23,7 +23,11 @@ module.exports = routes()
   .add('/budget-checkout', 'budget-checkout')
 
   .add('/landing/:key', 'landing/[key]')
+
+  // LEGAL
   .add('/legal/:key', 'legal/[key]')
+  .add('/legal/terms-and-conditions', 'legal/[key]')
+  .add('/legal/cookies', 'legal/LegalCookies')
 
   // BÚSQUEDA
   .add('/search/:key', 'search/[key]')
