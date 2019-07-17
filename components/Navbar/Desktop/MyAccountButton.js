@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { Component } from 'react';
 
 import { showLoginActs } from '../../../redux/actions';
+import account from '../../../serverServices/api/account';
 
 
 class MyAccountButton extends Component {
@@ -28,9 +29,7 @@ class MyAccountButton extends Component {
         onClick={isLogin ? () => {} : this.onClick}
         href="/my-account"
       >
-        <a className="right_btns-link profile_icon">
-          <img src={`/images/icon_my-account${isLogin ? '_login' : ''}.png`} alt="User's My account" />
-        </a>
+        <img src={`../../../static/images/icon_my-account${isLogin ? '_login' : ''}.png`} alt="User's My account" />
       </Link>
     );
   }

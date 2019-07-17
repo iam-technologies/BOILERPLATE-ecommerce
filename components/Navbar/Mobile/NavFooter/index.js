@@ -16,6 +16,7 @@ export default ({ onCloseNav, pathname }) => (
     <div className="nav_footer-btns_bottom">
       <Link
         onClick={onCloseNav}
+        className="nav_footer-btns"
         href="/"
       >
         <a className="nav_footer-btns">Inicio</a>

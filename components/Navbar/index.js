@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
+import isClient from '../../serverServices/utils';
 import { api } from '../../serverServices';
 import { withWindowResize } from '../hoc';
 import NavbarDesktop from './Desktop';
 import NavbarMobile from './Mobile';
-
 
 class Navbar extends Component {
   constructor(props) {
@@ -32,34 +32,33 @@ class Navbar extends Component {
     });
   }
 
-
   render() {
     const { items, loading } = this.state;
-    const { location, screen } = this.props;
+    const { /* location, */ screen, pathname } = this.props;
     let styles = {};
 
     if (screen === 'lg') {
-      if (location.pathname === '/checkout') return null;
-      if (location.pathname !== '/') styles = { height: '95px' };
+      if (pathname === '/checkout') return null;
+      if (pathname !== '/') styles = { height: '95px' };
 
       return (
-        <header className={`app-header animation_opacity${!loading ? '-remove' : ''}`} style={styles}>
-          <NavbarDesktop
-            items={items}
-            pathname={location.pathname}
-          />
+        <header
+          className={`app-header animation_opacity${!loading ? '-remove' : ''}`}
+          style={styles}
+        >
+          <NavbarDesktop items={items} pathname={pathname} />
         </header>
       );
     }
 
     return (
-      <NavbarMobile
-        items={items}
-        pathname={location.pathname}
-      />
+      <Fragment>
+        {isClient && (
+          <NavbarMobile items={items} pathname={pathname} />
+        )}
+      </Fragment>
     );
   }
 }
-
 
 export default withWindowResize(Navbar);

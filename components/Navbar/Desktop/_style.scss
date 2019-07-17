@@ -1,3 +1,5 @@
+// NAVBAR / DESKTOP
+
 .nav_desk {
   @include transition(all 800ms );
   background-color: initial;
@@ -48,6 +50,7 @@
 
       img { width: 100%; }
     }
+    
   }
 
   .nav_bottom {

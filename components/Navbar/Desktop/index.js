@@ -53,6 +53,8 @@ export default class NavbarDesktop extends React.Component {
 
   static getDerivedStateFromProps(props, state) {
     const isHome = props.pathname === '/';
+    console.log('props.pathname : ', props.pathname);
+    console.log('isHome: ', isHome);
     if (isHome !== state.isHome) return { isHome };
 
     return null;
