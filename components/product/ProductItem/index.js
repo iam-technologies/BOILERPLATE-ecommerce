@@ -32,8 +32,8 @@ const ProductItem = ({ isSearch, item, location, clickCompare, onSelect, onClick
         // className={`product_box_ui${isSearch ? '-s_p' : ''}`}
         // onClick={this.onClick}
         href={{
-          pathname: urlUtils.linkToProduct(location, item),
-          state: { lastLocation: location } // checar
+          pathname: urlUtils.linkToProduct(location, item)
+          // state: { lastLocation: location } // checar
         }}
       >
         <a className={`product_box_ui${isSearch ? '-s_p' : ''}`} onClick={onClick}>

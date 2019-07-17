@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import isClient from '../../serverServices/utils';
+import { isClient } from '../../serverServices/utils';
 import { api } from '../../serverServices';
 import { withWindowResize } from '../hoc';
 import NavbarDesktop from './Desktop';

@@ -6,16 +6,20 @@ import React from 'react';
 
 import { urlUtils } from '../../../utils';
 
-const LinkCategory = ({ id, className, children, onClick }) => (
-  <Link
-    href={urlUtils.linkToCategory(id)}
-    onClick={onClick}
-  >
-    <a className={className}>
-      {children}
-    </a>
-  </Link>
-);
+const LinkCategory = ({ id, className, children, onClick }) => {
+  const pathname = urlUtils.linkToCategory(id);
+
+  return (
+    <Link
+      href={pathname}
+      onClick={onClick}
+    >
+      <a className={className}>
+        {children}
+      </a>
+    </Link>
+  );
+};
 
 LinkCategory.propTypes = {
   children: PropTypes.node.isRequired,
@@ -29,4 +33,6 @@ LinkCategory.defaultProps = {
   onClick: () => {}
 };
 
-export default LinkCategory;
+LinkCategory.displayName = 'LinkCategory';
+
+export default React.memo(LinkCategory);

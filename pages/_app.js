@@ -15,21 +15,32 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'odometer/themes/odometer-theme-default.css';
 
 import '../scss/_main.scss';
+import api from '../serverServices/api';
+import { routes as utilsRoutes } from '../utils';
 import CookiesPopup from '../components/CookiesPopup';
 import makeStore from '../redux';
 
 
 class MyApp extends App {
-  componentDidMount() {
+  async componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentNode.removeChild(jssStyles);
     }
+
+    await api.categories.getRoutes('', (err, res) => {
+      return res ? utilsRoutes.addRoutes(res.data) : null;
+    });
   }
 
   static async getInitialProps({ Component, ctx }) {
+    // await api.categories.getRoutes('', (err, res) => {
+    //   return res ? utilsRoutes.addRoutes(res.data) : null;
+    // });
+
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+
     return { pageProps };
   }
 

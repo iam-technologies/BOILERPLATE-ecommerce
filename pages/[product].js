@@ -26,7 +26,7 @@ const product = ({ serverUrl, routes }) => {
   );
 };
 
-product.getInitialProps = async ({ isServer, asPath, req }) => {
+product.getInitialProps = async ({ isServer, asPath, req, query }) => {
   const routes = await api.categories.getRoutes('', (err, res) => {
     return res ? res.data : null;
   });

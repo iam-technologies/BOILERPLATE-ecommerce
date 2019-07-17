@@ -103,7 +103,7 @@ class Order extends Component {
     if (sendToCheckout) {
       return (
         <Redirect
-          to={{
+          href={{
             pathname: '/budget-checkout',
             state: { order: item }
           }}
@@ -175,7 +175,7 @@ class Order extends Component {
 
         <div className="my_order_item-container link_container">
           <Link href="/orders">
-            <a className="link_return" >
+            <a className="link_return">
               <img src="/images/icon_back_checkout.png" alt="Volver a mi cuenta" />
               <span>Volver a Mis Pedidos</span>
             </a>

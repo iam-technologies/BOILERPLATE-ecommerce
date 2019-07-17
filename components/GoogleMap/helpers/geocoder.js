@@ -1,4 +1,4 @@
-import isClient from '../../../serverServices/utils/isClient';
+import { isClient } from '../../../serverServices/utils';
 
 
 export default ({ country, codePostal, city, address, countryName }, callback) => {
