@@ -26,8 +26,8 @@ module.exports = routes()
 
   // LEGAL
   .add('/legal/:key', 'legal/[key]')
-  .add('/legal/terms-and-conditions', 'legal/[key]')
-  .add('/legal/cookies', 'legal/LegalCookies')
+  // .add('/legal/terms-and-conditions', 'legal/[key]')
+  // .add('/legal/cookies', 'legal/LegalCookies')
 
   // BÚSQUEDA
   .add('/search/:key', 'search/[key]')
