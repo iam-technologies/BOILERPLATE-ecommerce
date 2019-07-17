@@ -1,9 +1,11 @@
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
-import MenuItem from 'material-ui/MenuItem';
+// import MenuItem from 'material-ui/MenuItem';
+import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import SelectField from 'material-ui/SelectField';
+// import SelectField from 'material-ui/SelectField';
+import SelectField from '@material-ui/core/Select';
 import { withWindowResize } from '../../../../../hoc';
 
 import { configAttrActs, showImgAttributeActs } from '../../../../../../redux/actions';
@@ -87,7 +89,7 @@ class StepSelect extends Component {
                   const price = priceCalc.attribute(elem, item);
                   const img = _.get(elem, 'properties.imgMini', '');
 
-                  const mouseEvents = {}
+                  const mouseEvents = {};
                   if (screen === 'lg') {
                     mouseEvents.onMouseEnter = () => this.onMouseEnter(elem);
                     mouseEvents.onMouseLeave = () => this.onMouseLeave(elem);

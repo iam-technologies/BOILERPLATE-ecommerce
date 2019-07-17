@@ -62,11 +62,9 @@ class Product extends React.Component {
         const product = res.data;
 
         this.setState({ product, loaded: true });
+      } else {
+        Router.push('/404');
       }
-
-      Alert.warning('La url introducida no existe');
-      // history.push('/404');
-      Router.push('/404');
     });
   }
 

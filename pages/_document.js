@@ -1,13 +1,18 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheets } from '@material-ui/styles';
 
-// General SEO page
 class MyDocument extends Document {
   render() {
+    const { themeContext } = this.props;
+
     return (
-      <html lang="ca">
+      <html lang="en-US">
         <Head>
-          {/* You can use the head tag, just not for setting <title> as it leads to unexpected behavior */}
+          <meta
+            name="theme-color"
+            content={themeContext ? themeContext.theme.palette.primary.main : null}
+          />
           <link
             rel="shortcut icon"
             href="/static/favicon.ico"
@@ -29,7 +34,6 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="description" content="añada descripción de su tienda" />
 
-          {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta name="viewport" content="minimum-scale=1, width=device-width, initial-scale=1, shrink-to-fit=no" />
         </Head>
         <body>
@@ -40,5 +44,26 @@ class MyDocument extends Document {
     );
   }
 }
+
+MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets();
+  const originalRenderPage = ctx.renderPage;
+
+  ctx.renderPage = () => originalRenderPage({
+    enhanceApp: App => props => sheets.collect(<App {...props} />)
+  });
+
+  const initialProps = await Document.getInitialProps(ctx);
+
+  return {
+    ...initialProps,
+    styles: [
+      <React.Fragment key="styles">
+        {initialProps.styles}
+        {sheets.getStyleElement()}
+      </React.Fragment>
+    ]
+  };
+};
 
 export default MyDocument;

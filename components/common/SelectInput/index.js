@@ -1,7 +1,9 @@
-import MenuItem from 'material-ui/MenuItem';
+// import MenuItem from 'material-ui/MenuItem';
+import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import SelectField from 'material-ui/SelectField';
+// import SelectField from 'material-ui/SelectField';
+import SelectField from '@material-ui/core/Select';
 
 
 export default class SelectInput extends Component {
@@ -35,7 +37,7 @@ export default class SelectInput extends Component {
         className={`select_input_ui ${error ? 'error' : ''} ${className}`}
       >
         {
-          !label ? null : (<p className="select_input_ui-label" >{label}</p>)
+          !label ? null : (<p className="select_input_ui-label">{label}</p>)
         }
 
         <SelectField

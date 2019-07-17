@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import CircularProgress from 'material-ui/CircularProgress';
+// import CircularProgress from 'material-ui/CircularProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Dropzone from 'react-dropzone';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';

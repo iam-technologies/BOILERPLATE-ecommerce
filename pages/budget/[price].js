@@ -4,7 +4,6 @@ import { Layout, SearchByBudget } from '../../components';
 
 const searchByBudget = ({ price }) => (
   <Layout>
-    <h1>this the budget page: {price}</h1>
     <SearchByBudget price={price} />
   </Layout>
 );

@@ -2,24 +2,33 @@ import React from 'react';
 import withRedux from 'next-redux-wrapper';
 import App from 'next/app';
 import { Provider } from 'react-redux';
-import CookiesPopup from '../components/CookiesPopup';
+
+// Material UI
+import '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 // Modules Libraries CSS
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import 'odometer/themes/odometer-theme-default.css';
+import 'odometer/themes/odometer-theme-default.css';
 
 import '../scss/_main.scss';
+import CookiesPopup from '../components/CookiesPopup';
 import makeStore from '../redux';
 
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    // we can dispatch from here too
-    // ctx.store.dispatch({type: 'FOO_ACTION', payload: 'myApp redux initial action'});
+  componentDidMount() {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentNode.removeChild(jssStyles);
+    }
+  }
 
+  static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
     return { pageProps };
   }
@@ -28,10 +37,12 @@ class MyApp extends App {
     const { Component, pageProps, store } = this.props;
     return (
       <Provider store={store}>
-        <div>
-          <CookiesPopup />
-          <Component {...pageProps} />
-        </div>
+        <MuiThemeProvider>
+          <div>
+            <CookiesPopup />
+            <Component {...pageProps} />
+          </div>
+        </MuiThemeProvider>
       </Provider>
     );
   }
