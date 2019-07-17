@@ -39,7 +39,9 @@ class NavbarMobile extends React.Component {
               href="/"
               onClick={this.onCloseNav}
             >
-              <img src="/images/logo_xs_white.png" alt="Cocholate" />
+              <a>
+                <img src="/images/logo_xs_white.png" alt="Cocholate" />
+              </a>
             </Link>
           </div>
 

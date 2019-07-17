@@ -32,11 +32,12 @@ class MyAccountButton extends Component {
 
     return (
       <Link
-        className="nav_footer-btns nav_footer-btn_right"
         onClick={this.onClick}
         href="/my-account"
       >
-        {isLogin ? 'Mi cuenta' : 'Iniciar sesión'}
+        <a className="nav_footer-btns nav_footer-btn_right">
+          {isLogin ? 'Mi cuenta' : 'Iniciar sesión'}
+        </a>
       </Link>
     );
   }

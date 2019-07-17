@@ -1,6 +1,5 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import React, { Component } from 'react';
 
@@ -43,11 +42,12 @@ class Search extends Component {
             <header className="app-s_p-header">
               <div className="app-s_p-div_hidden" />
               <Link
-                to="/"
-                onClick={this.onClose}
-                className="app-s_p-logo"
+                href="/"
+                onClick={this.onClose} 
               >
-                <img src="/images/logo_search.png" alt="Cocholate" />
+                <a className="app-s_p-logo">
+                  <img src="/images/logo_search.png" alt="Cocholate" />
+                </a>
               </Link>
 
               <button

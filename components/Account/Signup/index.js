@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import React, { Component } from 'react';
 
-import { Router } from 'next/router';
+import Router from 'next/router';
 import { api } from '../../../serverServices';
 
 
@@ -53,7 +53,7 @@ export default class SignUp extends Component {
           <button type="submit">Send</button>
         </form>
 
-        <Link to="/login">¿Volver a login?</Link>
+        <Link href="/login"><a>¿Volver a login?</a></Link>
       </div>
     );
   }

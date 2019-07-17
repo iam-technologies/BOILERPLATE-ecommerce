@@ -7,7 +7,7 @@ import { api } from '../../serverServices';
 import { ButtonInput, ArrowTop } from '../common';
 import ProductList from '../product/ProductList';
 import FilterUI from './FilterUI';
-// import Compare from '../Compare'; //checar
+import Compare from '../Compare';
 
 
 export default class Filter extends React.Component {

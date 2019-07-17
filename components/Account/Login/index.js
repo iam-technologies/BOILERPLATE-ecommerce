@@ -1,6 +1,5 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 
 import Alert from 'react-s-alert';
@@ -83,9 +82,10 @@ class Login extends Component {
           <Link
             href="/"
             onClick={this.onClose}
-            className="header_login-logo"
           >
-            <img src="/images/logo_search.png" alt="Cocholate" />
+            <a className="header_login-logo">
+              <img src="/images/logo_search.png" alt="Cocholate" />
+            </a>
           </Link>
 
           <button
@@ -125,7 +125,7 @@ class Login extends Component {
           />
 
           <p className="link_forgot">
-            <Link onClick={this.onClose} href="/forgot-password">Recuperar contraseña</Link>
+            <Link onClick={this.onClose} href="/forgot-password"><a>Recuperar contraseña</a></Link>
           </p>
 
           <div className="btn_login">

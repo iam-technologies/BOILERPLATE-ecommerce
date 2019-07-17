@@ -1,5 +1,4 @@
 import _ from 'lodash';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
@@ -34,7 +33,7 @@ const ProductItem = ({ isSearch, item, location, clickCompare, onSelect, onClick
         // onClick={this.onClick}
         href={{
           pathname: urlUtils.linkToProduct(location, item),
-          state: { lastLocation: location }
+          state: { lastLocation: location } // checar
         }}
       >
         <a className={`product_box_ui${isSearch ? '-s_p' : ''}`} onClick={onClick}>

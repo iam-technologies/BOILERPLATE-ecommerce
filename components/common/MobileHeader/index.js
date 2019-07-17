@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 
 import React, { Component } from 'react';
@@ -45,18 +44,19 @@ class MobileHeader extends Component {
         }
         {
           lastLocation && (
-            <Link
-              className="header_mobile_ui-icon_previous"
-              to={lastLocation}
-            >
-              <img src="/images/icon_nav_previow.png" alt="previos" />
+            <Link href={lastLocation}>
+              <a className="header_mobile_ui-icon_previous">
+                <img src="/images/icon_nav_previow.png" alt="previos" />
+              </a>
             </Link>
           )
         }
         {
           logo && (
-            <Link to="/" className="header_mobile_ui-logo">
-              <img src="/images/logo.png" alt="Cocholate" />
+            <Link href="/">
+              <a className="header_mobile_ui-logo">
+                <img src="/images/logo.png" alt="Cocholate" />
+              </a>
             </Link>
           )
         }

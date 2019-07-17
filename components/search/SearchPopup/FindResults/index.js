@@ -1,5 +1,4 @@
 import _ from 'lodash';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import Loader from 'react-loaders';
 import React from 'react';
@@ -76,12 +75,13 @@ export default class FindResults extends React.PureComponent {
     if (type === 'category') {
       return items.map(elem => (
         <Link
-          className="app-s_p-find-categories_btn"
           key={elem._id}
           onClick={this.onClose}
-          to={routes.getRoute(_.get(elem, '_id', ''))}
+          href={routes.getRoute(_.get(elem, '_id', ''))}
         >
-          {_.get(elem, 'name.es', '')}
+          <a className="app-s_p-find-categories_btn">
+            {_.get(elem, 'name.es', '')}
+          </a>
         </Link>
       ));
     }
@@ -103,11 +103,12 @@ export default class FindResults extends React.PureComponent {
         const linkToResult = (
           <div key="show_more">
             <Link
-              className="product_box_ui-s_p app-s_p-not_result"
               onClick={this.onClose}
-              to={`/search/${encodeURI(text)}`}
+              href={`/search/${encodeURI(text)}`}
             >
-              <p className="product_box_ui-s_p-more_result">Ver más resultados</p>
+              <a className="product_box_ui-s_p app-s_p-not_result">
+                <p className="product_box_ui-s_p-more_result">Ver más resultados</p>
+              </a> 
             </Link>
           </div>
         );

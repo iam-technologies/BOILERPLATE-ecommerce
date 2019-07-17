@@ -28,7 +28,7 @@ const Carousel = ({ items }) => {
         {
           (link && btnText)
           && (
-          <Link to={link}>
+          <Link href={link}>
             <a className="carousel_btn">{btnText}</a>
           </Link>
           )

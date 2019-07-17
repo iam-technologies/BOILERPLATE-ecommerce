@@ -19,7 +19,7 @@ export default ({ onCloseNav, pathname }) => (
         className="nav_footer-btns"
         href="/"
       >
-        Inicio
+        <a className="nav_footer-btns">Inicio</a>
       </Link>
 
       <MyAccountButton onCloseNav={onCloseNav} pathname={pathname} />

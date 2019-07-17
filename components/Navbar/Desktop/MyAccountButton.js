@@ -26,7 +26,6 @@ class MyAccountButton extends Component {
 
     return (
       <Link
-        className="right_btns-link profile_icon"
         onClick={isLogin ? () => {} : this.onClick}
         href="/my-account"
       >

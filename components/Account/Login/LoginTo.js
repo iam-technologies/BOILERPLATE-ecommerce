@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Router } from 'next/router';
+import Router from 'next/router';
 import Link from 'next/link';
 import Alert from 'react-s-alert';
 import React, { Component } from 'react';
@@ -132,7 +132,7 @@ class LoginTo extends Component {
           />
 
           <p className="link_forgot">
-            <Link onClick={this.onClose} href="/forgot-password">Recuperar contraseña</Link>
+            <Link onClick={this.onClose} href="/forgot-password"><a>Recuperar contraseña</a></Link>
           </p>
 
           <div className="btn_login">
