@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import Link from 'next/link';
-import React, { memo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { urlUtils, dataFormat, texts, priceCalc } from '../../../utils';
@@ -29,8 +29,6 @@ const ProductItem = ({ isSearch, item, location, clickCompare, onSelect, onClick
         )
       }
       <Link
-        // className={`product_box_ui${isSearch ? '-s_p' : ''}`}
-        // onClick={this.onClick}
         href={{
           pathname: urlUtils.linkToProduct(location, item)
           // state: { lastLocation: location } // checar
@@ -77,7 +75,7 @@ const ProductItem = ({ isSearch, item, location, clickCompare, onSelect, onClick
 
 ProductItem.displayName = 'ProductItem';
 
-export default memo(ProductItem);
+export default React.memo(ProductItem);
 
 ProductItem.propTypes = {
   isSearch: PropTypes.bool,

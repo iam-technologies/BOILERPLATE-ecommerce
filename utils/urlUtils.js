@@ -26,19 +26,20 @@ const linkToProduct = (location = '', item = {}) => {
   const { mainCategory, categories, url } = item;
   const urlCategories = categories ? _.get(categories, '0._id', categories[0]) : '';
   const urlProduct = _.get(url, 'es', '');
+  return `/${urlProduct}`;
 
-  let urlMainCategory = routes.getRoute(_.get(mainCategory, '_id', mainCategory));
-  let urlCategory = location;
+  // let urlMainCategory = routes.getRoute(_.get(mainCategory, '_id', mainCategory));
+  // let urlCategory = location;
 
-  if (!urlMainCategory) {
-    urlMainCategory = routes.getRoute(urlCategories);
-  }
+  // if (!urlMainCategory) {
+  //   urlMainCategory = routes.getRoute(urlCategories);
+  // }
 
-  if (!urlCategory || urlCategory.indexOf('/search') !== -1) {
-    urlCategory = `${urlMainCategory}`;
-  }
+  // if (!urlCategory || urlCategory.indexOf('/search') !== -1) {
+  //   urlCategory = `${urlMainCategory}`;
+  // }
 
-  return `${urlCategory}/${urlProduct}`;
+  // return `${urlCategory}/${urlProduct}`;
 };
 
 const linkToEditProduct = (product, index) => {
