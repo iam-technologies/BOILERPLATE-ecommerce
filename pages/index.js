@@ -18,9 +18,10 @@ const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) 
   const title = _get(content, 'seoTitle.es', DEFAULT_SEO.title);
   const desc = _get(content, 'seoDesc.es', DEFAULT_SEO.desc);
   const attachment = _get(content, 'seoImg.attachment', DEFAULT_SEO.img);
+  const pathname = '/';
 
   return (
-    <Layout>
+    <Layout pathname={pathname}>
       <SEO
         title={title}
         description={desc}

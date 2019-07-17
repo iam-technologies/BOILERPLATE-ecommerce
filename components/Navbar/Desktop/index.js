@@ -17,8 +17,8 @@ export default class NavbarDesktop extends React.Component {
     this.state = {
       isHome: true,
       scroll: '',
-      top: ''
-      // height: ''
+      top: '',
+      height: ''
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -27,8 +27,8 @@ export default class NavbarDesktop extends React.Component {
   componentDidMount() {
     const el = document.querySelector('nav');
     this.setState({
-      top: el.offsetTop
-      // height: el.offsetHeight
+      top: el.offsetTop,
+      height: el.offsetHeight
     });
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -53,6 +53,8 @@ export default class NavbarDesktop extends React.Component {
 
   static getDerivedStateFromProps(props, state) {
     const isHome = props.pathname === '/';
+    console.log('props.pathname : ', props.pathname);
+    console.log('isHome: ', isHome);
     if (isHome !== state.isHome) return { isHome };
 
     return null;
@@ -64,8 +66,6 @@ export default class NavbarDesktop extends React.Component {
 
   render() {
     const { isHome, scroll, top } = this.state;
-    console.log('isHome: ', isHome);
-    console.log('scroll: ', scroll);
     const { items } = this.props;
     const sticky = (scroll > top || !isHome) ? 'fixed-nav' : '';
     const navRelative = (isHome && sticky) || !isHome ? true : false; //eslint-disable-line

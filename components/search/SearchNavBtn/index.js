@@ -19,10 +19,11 @@ class SearchNavBtn extends React.Component {
 
     return (
       <button
+        type="button"
         className={`btn_search_ui ${className}`}
         onClick={this.onSearch}
       >
-        <img src="/images/icon_search.png" alt="Search" />
+        <img src="../../../static/images/icon_search.png" alt="Search" />
       </button>
     );
   }

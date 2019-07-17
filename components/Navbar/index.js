@@ -34,20 +34,19 @@ class Navbar extends Component {
 
   render() {
     const { items, loading } = this.state;
-    const { /* location, */ screen } = this.props;
+    const { /* location, */ screen, pathname } = this.props;
     let styles = {};
 
     if (screen === 'lg') {
-      if (isClient && window.location.href === '/checkout') return null;
-      if (isClient && window.location.href !== '/') styles = { height: '95px' };
+      if (pathname === '/checkout') return null;
+      if (pathname !== '/') styles = { height: '95px' };
 
       return (
         <header
           className={`app-header animation_opacity${!loading ? '-remove' : ''}`}
           style={styles}
         >
-
-          <NavbarDesktop items={items} pathname={isClient && window.location.href} />
+          <NavbarDesktop items={items} pathname={pathname} />
         </header>
       );
     }
@@ -55,7 +54,7 @@ class Navbar extends Component {
     return (
       <Fragment>
         {isClient && (
-          <NavbarMobile items={items} pathname={isClient && window.location.href} />
+          <NavbarMobile items={items} pathname={pathname} />
         )}
       </Fragment>
     );
