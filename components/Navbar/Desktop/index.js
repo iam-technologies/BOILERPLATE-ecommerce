@@ -64,6 +64,8 @@ export default class NavbarDesktop extends React.Component {
 
   render() {
     const { isHome, scroll, top } = this.state;
+    console.log('isHome: ', isHome);
+    console.log('scroll: ', scroll);
     const { items } = this.props;
     const sticky = (scroll > top || !isHome) ? 'fixed-nav' : '';
     const navRelative = (isHome && sticky) || !isHome ? true : false; //eslint-disable-line
