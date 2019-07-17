@@ -6,8 +6,10 @@ import Layout from './Layout';
 import Product from './product/Product';
 import Search from './search/Search';
 import SearchByBudget from './search/SearchByBudget';
+import CartPopup from './shoppingCart/CartPopup';
 
 export {
+  CartPopup,
   Category,
   Compare,
   CookiesPopup,

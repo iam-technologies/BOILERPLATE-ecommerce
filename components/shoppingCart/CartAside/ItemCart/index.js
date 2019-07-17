@@ -105,17 +105,22 @@ export default class ItemCart extends Component {
         }
 
         <Link
-          className="left"
-          style={{ backgroundImage: `url(${imgServices.getUrl(_.get(item, 'product.img.0', ''), 'mobile_2x')})` }}
           onClick={this.onClosePopup}
-          to={linkTo}
-        />
+          href={linkTo}
+        >
+          <a
+            className="left"
+            style={{ backgroundImage: `url(${imgServices.getUrl(_.get(item, 'product.img.0', ''), 'mobile_2x')})` }}
+          />
+        </Link>
         <Link
           onClick={this.onClosePopup}
           href={linkTo}
-          style={{ zIndex: 1000 - index }}
         >
-          <a className="center">
+          <a
+            className="center"
+            style={{ zIndex: 1000 - index }}
+          >
             <p className="title">{_.get(item, 'product.name.es')}</p>
             {numItems > 0 && <div className="personalizacion" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>{ itemConfig }</div>}
             <div className="price">

@@ -17,17 +17,14 @@ import 'odometer/themes/odometer-theme-default.css';
 import '../scss/_main.scss';
 import api from '../serverServices/api';
 import { routes as utilsRoutes } from '../utils';
-import CookiesPopup from '../components/CookiesPopup';
+import { CookiesPopup, CartPopup } from '../components';
 import makeStore from '../redux';
-
 
 class MyApp extends App {
   async componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentNode.removeChild(jssStyles);
-    }
+    if (jssStyles) jssStyles.parentNode.removeChild(jssStyles);
 
     await api.categories.getRoutes('', (err, res) => {
       return res ? utilsRoutes.addRoutes(res.data) : null;
@@ -35,10 +32,6 @@ class MyApp extends App {
   }
 
   static async getInitialProps({ Component, ctx }) {
-    // await api.categories.getRoutes('', (err, res) => {
-    //   return res ? utilsRoutes.addRoutes(res.data) : null;
-    // });
-
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
 
     return { pageProps };
@@ -48,6 +41,7 @@ class MyApp extends App {
     const { Component, pageProps, store } = this.props;
     return (
       <Provider store={store}>
+        <CartPopup />
         <MuiThemeProvider>
           <div>
             <CookiesPopup />

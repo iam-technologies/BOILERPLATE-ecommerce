@@ -17,7 +17,6 @@ class CartPopup extends Component {
   render() {
     const { show } = this.props;
 
-
     return (
       <section
         className={`app_cart_popup${show ? '-show' : ''}`}
