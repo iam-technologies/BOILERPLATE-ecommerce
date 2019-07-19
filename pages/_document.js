@@ -66,6 +66,12 @@ class MyDocument extends Document {
           <NextScript />
           {/* Global site tag (gtag.js) - Google Analytics */}
           {/* {isProduction && <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22194548-1" />} */}
+          <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPgiPZzi-sVuuuw6pKhiVpAPcQDp5P3nI&libraries=places&language=es"
+            async
+            defer
+          />
+          <script src="https://js.stripe.com/v3/" />
         </body>
       </html>
     );

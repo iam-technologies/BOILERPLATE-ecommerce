@@ -4,8 +4,7 @@ export default {
     sandbox: 'ATlMMD8bGwO1laAg3BeWFW7M7kK94BO4UDEHVQ7nDXuA2faFQQMV-z77UtFyzAkaWyU2_DRayCSXk7n3',
     production: 'AWq0NJTOCegm-zFm33QYiGSponxtW7IZv3Vt3Y_akZ7Y0BcGENtl0JJHmlcoLNW5g_oPs7tB6s56ntPn'
   },
-  stripeApiKey: 'pk_live_7TQbRrqhsxdsNDGukBrlUh8O', // pk_live_7TQbRrqhsxdsNDGukBrlUh8O  || pk_test_rIqrmLUxV5BDbXNxN9BhyEAY
-
+  stripeApiKey: process.env.NODE_ENV === 'production' ? 'pk_live_7TQbRrqhsxdsNDGukBrlUh8O' : 'pk_test_rIqrmLUxV5BDbXNxN9BhyEAY',
   shipping: {
     amountFree: 45,
     canarias: {
