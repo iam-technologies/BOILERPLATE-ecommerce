@@ -36,6 +36,7 @@
     "prop-types": "^15.6.2",
     "rc-slider": "^8.6.13",
     "react": "^16.8.4",
+    "react-async-script-loader": "^0.3.0",
     "react-dom": "^16.8.4",
     "react-dropzone": "^10.1.5",
     "react-ga": "^2.5.3",
@@ -47,8 +48,10 @@
     "react-redux": "^6.0.1",
     "react-s-alert": "^1.4.1",
     "react-slick": "^0.24.0",
+    "react-stripe-elements": "^4.0.0",
     "react-swipeable-views": "^0.13.3",
     "react-with-analytics": "0.0.5",
+    "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1"

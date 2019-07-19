@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Layout, Checkout } from '../components';
+
 const checkout = () => (
-  <div>
-    <h1>this is Checkout page</h1>
-  </div>
+  <Layout>
+    <Checkout />
+  </Layout>
 );
 
 checkout.getInitialProps = async () => {

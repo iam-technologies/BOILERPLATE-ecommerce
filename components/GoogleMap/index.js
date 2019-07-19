@@ -19,22 +19,24 @@ export default compose(
     clickableIcons={false}
     draggable={false}
     options={{
-        zoomControl: true,
-        zoomControlOptions: { position: window.google.maps.ControlPosition.RIGHT_TOP },
-        mapTypeControl: false,
-        fullscreenControl: false,
-        streetViewControl: false,
-        rotateControl: false
-      }}
+      zoomControl: true,
+      zoomControlOptions: { position: window.google.maps.ControlPosition.RIGHT_TOP },
+      mapTypeControl: false,
+      fullscreenControl: false,
+      streetViewControl: false,
+      rotateControl: false
+    }}
   >
     {
-        props.isMarkerShown &&
+        props.isMarkerShown
+          && (
           <Marker
             icon="/images/icon_map.svg"
             clickable={false}
             position={props.position}
             draggable={false}
           />
+          )
       }
   </GoogleMap>
 ));
