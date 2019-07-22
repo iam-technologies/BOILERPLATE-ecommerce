@@ -8,35 +8,37 @@ module.exports = routes()
   .add('/forgot-password', 'forgot-password')
   .add('/reset-password/:token', 'reset-password/[token]')
 
-  // MI CUENTA
-  .add('/my-account', 'my-account')
-  .add('/addresses', 'addresses')
-  .add('/profile', 'profile')
-
-  // ORDERS
-  .add('/orders', 'orders')
-  .add('/orders/:id', 'orders/[id]')
-  .add('/favourites', 'favourites')
-
   // CHECKOUT
   .add('/checkout', 'checkout')
   .add('/budget-checkout', 'budget-checkout')
-
   .add('/landing/:key', 'landing/[key]')
 
   // LEGAL
   .add('/legal/:key', 'legal/[key]')
-  // .add('/legal/terms-and-conditions', 'legal/[key]')
-  // .add('/legal/cookies', 'legal/LegalCookies')
 
   // BÚSQUEDA
   .add('/search/:key', 'search/[key]')
   .add('/budget/:price', 'budget/[price]')
 
-  .add('/404', 'pageNotFound')
-
+  // CATEGORIAS / PRODUCTOS
+  // .add('/:product', '[product]')
+  .add('/:product', '[entity]')
+  // .add('/:product/:index', '[product]/[index]')
   .add('/comparador-de-productos/:name', 'comparador-de-productos/[name]')
 
-  // CATEGORIAS / PRODUCTOS
-  .add('/:product', '[product]')
-  .add('/:product/:index', '[product]/[index]');
+  // PRIVATE ROUTES
+  // .add('/my-account', 'my-account')
+  // .add('/addresses', 'addresses')
+  // .add('/profile', 'profile')
+  // .add('/orders', 'orders')
+  // .add('/orders/:id', 'orders/[id]')
+  // .add('/favourites', 'favourites')
+  .add('/my-account', '[entity]')
+  .add('/addresses', '[entity]')
+  .add('/profile', '[entity]')
+  .add('/orders', '[entity]')
+  .add('/orders/:id', '[entity]')
+  .add('/favourites', '[entity]')
+
+  // NOT FOUND
+  .add('/404', 'pageNotFound');
