@@ -5,6 +5,7 @@ import CookiesPopup from './CookiesPopup';
 import Layout from './Layout';
 import Product from './product/Product';
 import Search from './search/Search';
+import SearchPopup from './search/SearchPopup';
 import SearchByBudget from './search/SearchByBudget';
 import CartPopup from './shoppingCart/CartPopup';
 
@@ -17,5 +18,6 @@ export {
   Layout,
   Product,
   Search,
+  SearchPopup,
   SearchByBudget
 };

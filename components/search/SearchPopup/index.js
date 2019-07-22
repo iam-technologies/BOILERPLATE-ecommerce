@@ -47,8 +47,8 @@ class Search extends Component {
                 href="/"
                 onClick={this.onClose}
               >
-                <a className="app-s_p-logo">
-                  <img src="/images/logo_search.png" alt="Cocholate" />
+                <a className="app-s_p-logo" href="/">
+                  <img src="/images/logo_search.png" style={{ color: 'gray' }} alt="YOUR COMPANY" />
                 </a>
               </Link>
 
@@ -57,7 +57,7 @@ class Search extends Component {
                 onClick={this.onClose}
                 type="button"
               >
-                <img src="/images/icon_close.png" alt="Cross" />
+                <img src="../../../static/images/icon_close.png" alt="Cross" />
               </button>
             </header>
 
