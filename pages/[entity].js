@@ -17,6 +17,7 @@ const dynamicPage = ({ serverUrl, routes, isServer }) => {
     '/orders',
     '/orders/:id',
     '/favourites'];
+
   if (privateRoutes.indexOf(serverUrl) !== -1) type = 'private_route';
 
   const getItems = (entity) => {

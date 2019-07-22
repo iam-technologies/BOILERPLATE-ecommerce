@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import api from '../serverServices/api';
 import { isLoginActs, userActs } from '../redux/actions';
 // import LoginTo from './Account/Login/LoginTo';
-// import MyAccount from './MyAccount';
-// import Profile from './MyAccount/Profile';
-// import OrderList from './MyAccount/OrderList';
-// import Address from './MyAccount/Address';
+import MyAccount from './MyAccount';
+import Profile from './MyAccount/Profile';
+import OrderList from './MyAccount/OrderList';
+import Address from './MyAccount/Address';
 // import Order from './MyAccount/Order';
-// import Favourites from './MyAccount/Favourites';
+import Favourites from './MyAccount/Favourites';
 
 const { change } = isLoginActs;
 const { getUser } = userActs;
@@ -18,7 +18,11 @@ const PrivateRoute = ({ isLogin, isServer, pathname, change, getUser }) => {
   const [isClient, setclient] = useState(!isServer);
 
   useEffect(() => {
+    if (isLogin) return;
+
     api.account.onLogin((error, resLogin) => {
+      if (!resLogin) return Router.push('/');
+
       change(resLogin || !error);
 
       if (resLogin) getUser();
@@ -27,22 +31,21 @@ const PrivateRoute = ({ isLogin, isServer, pathname, change, getUser }) => {
   }, []);
 
   if (!isClient) return <div>loading...</div>; // TODO (maybe use Layout)
-  if (!isLogin) Router.push('/'); // user is send to the home page
-  return <div>this is a private route...</div>;
-  // switch (pathname) {
-  //   case '/my-account':
-  //     return <MyAccount />;
-  //   case '/addresses':
-  //     return <Address />;
-  //   case '/profile':
-  //     return <Profile />;
-  //   case '/orders':
-  //     return <OrderList />;
-  //   case '/favourites':
-  //     return <Favourites />;
-  //   default:
-  //     return Router.push('/');
-  // }
+
+  switch (pathname) {
+    case '/my-account':
+      return <MyAccount />;
+    case '/addresses':
+      return <Address />;
+    case '/profile':
+      return <Profile />;
+    case '/orders':
+      return <OrderList />;
+    case '/favourites':
+      return <Favourites />;
+    default:
+      return <div>this is a private route...</div>;
+  }
 };
 
 function mapStateToProps(state) {
@@ -51,4 +54,6 @@ function mapStateToProps(state) {
   return { isLogin: login };
 }
 
-export default connect(mapStateToProps, { change, getUser })(PrivateRoute);
+PrivateRoute.displayName = 'PrivateRoute';
+
+export default connect(mapStateToProps, { change, getUser })(React.memo(PrivateRoute));

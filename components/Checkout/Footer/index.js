@@ -1,5 +1,4 @@
 import _ from 'lodash';
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import Alert from 'react-s-alert';
 import Loader from 'react-loaders';

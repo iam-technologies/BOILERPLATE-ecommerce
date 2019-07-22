@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
