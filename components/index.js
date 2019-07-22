@@ -9,6 +9,7 @@ import Login from './Account/Login';
 import PrivateRoute from './PrivateRoute';
 import Product from './product/Product';
 import Search from './search/Search';
+import SearchPopup from './search/SearchPopup';
 import SearchByBudget from './search/SearchByBudget';
 
 export {
@@ -23,5 +24,6 @@ export {
   PrivateRoute,
   Product,
   Search,
+  SearchPopup,
   SearchByBudget
 };
