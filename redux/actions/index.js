@@ -7,6 +7,7 @@ import showImgAttributeActs from './showImgAttributeActs';
 import showLoginActs from './showLoginActs';
 import userActs from './userActs';
 import windowResizeActs from './windowResizeActs';
+import showSearchActs from './showSearchActs';
 
 
 export {
@@ -18,5 +19,6 @@ export {
   showImgAttributeActs,
   showLoginActs,
   userActs,
-  windowResizeActs
+  windowResizeActs,
+  showSearchActs
 };

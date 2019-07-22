@@ -8,7 +8,7 @@
 import { combineReducers } from 'redux';
 
 // import { langTrans } from '../../components/Translation/reducer'; // uncomment
-// import { showSearch } from '../../components/search/reducer'; // uncomment
+import showSearch from './showSearch';
 import carts from './carts';
 import configAttr from './configAttr';
 import isLogin from './isLogin';
@@ -31,7 +31,7 @@ export default combineReducers({
   showImgAttribute,
   showLogin,
   pageReducer,
-  // showSearch, // uncomment
+  showSearch,
   user,
   windowResize
 });

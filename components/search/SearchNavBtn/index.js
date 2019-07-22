@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { showSearchActs } from '../reducer';
+// import { showSearchActs } from '../reducer'; // version anterior con reducer en la misma carpeta
+import { showSearchActs } from '../../../redux/actions';
 
 
 class SearchNavBtn extends React.Component {
