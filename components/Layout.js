@@ -1,24 +1,9 @@
-import React, { Fragment, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { Fragment } from 'react';
 
 import Footer from './Footer';
 import NavBar from './Navbar';
-// import api from '../serverServices/api';
-// import { isLoginActs, userActs } from '../redux/actions';
 
-
-// const { change } = isLoginActs;
-// const { getUser } = userActs;
-
-const Layout = ({ children, pathname/* , change, getUser */ }) => {
-  // useEffect(() => {
-  //   api.account.onLogin((error, resLogin) => {
-  //     change(resLogin || !error);
-
-  //     if (resLogin) getUser();
-  //   });
-  // }, []);
-
+const Layout = ({ children, pathname }) => {
   return (
     <Fragment>
       <NavBar pathname={pathname} />
@@ -28,4 +13,4 @@ const Layout = ({ children, pathname/* , change, getUser */ }) => {
   );
 };
 
-export default connect(null/* , { change, getUser } */)(Layout);
+export default (Layout);

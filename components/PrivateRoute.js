@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import api from '../serverServices/api';
 import { isLoginActs, userActs } from '../redux/actions';
-// import LoginTo from './Account/Login/LoginTo';
+
 import MyAccount from './MyAccount';
 import Profile from './MyAccount/Profile';
 import OrderList from './MyAccount/OrderList';
@@ -14,6 +14,7 @@ import Favourites from './MyAccount/Favourites';
 
 const { change } = isLoginActs;
 const { getUser } = userActs;
+
 const PrivateRoute = ({ isLogin, isServer, pathname, change, getUser }) => {
   const [isClient, setclient] = useState(!isServer);
 

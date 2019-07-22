@@ -5,6 +5,7 @@ import Compare from './Compare/CompareProducts';
 import CookiesPopup from './CookiesPopup';
 import Home from './Home';
 import Layout from './Layout';
+import Login from './Account/Login';
 import PrivateRoute from './PrivateRoute';
 import Product from './product/Product';
 import Search from './search/Search';
@@ -18,6 +19,7 @@ export {
   CookiesPopup,
   Home,
   Layout,
+  Login,
   PrivateRoute,
   Product,
   Search,

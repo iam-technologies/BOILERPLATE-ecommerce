@@ -74,7 +74,9 @@ class Login extends Component {
 
   render() {
     const { email, password, errors, loading } = this.state;
-    const { show } = this.props;
+    const { show, isLogin } = this.props;
+
+    if (isLogin) return null;
 
     return (
       <div className={`login_app${show ? '-show' : ''}`}>
@@ -156,4 +158,7 @@ class Login extends Component {
   }
 }
 
-export default connect(state => ({ show: state.showLogin.show }))(Login);
+export default connect(state => ({
+  isLogin: state.isLogin.login,
+  show: state.showLogin.show
+}))(Login);

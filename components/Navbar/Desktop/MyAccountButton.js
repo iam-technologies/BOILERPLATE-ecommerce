@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Link from 'next/link';
+import Router from 'next/router';
 import React, { Component } from 'react';
 
 import { showLoginActs } from '../../../redux/actions';
@@ -18,20 +19,28 @@ class MyAccountButton extends Component {
   onClick(e) {
     e.preventDefault();
 
-    this.showLogin.show(true);
+    const { isLogin } = this.props;
+
+    if (isLogin) Router.push('/my-account');
+    else this.showLogin.show(true);
   }
 
   render() {
     const { isLogin } = this.props;
 
     return (
-      <Link
-        onClick={isLogin ? () => {} : this.onClick}
-        href="/my-account"
-      >
+      <div onClick={this.onClick}>
         <img src={`../../../static/images/icon_my-account${isLogin ? '_login' : ''}.png`} alt="User's My account" />
-      </Link>
+      </div>
     );
+    // return (
+    //   <Link
+    //     onClick={isLogin ? () => {} : this.onClick}
+    //     href="/my-account"
+    //   >
+    //     <img src={`../../../static/images/icon_my-account${isLogin ? '_login' : ''}.png`} alt="User's My account" />
+    //   </Link>
+    // );
   }
 }
 
