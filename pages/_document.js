@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 
 class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const sheets = new ServerStyleSheets();
+    const originalRenderPage = ctx.renderPage;
+
+    ctx.renderPage = () => originalRenderPage({
+      enhanceApp: App => props => sheets.collect(<App {...props} />)
+    });
+
+    const { isServer } = ctx;
+    const isProduction = process.env.NODE_ENV === 'production';
+    const initialProps = await Document.getInitialProps(ctx);
+
+    return {
+      ...initialProps,
+      isProduction,
+      isServer,
+      styles: [
+        <Fragment key="styles">
+          {initialProps.styles}
+          {sheets.getStyleElement()}
+        </Fragment>
+      ]
+    };
+  }
+
   render() {
-    const { themeContext } = this.props;
+    const { themeContext, isProduction, isServer } = this.props;
 
     return (
       <html lang="en-US">
@@ -39,31 +64,18 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          {/* {isProduction && <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22194548-1" />} */}
+          <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPgiPZzi-sVuuuw6pKhiVpAPcQDp5P3nI&libraries=places&language=es"
+            async
+            defer
+          />
+          <script src="https://js.stripe.com/v3/" />
         </body>
       </html>
     );
   }
 }
-
-MyDocument.getInitialProps = async (ctx) => {
-  const sheets = new ServerStyleSheets();
-  const originalRenderPage = ctx.renderPage;
-
-  ctx.renderPage = () => originalRenderPage({
-    enhanceApp: App => props => sheets.collect(<App {...props} />)
-  });
-
-  const initialProps = await Document.getInitialProps(ctx);
-
-  return {
-    ...initialProps,
-    styles: [
-      <React.Fragment key="styles">
-        {initialProps.styles}
-        {sheets.getStyleElement()}
-      </React.Fragment>
-    ]
-  };
-};
 
 export default MyDocument;

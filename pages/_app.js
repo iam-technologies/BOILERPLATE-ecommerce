@@ -43,11 +43,9 @@ class MyApp extends App {
       <Provider store={store}>
         <SearchPopup />
         <CartPopup />
+        <CookiesPopup />
         <MuiThemeProvider>
-          <div>
-            <CookiesPopup />
-            <Component {...pageProps} />
-          </div>
+          <Component {...pageProps} />
         </MuiThemeProvider>
       </Provider>
     );

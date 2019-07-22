@@ -2,8 +2,8 @@ import { isClient } from '../../../serverServices/utils';
 
 
 export default ({ country, codePostal, city, address, countryName }, callback) => {
-  let geocoder;
-  if (isClient) geocoder = new window.google.maps.Geocoder();
+  if (!isClient) return;
+  const geocoder = new window.google.maps.Geocoder();
 
   const params = {
     componentRestrictions: {
