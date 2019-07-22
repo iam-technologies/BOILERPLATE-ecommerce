@@ -74,8 +74,8 @@ class Checkout extends Component {
     }
 
     if (path !== 'paymentMethod'
-        && path != 'acceptTerms'
-        && path != 'newsletter'
+        && path !== 'acceptTerms'
+        && path !== 'newsletter'
         && _.get(item, 'paymentMethod', '') !== '') {
       const paymentMethod = _.get(item, 'paymentMethod', '');
       if (paymentMethod === 'paypal') delete item.paymentMethod;
@@ -173,10 +173,10 @@ class Checkout extends Component {
 
     if (_.get(cart, 'discount.shippingFree')) {
       shipping = { type: 'free', price: 0 };
-    } else if (shipping.type == 'saturday'
-      || shipping.type == 'standard'
-      || shipping.type == 'canariasStandard'
-      || shipping.type == 'canariasFast'
+    } else if (shipping.type === 'saturday'
+      || shipping.type === 'standard'
+      || shipping.type === 'canariasStandard'
+      || shipping.type === 'canariasFast'
     ) {
       amountTotal += shipping.price;
     } else {
