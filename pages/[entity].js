@@ -1,31 +1,19 @@
 import React from 'react';
 
-import { Product, Category, Layout, PrivateRoute } from '../components';
+import { Product, Category, Layout } from '../components';
 import { api } from '../serverServices';
 import { routes as utilsRoutes } from '../utils';
 
-const dynamicPage = ({ serverUrl, routes, isServer }) => {
+const dynamicPage = ({ serverUrl, routes }) => {
   let type = '';
 
   const category = utilsRoutes.isCategory(serverUrl, routes);
   if (category) type = 'category';
 
-  const privateRoutes = [
-    '/my-account',
-    '/addresses',
-    '/profile',
-    '/orders',
-    '/orders/:id',
-    '/favourites'];
-
-  if (privateRoutes.indexOf(serverUrl) !== -1) type = 'private_route';
-
   const getItems = (entity) => {
     switch (entity) {
       case 'category':
         return <Category id={category._id} pathname={serverUrl} />;
-      case 'private_route':
-        return <PrivateRoute pathname={serverUrl} isServer={isServer} />;
       default:
         return <Product url={serverUrl} />;
     }
@@ -45,7 +33,7 @@ dynamicPage.getInitialProps = async ({ isServer, asPath, req }) => {
 
   const serverUrl = isServer ? req.url : asPath;
 
-  return { serverUrl, routes, isServer };
+  return { serverUrl, routes };
 };
 
 export default dynamicPage;

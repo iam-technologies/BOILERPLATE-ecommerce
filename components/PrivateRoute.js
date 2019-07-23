@@ -1,21 +1,14 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 import { connect } from 'react-redux';
 
 import api from '../serverServices/api';
 import { isLoginActs, userActs } from '../redux/actions';
 
-import MyAccount from './MyAccount';
-import Profile from './MyAccount/Profile';
-import OrderList from './MyAccount/OrderList';
-import Address from './MyAccount/Address';
-// import Order from './MyAccount/Order';
-import Favourites from './MyAccount/Favourites';
-
 const { change } = isLoginActs;
 const { getUser } = userActs;
 
-const PrivateRoute = ({ isLogin, isServer, pathname, change, getUser }) => {
+const PrivateRoute = ({ isLogin, isServer, change, getUser, children }) => {
   const [isClient, setclient] = useState(!isServer);
 
   useEffect(() => {
@@ -31,22 +24,9 @@ const PrivateRoute = ({ isLogin, isServer, pathname, change, getUser }) => {
     });
   }, []);
 
-  if (!isClient) return <div>loading...</div>; // TODO (maybe use Layout)
+  if (!isClient) return <div>loading...</div>; // TODO
 
-  switch (pathname) {
-    case '/my-account':
-      return <MyAccount />;
-    case '/addresses':
-      return <Address />;
-    case '/profile':
-      return <Profile />;
-    case '/orders':
-      return <OrderList />;
-    case '/favourites':
-      return <Favourites />;
-    default:
-      return <div>this is a private route...</div>;
-  }
+  return children;
 };
 
 function mapStateToProps(state) {
@@ -55,6 +35,4 @@ function mapStateToProps(state) {
   return { isLogin: login };
 }
 
-PrivateRoute.displayName = 'PrivateRoute';
-
-export default connect(mapStateToProps, { change, getUser })(React.memo(PrivateRoute));
+export default connect(mapStateToProps, { change, getUser })(PrivateRoute);

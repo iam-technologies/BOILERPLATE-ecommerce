@@ -18,25 +18,18 @@ module.exports = routes()
   .add('/search/:key', 'search/[key]')
   .add('/budget/:price', 'budget/[price]')
 
-  // CATEGORIAS / PRODUCTOS
-  // .add('/:product', '[product]')
-  .add('/:product', '[entity]')
-  // .add('/:product/:index', '[product]/[index]')
-  .add('/comparador-de-productos/:name', 'comparador-de-productos/[name]')
-
   // PRIVATE ROUTES
-  // .add('/my-account', 'my-account')
-  // .add('/addresses', 'addresses')
-  // .add('/profile', 'profile')
-  // .add('/orders', 'orders')
-  // .add('/orders/:id', 'orders/[id]')
-  // .add('/favourites', 'favourites')
-  .add('/my-account', '[entity]')
-  .add('/addresses', '[entity]')
-  .add('/profile', '[entity]')
-  .add('/orders', '[entity]')
-  .add('/orders/:id', '[entity]')
-  .add('/favourites', '[entity]')
+  .add('/my-account', 'my-account')
+  .add('/addresses', 'addresses')
+  .add('/profile', 'profile')
+  .add('/orders', 'orders')
+  .add('/orders/:id', 'orders/[id]')
+  .add('/favourites', 'favourites')
 
   // NOT FOUND
-  .add('/404', 'pageNotFound');
+  .add('/404', 'pageNotFound')
+
+  // CATEGORIAS / PRODUCTOS
+  .add('/:product', '[entity]')
+  // .add('/:product/:index', '[product]/[index]')
+  .add('/comparador-de-productos/:name', 'comparador-de-productos/[name]');
