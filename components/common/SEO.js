@@ -12,18 +12,19 @@ const defaultSeo = {
   img: '',
   content: '',
   type: 'website',
-  url: 'www.cocholate.es'
+  rootUrl: 'www.cocholate.es',
+  path: '/'
 };
 
 const SEO = (props) => {
   const {
     title = defaultSeo.title,
     description = defaultSeo.desc,
-    image = defaultSeo.img
+    image = defaultSeo.img,
+    path = defaultSeo.path
   } = props;
 
-  let { url } = defaultSeo;
-  if (typeof window === 'object') url = window.location.href;
+  const url = defaultSeo.rootUrl + path;
 
   return (
     <Head>

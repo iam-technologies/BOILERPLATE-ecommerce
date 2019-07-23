@@ -22,6 +22,7 @@ const dynamicPage = ({ content = {}, serverUrl, categoryId = '' }) => {
         title={title}
         description={desc}
         image={attachment}
+        path={serverUrl}
       />
       {getItems(categoryId)}
     </Layout>
