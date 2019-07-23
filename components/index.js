@@ -11,6 +11,7 @@ import Layout from './Layout';
 import Login from './Account/Login';
 import MyAccount from './MyAccount';
 import OrderList from './MyAccount/OrderList';
+import Order from './MyAccount/Order';
 import PrivateRoute from './PrivateRoute';
 import Product from './product/Product';
 import Profile from './MyAccount/Profile';
@@ -30,6 +31,7 @@ export {
   Layout,
   Login,
   MyAccount,
+  Order,
   OrderList,
   PrivateRoute,
   Product,

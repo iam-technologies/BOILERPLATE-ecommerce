@@ -1,7 +1,9 @@
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+// import { Link, Redirect } from 'react-router-dom';
+import Link from 'next/link';
+import Router from 'next/router';
 import React, { Component } from 'react';
 
 import { api } from '../../../serverServices';
@@ -102,12 +104,13 @@ class Order extends Component {
 
     if (sendToCheckout) {
       return (
-        <Redirect
-          href={{
-            pathname: '/budget-checkout',
-            state: { order: item }
-          }}
-        />
+        Router.push('/budget-checkout')
+        // <Redirect
+        //   href={{
+        //     pathname: '/budget-checkout',
+        //     state: { order: item }
+        //   }}
+        // />
       );
     }
 
