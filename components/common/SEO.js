@@ -13,7 +13,7 @@ const defaultSeo = {
   content: '',
   type: 'website',
   rootUrl: 'www.cocholate.es',
-  path: '/'
+  path: ''
 };
 
 const SEO = (props) => {

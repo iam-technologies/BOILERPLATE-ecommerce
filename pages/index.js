@@ -17,7 +17,6 @@ const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) 
         title={title}
         description={desc}
         image={attachment}
-        path={pathname}
       />
       <Home
         content={content}
