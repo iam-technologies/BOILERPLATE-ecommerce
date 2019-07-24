@@ -22,7 +22,7 @@ export default class Nav extends React.Component {
 
   render() {
     const { lastLocation, item } = this.props;
-
+    console.log('lastLocation = ', lastLocation);
     return (
       <div className="a_p-nav">
         {
