@@ -10,7 +10,6 @@ import { msgUI, checkFields } from '../../../utils';
 import { api } from '../../../serverServices';
 import { TextInput, ButtonInput } from '../../common';
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -86,7 +85,7 @@ class Login extends Component {
             onClick={this.onClose}
           >
             <a className="header_login-logo">
-              <img src="/images/logo_search.png" alt="Cocholate" />
+              <img src="../../../static/images/icon_logotipo_neutro.png" alt="Cocholate" />
             </a>
           </Link>
 
@@ -95,7 +94,7 @@ class Login extends Component {
             onClick={this.onClose}
             type="button"
           >
-            <img src="/images/icon_close.png" alt="Cross" />
+            <img src="../../../static/images/icon_close.png" alt="Cross" />
           </button>
         </header>
 

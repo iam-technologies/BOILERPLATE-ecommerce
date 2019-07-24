@@ -1,5 +1,9 @@
 // NAVBAR / DESKTOP
 
+
+// FILTER UI TOP: Z-index: 9
+// modificar z-index en .app-header
+
 .nav_desk {
   @include transition(all 800ms );
   background-color: initial;

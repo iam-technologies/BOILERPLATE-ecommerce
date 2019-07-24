@@ -37,7 +37,7 @@ class Compare extends Component {
                   <a>
                     <ButtonInput
                       label="VER COMPARATIVA"
-                      icon="/images/icon_compare.png"
+                      icon="../../../static/images/icon_compare.png"
                       className="compare_ui-button"
                       onClick={() => { }}
                     />
@@ -52,7 +52,7 @@ class Compare extends Component {
               <React.Fragment>
                 <ButtonInput
                   label="COMPARAR"
-                  icon="/images/icon_compare.png"
+                  icon="./../../static/images/icon_compare.png"
                   className={`compare_ui-button ${clickCompare ? 'compare_ui-button-active' : 'compare_ui-button-inactive'}`}
                   onClick={this.onClick}
                 />

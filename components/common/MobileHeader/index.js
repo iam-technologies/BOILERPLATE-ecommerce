@@ -10,7 +10,6 @@ import { withWindowResize } from '../../hoc';
 import SearchNavBtn from '../../search/SearchNavBtn';
 import CartNavBtn from '../../shoppingCart/CartNavBtn';
 
-
 class MobileHeader extends Component {
   constructor(props) {
     super(props);
@@ -21,11 +20,13 @@ class MobileHeader extends Component {
 
 
   render() {
+    console.log('props green / screen = ', this.props.green, ' / ', this.props.screen);
+
     const {
       className, home, green, screen, text, subText, logo, hiddenSandwich, hiddenSearch, showCart, lastLocation
     } = this.props;
 
-    const sandwichImage = green || home ? '/images/sandwich.png' : '/images/sandwich_grey.png';
+    const sandwichImage = green || home ? '../../../static/images/sandwich.png' : '../../../static/images/sandwich_grey.png';
 
     if (screen === 'lg') return null;
 
@@ -46,7 +47,7 @@ class MobileHeader extends Component {
           lastLocation && (
             <Link href={lastLocation}>
               <a className="header_mobile_ui-icon_previous">
-                <img src="/images/icon_nav_previow.png" alt="previos" />
+                <img src="../../../static/images/icon_nav_previouw.png" alt="previos" />
               </a>
             </Link>
           )
@@ -55,7 +56,7 @@ class MobileHeader extends Component {
           logo && (
             <Link href="/">
               <a className="header_mobile_ui-logo">
-                <img src="/images/logo.png" alt="Cocholate" />
+                <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
               </a>
             </Link>
           )
@@ -105,6 +106,5 @@ MobileHeader.defaultProps = {
   showCart: false,
   subText: ''
 };
-
 
 export default connect()(withWindowResize(MobileHeader));

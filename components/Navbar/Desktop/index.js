@@ -9,7 +9,6 @@ import MyAccountButton from './MyAccountButton';
 import { LinkCategory } from '../../common';
 import ListSubCategory from './ListSubCategory';
 
-
 export default class NavbarDesktop extends React.Component {
   constructor(props) {
     super(props);
@@ -75,7 +74,7 @@ export default class NavbarDesktop extends React.Component {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src="/images/logo.svg" alt="YOUR COMPANY" />
+                <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
               </a>
             </Link>
           </div>

@@ -19,7 +19,7 @@ export default class ButtonInput extends Component {
         onClick={this.onClick}
         type="button"
       >
-        { icon && <img src={icon} alt="icon"/> }
+        { icon && <img src={icon} alt="icon" /> }
         { label }
       </button>
     );

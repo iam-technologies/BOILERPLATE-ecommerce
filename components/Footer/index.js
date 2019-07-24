@@ -80,7 +80,7 @@ class Footer extends Component {
               <div className="logo">
                 <Link href="/">
                   <a>
-                    <img src="/images/logo.svg" alt="YOUR COMPANY" />
+                    <img src="../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
                   </a>
                 </Link>
               </div>
@@ -99,7 +99,7 @@ class Footer extends Component {
               </div>
             </div>
 
-            <p className="blog"><a href="https://blog.cocholate.es/" target="_blank" rel="noopener noreferrer">Visita nuestro blog</a></p>
+            <p className="blog"><a href="https://blog.es/" target="_blank" rel="noopener noreferrer">Visita nuestro blog</a></p>
 
             {
               screen !== 'xs' && contactoFooter
