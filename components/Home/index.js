@@ -26,9 +26,10 @@ const Home = ({ content, selection, imgUrl = '', loaded, screen = 'm' }) => {
   return (
     <section className={`app-home animation_opacity${show ? '-remove' : ''}`}>
       <MobileHeader home logo />
-      {(screen === 'xs')
-        ? <div className="app-home_hero" style={{ backgroundImage: `url(${imgUrl})` }} />
-        : <Carousel items={carouselItems} />}
+      {
+        (screen === 'xs') ? <div className="app-home_hero" style={{ backgroundImage: `url(${imgUrl})` }} />
+          : <Carousel items={carouselItems} />
+      }
       <PriceSlider />
       <Grid items={grid} />
       {screen !== 'xs' && (
