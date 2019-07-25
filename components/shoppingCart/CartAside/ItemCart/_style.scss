@@ -1,9 +1,10 @@
 .item_cart_ui {
-  @include flex-complete();
+  // @include flex-complete();
+  display: flex;
+  justify-content: space-between;
   color : $color04;
   height: 90px;
   margin: 35px 0;
-
   @media #{$xs} {
     height        : 90px;
     margin        : 20px 0;
@@ -112,7 +113,7 @@
       }
     }
   }
-
+  
   .right {
     @include flex-complete(flex-end, center, wrap);
     text-align: center;
@@ -157,20 +158,43 @@
 }
 
 .dialog_remove_item_cart {
-  .dialog_title {
-    color        : $color04;
-    font-size    : 16px;
-    margin-bottom: 50px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+
+  .remove_item_title_container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    padding: 20px 0px;
+
+    .dialog_title {
+      color        : $color04;
+      font-size    : 16px;
+    }
   }
 
   .btn_dialog {
-    text-align: right;
+    // text-align: right;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
 
     .button_ui {
-      height     : 44px;
-      line-height: 44px;
-      margin-left: 30px;
-      min-width  : 160px;
+      height      : 44px;
+      line-height : 44px;
+      margin-left : 30px;
+      margin-right: 20px;
+      min-width   : 160px;
     }
   }
 }

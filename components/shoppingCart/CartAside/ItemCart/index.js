@@ -2,6 +2,7 @@ import _ from 'lodash';
 import Link from 'next/link';
 // import Dialog from 'material-ui/Dialog';
 import Dialog from '@material-ui/core/Dialog';
+import Slide from '@material-ui/core/Slide';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -74,6 +75,10 @@ export default class ItemCart extends Component {
     const price = priceCalc.get(_.get(item, 'product', {}), _.get(item, 'config', {}));
     const itemConfig = this.getConfig(item);
 
+    const Transition = React.forwardRef((props, ref) => {
+      return <Slide direction="down" ref={ref} {...props} />;
+    });
+
     return (
       <div className="item_cart_ui">
         {
@@ -83,11 +88,14 @@ export default class ItemCart extends Component {
               actions={null}
               modal={false}
               open={open}
+              fullWidth
               onRequestClose={this.onClose}
+              TransitionComponent={Transition}
             >
               <div className="dialog_remove_item_cart">
-                <p className="dialog_title">¿Está seguro de que desea eliminar el producto del carrito?</p>
-
+                <div className="remove_item_title_container">
+                  <p className="dialog_title">¿Está seguro de que desea eliminar el producto del carrito?</p>
+                </div>
                 <div className="btn_dialog">
                   <ButtonInput
                     label="CANCELAR"
@@ -104,20 +112,20 @@ export default class ItemCart extends Component {
           ) : null
         }
 
-        <Link
+        <div
           onClick={this.onClosePopup}
-          href={linkTo}
         >
           <a
             className="left"
+            href={linkTo}
             style={{ backgroundImage: `url(${imgServices.getUrl(_.get(item, 'product.img.0', ''), 'mobile_2x')})` }}
           />
-        </Link>
-        <Link
+        </div>
+        <div
           onClick={this.onClosePopup}
-          href={linkTo}
         >
           <a
+            href={linkTo}
             className="center"
             style={{ zIndex: 1000 - index }}
           >
@@ -128,7 +136,7 @@ export default class ItemCart extends Component {
               { dataFormat.formatCurrency(price) }
             </div>
           </a>
-        </Link>
+        </div>
 
         <div className="right">
           {

@@ -1,73 +1,76 @@
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import Router from 'next/router';
 import React from 'react';
 
 import { isClient } from '../../../../serverServices/utils';
-
 import { SocialNav } from '../../../common';
 
+const goBack = () => {
+  window.history.back();
+};
 
-export default class Nav extends React.Component {
-  constructor(props) {
-    super(props);
+const Nav = ({ item }) => {
+  return (
+    <div className="a_p-nav">
+      {
+        isClient && window.history.length >= 2 ? (
+          <div
+            onClick={goBack}
+          >
+            <a className="a_p-nav-btn_return">
+              <div className="icon_preview" />
+              <p>Volver al listado</p>
+            </a>
+          </div>
+        ) : (
+          <div />
+        )
+      }
 
-    this.goBack = this.goBack.bind(this);
-  }
+      <SocialNav item={item} />
+    </div>
+  );
+};
 
-
-  // goBack() {
-  //   const { lastLocation } = this.props;
-
-  //   return lastLocation;
-  // }
-
-  goBack() {
-    window.history.back();
-  }
-
-  render() {
-    const { lastLocation, item } = this.props;
-    console.log('window.history.length = ', window.history.length);
-    return (
-      <div className="a_p-nav">
-        {/* {
-          lastLocation ? (
-            <Link
-              href={this.goBack()}
-            >
-              <a className="a_p-nav-btn_return">
-                <div className="icon_preview" />
-                <p>Volver al listado</p>
-              </a>
-            </Link>
-          ) : (
-            <div />
-          )
-        } */}
-
-        {
-          isClient && window.history.length >= 2 ? (
-            <div
-              onClick={this.goBack}
-            >
-              <a className="a_p-nav-btn_return">
-                <div className="icon_preview" />
-                <p>Volver al listado</p>
-              </a>
-            </div>
-          ) : (
-            <div />
-          )
-        }
-
-        <SocialNav item={item} />
-      </div>
-    );
-  }
-}
+export default Nav;
 
 
-Nav.propTypes = { lastLocation: PropTypes.string };
+// import React from 'react';
 
-Nav.defaultProps = { lastLocation: '' };
+// import { isClient } from '../../../../serverServices/utils';
+// import { SocialNav } from '../../../common';
+
+
+// export default class Nav extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.goBack = this.goBack.bind(this);
+//   }
+
+//   goBack() {
+//     window.history.back();
+//   }
+
+//   render() {
+//     const { item } = this.props;
+//     return (
+//       <div className="a_p-nav">
+//         {
+//           isClient && window.history.length >= 2 ? (
+//             <div
+//               onClick={this.goBack}
+//             >
+//               <a className="a_p-nav-btn_return">
+//                 <div className="icon_preview" />
+//                 <p>Volver al listado</p>
+//               </a>
+//             </div>
+//           ) : (
+//             <div />
+//           )
+//         }
+
+//         <SocialNav item={item} />
+//       </div>
+//     );
+//   }
+// }
