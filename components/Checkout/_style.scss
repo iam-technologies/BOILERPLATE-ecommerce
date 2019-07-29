@@ -1,3 +1,5 @@
+
+
 .app_checkout {
   @include flex-complete(space-between, stretch);
   background-color: $color18;
@@ -24,6 +26,12 @@
 
     @media #{$xs} {
       padding: 20px 15px 40px;
+    }
+    .lalala{
+      background-color: white;
+      font-size: 40px;
+      color: red;
+      z-index: 100;
     }
 
     .link_login {

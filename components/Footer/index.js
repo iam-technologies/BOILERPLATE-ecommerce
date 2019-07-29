@@ -13,7 +13,7 @@ const contactoFooter = (
     <p className="app_footer-title">CONTACTO</p>
     <p>914 415 645 | 654 633 778 | 673 608 997 (WhatsApp)</p>
     <p className="direction">C/ Espronceda 27, 1ºC – 28003 Madrid</p>
-    <p className="mail"><a href="mailto:pedidos@cocholate.es">pedidos@cocholate.es</a></p>
+    <p className="mail"><a href="mailto:pedidos@ourcompany.es">pedidos@cocholate.es</a></p>
 
   </div>
 );

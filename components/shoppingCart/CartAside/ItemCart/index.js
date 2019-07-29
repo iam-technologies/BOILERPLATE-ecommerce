@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import Link from 'next/link';
+// import Link from 'next/link';
 // import Dialog from 'material-ui/Dialog';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';

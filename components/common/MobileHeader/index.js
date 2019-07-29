@@ -20,8 +20,6 @@ class MobileHeader extends Component {
 
 
   render() {
-    console.log('props green / screen = ', this.props.green, ' / ', this.props.screen);
-
     const {
       className, home, green, screen, text, subText, logo, hiddenSandwich, hiddenSearch, showCart, lastLocation
     } = this.props;

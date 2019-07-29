@@ -85,7 +85,7 @@ class Login extends Component {
             onClick={this.onClose}
           >
             <a className="header_login-logo">
-              <img src="../../../static/images/icon_logotipo_neutro.png" alt="Cocholate" />
+              <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
             </a>
           </Link>
 

@@ -212,6 +212,8 @@ class Checkout extends Component {
   }
 
   render() {
+    console.log('checkout state = ', this.state);
+
     const {
       indexTab, item, errors, redirect, method, userName, amountTotal, numOrder
     } = this.state;
@@ -236,7 +238,7 @@ class Checkout extends Component {
 
     const country = _.get(item, 'sendOrder.country', '') === 'Otros';
 
-
+    console.log('isLogin :', isLogin);
     return (
       <section className="app_checkout" ref={this.refCheckout}>
         <MobileHeader
@@ -244,10 +246,11 @@ class Checkout extends Component {
         />
 
         <div className="app_checkout-left">
+
           <header className="app_checkout-header">
             <Link href="/">
               <a className="link">
-                <img src="/images/logo_search.png" alt="Cocholate" />
+                <img src="../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
               </a>
             </Link>
 
@@ -344,7 +347,9 @@ class Checkout extends Component {
             shipping={_.get(item, 'shipping.price', '')}
           />
         </div>
+
       </section>
+
     );
   }
 }

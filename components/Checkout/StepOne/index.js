@@ -122,7 +122,7 @@ export default class StepOne extends Component {
                 path="sendOrderType"
                 onChange={this.onChange}
                 value="cocholate"
-              >Quiero recogerlo en las oficinas de Cocholate.
+              >Quiero recogerlo en las oficinas de Your Company.
               </RadioInput>
             </div>
           ) : (

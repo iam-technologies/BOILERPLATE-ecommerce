@@ -81,7 +81,6 @@ class Product extends React.Component {
   render() {
     const { product, loaded, refundsText } = this.state;
     const { location, url } = this.props;
-    console.log('location en el prduct: ', location);
 
     // const productName = _.get(product, 'name.es', 'Producto de cocholate');
     // const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');

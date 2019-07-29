@@ -8,8 +8,8 @@ const checkout = () => (
   </Layout>
 );
 
-checkout.getInitialProps = async () => {
-  console.log('checkout page: ');
-};
+// checkout.getInitialProps = async () => {
+//   console.log('checkout page: ');
+// };
 
 export default checkout;

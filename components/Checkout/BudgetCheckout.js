@@ -255,7 +255,7 @@ class BudgetCheckout extends Component {
 
           <div className="app_checkout-legal">
             <strong>Información básica sobre protección de datos</strong><br />
-            <strong>Responsable:</strong> Cocholate Decoración SL&nbsp;(
+            <strong>Responsable:</strong> YOUR COMPANY &nbsp;(
             <Link href="/legal/cookies" target="_blank">
               <a>+info</a>
             </Link>)<br />
