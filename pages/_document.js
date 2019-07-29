@@ -34,32 +34,28 @@ class MyDocument extends Document {
     return (
       <html lang="en-US">
         <Head>
-          <meta
+          {/* <meta
             name="theme-color"
             content={themeContext ? themeContext.theme.palette.primary.main : null}
-          />
-          <link
-            rel="shortcut icon"
-            href="/static/favicon.ico"
-            type="image/x-icon"
-          />
-          <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/static/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/static/favicon-16x16.png"
-          />
+          /> */}
+
           <meta charSet="utf-8" />
           <meta name="description" content="añada descripción de su tienda" />
+          <meta name="theme-color" content="#97DECC" />
+          {/* <meta name="theme-color" content="#ffffff" /> */}
+
+          <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png" />
+          <link rel="manifest" href="../static/favicon/site.webmanifest" />
+          <link rel="mask-icon" href="../static/favicon/safari-pinned-tab.svg" color="#97decc" />
+          <link rel="shortcut icon" href="../static/favicon/favicon.ico" />
+
+          <meta name="msapplication-TileColor" content="#97DECC" />
+          <meta name="msapplication-config" content="../static/favicon/browserconfig.xml" />
 
           <meta name="viewport" content="minimum-scale=1, width=device-width, initial-scale=1, shrink-to-fit=no" />
+
           {/* Google Tag Manager */}
           <script dangerouslySetInnerHTML={{ __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -68,7 +64,10 @@ class MyDocument extends Document {
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-WDPJN7K');` }}
           />
+
+
         </Head>
+
         <body>
           <Main />
           <NextScript />

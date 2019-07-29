@@ -5,7 +5,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 // import SelectField from 'material-ui/SelectField';
-import SelectField from '@material-ui/core/Select';
+import Select from '@material-ui/core/Select';
+
 import { withWindowResize } from '../../../../../hoc';
 
 import { configAttrActs, showImgAttributeActs } from '../../../../../../redux/actions';
@@ -68,7 +69,7 @@ class StepSelect extends Component {
       >
         <div className="step-select">
           <div className="select_ui">
-            <SelectField
+            <Select
               fullWidth
               hintText={title.length > 25 ? `${title.substr(0, 25)}...` : title}
               labelStyle={this.styleLabel}
@@ -76,8 +77,9 @@ class StepSelect extends Component {
               menuItemStyle={this.styleLabel}
               onChange={this.onChange}
               selectedMenuItemStyle={{ color: '#323C47' }}
-              underlineShow={false}
+              disableUnderline
               value={_.get(config, 'key', '')}
+              icon="red"
             >
               {
                 item.values.map((v) => {
@@ -108,7 +110,7 @@ class StepSelect extends Component {
                   );
                 })
               }
-            </SelectField>
+            </Select>
           </div>
         </div>
       </WrapperStep>
