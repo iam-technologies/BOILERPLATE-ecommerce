@@ -29,20 +29,22 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    width: '100%',
-    backgroundColor: 'blue'
+    width: '100%'
+    // backgroundColor: 'blue'
   },
   labelField: {
-    color: 'red',
-    marginTop: '-20px'
+    marginTop: '-20px',
+    color: 'rgb(217,217,217)',
+    fontSize: '16px',
+    letterSpacing: '0.98px'
   },
   select: {
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
     marginTop: '-20px'
   },
-  // selectEmpty: {
-  //   marginTop: theme.spacing(2)
-  // },
+  selectEmpty: {
+    marginTop: theme.spacing(2)
+  },
   icon: {
     color: 'rgb(217,217,217)'
   }
@@ -121,11 +123,11 @@ function StepSelectBis(props) {
                 fullWidth
                 onChange={onChange}
                 classes={{
-                  select: classes.select,
-                  icon: classes.icon,
-                  selectMenu: classes.selectMenu,
-                  inputLabel: classes.inputLabel,
-                  input: classes.inputField
+                  select: classes.select
+                  // icon: classes.icon,
+                  // selectMenu: classes.selectMenu,
+                  // inputLabel: classes.inputLabel,
+                  // input: classes.inputField
                 }}
 
                 // inputProps={{
