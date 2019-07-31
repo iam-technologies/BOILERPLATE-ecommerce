@@ -10,7 +10,8 @@ import StepCheck from './StepCheck';
 import StepFonts from './StepFonts';
 import StepInput from './StepInput';
 import StepColors from './StepColors';
-import StepSelect from './StepSelect';
+// import StepSelect from './StepSelect';
+import StepSelectBis from './StepSelectBis';
 import StepUpload from './StepUpload';
 
 
@@ -205,7 +206,7 @@ class Stepper extends Component {
       switch (elem.type) {
         case 'size':
           return (
-            <StepSelect
+            <StepSelectBis
               config={stepConfig}
               item={elem}
               key={pathKey + index.toString()}
@@ -252,7 +253,7 @@ class Stepper extends Component {
 
         case 'other':
           return (
-            <StepSelect
+            <StepSelectBis
               config={stepConfig}
               item={elem}
               key={pathKey + index.toString()}
@@ -340,9 +341,9 @@ class Stepper extends Component {
               if (!typeNotAvailable) this.onNextTab();
             }}
           >{
-            typeNotAvailable ? 
-            <span>No disponible</span> :
-            (indexTab === maxTab ? <span>Añadir al carrito</span> : <span>Continuar <span className="icon_stepper" /></span>)
+            typeNotAvailable 
+            ? <span>No disponible</span>
+            : (indexTab === maxTab ? <span>Añadir al carrito</span> : <span>Continuar <span className="icon_stepper" /></span>)
             }
           </button>
         </div>

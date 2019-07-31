@@ -1,11 +1,14 @@
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
-// import MenuItem from 'material-ui/MenuItem';
-import MenuItem from '@material-ui/core/MenuItem';
+
+// MATERIAL-UI
+import Select from '@material-ui/core/Select';
+import { MenuItem } from '@material-ui/core';
+// to access m-UI styles
+import { withStyles } from '@material-ui/core/styles';
+
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-// import SelectField from 'material-ui/SelectField';
-import Select from '@material-ui/core/Select';
 
 import { withWindowResize } from '../../../../../hoc';
 
@@ -14,6 +17,27 @@ import { dataFormat, priceCalc } from '../../../../../../utils';
 import { Image } from '../../../../../common';
 import WrapperStep from '../WrapperStep';
 
+const StyledSelect = withStyles({
+  root: {
+    maxHeight: '200px',
+    background: 'red'
+  },
+  label: {
+    color: 'red'
+  },
+  icon: {
+    color: 'rgb(217,217,217)'
+  },
+  selectMenu: {
+    background: 'yellow',
+    color: '#9B9B9B',
+    fontSize: '16px',
+    letterSpacing: '0.98px'
+  },
+  input: {
+    label: 'AJDSKFJASD'
+  }
+})(Select);
 
 class StepSelect extends Component {
   constructor(props) {
@@ -25,10 +49,9 @@ class StepSelect extends Component {
     this.onAddAttr = bindActionCreators(configAttrActs, props.dispatch);
     this.onShowImg = bindActionCreators(showImgAttributeActs, props.dispatch);
 
-    this.styleLabel = { color: '#9B9B9B', fontSize: '16px', letterSpacing: '0.98px' };
-    this.innerDivStyle = { padding: '0px 20px 0px 20px', marginBottom: '5px' };
+    // this.styleLabel = { color: '#9B9B9B', fontSize: '16px', letterSpacing: '0.98px' };
+    this.innerDivStyle = { padding: '0px 20px 0px 20px', marginBottom: '5px', color: 'red' };
   }
-
 
   onChange(e, index, key) {
     const { item, pathKey } = this.props;
@@ -40,7 +63,6 @@ class StepSelect extends Component {
     this.onAddAttr.add({ [pathKey]: { item, key, price, value: elem[0] } });
   }
 
-
   onMouseEnter(elem) {
     const { item } = this.props;
     const img = dataFormat.getPreviewImg(item, elem);
@@ -49,7 +71,6 @@ class StepSelect extends Component {
       this.onShowImg.show(img);
     }
   }
-
 
   onMouseLeave(elem) {
     const { item } = this.props;
@@ -61,7 +82,11 @@ class StepSelect extends Component {
   }
 
   render() {
-    const { config, title, item, screen } = this.props;
+    // const { config, title, item, screen } = this.props;
+    const { config, item, screen } = this.props;
+
+    // const item = { values: ['item 1', 'item 2', 'item 3'] };
+    const title = 'Título jarcodeado para pruebas con material UI';
 
     return (
       <WrapperStep
@@ -69,21 +94,23 @@ class StepSelect extends Component {
       >
         <div className="step-select">
           <div className="select_ui">
-            <Select
+            <StyledSelect
               fullWidth
-              hintText={title.length > 25 ? `${title.substr(0, 25)}...` : title}
-              labelStyle={this.styleLabel}
-              maxHeight={200}
-              menuItemStyle={this.styleLabel}
+              // hintText={title.length > 25 ? `${title.substr(0, 25)}...` : title}
+              // labelStyle={this.styleLabel}
+              // maxHeight={200}
+              // menuItemStyle={this.styleLabel}
               onChange={this.onChange}
-              selectedMenuItemStyle={{ color: '#323C47' }}
+              // selectedMenuItemStyle={{ color: '#323C47' }}
               disableUnderline
               value={_.get(config, 'key', '')}
-              icon="red"
             >
               {
                 item.values.map((v) => {
+                  console.log('v / item ', v, '/', item);
+
                   const elem = dataFormat.getDefaultProperties(v, item);
+                  console.log('elem: ', elem);
 
                   const isAvailable = _.get(elem, 'properties.availability', false);
                   if (!isAvailable) return null;
@@ -99,7 +126,7 @@ class StepSelect extends Component {
 
                   return (
                     <MenuItem
-                      innerDivStyle={this.innerDivStyle}
+                      innerdivs0tyle={this.innerDivStyle}
                       key={elem.key}
                       leftIcon={img ? <Image className="select_ui-item_img" src={img} size="mobile" /> : null}
                       onClick={() => this.onMouseLeave(elem)}
@@ -110,7 +137,7 @@ class StepSelect extends Component {
                   );
                 })
               }
-            </Select>
+            </StyledSelect>
           </div>
         </div>
       </WrapperStep>
