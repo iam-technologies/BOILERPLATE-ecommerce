@@ -69,11 +69,21 @@ const theme = createMuiTheme({
       }
     },
     MuiMenuItem: {
-      width: '100%',
-      backgroundColor: 'pink',
-      color: 'blue',
-      selected: {
-        color: 'red'
+      root: {
+        color: 'rgb(109, 109, 109)',
+        width: '100%'
+        // '&$hover': {
+        //   color: 'rgba(109, 109, 109)'
+        // }
+      }
+    },
+    MuiInput: {
+      root: {
+        width: '100%'
+      },
+      input: {
+        marginLeft: '5px',
+        color: 'rgb(109, 109, 109)'
       }
     }
   }
@@ -90,7 +100,6 @@ function StepSelectBis(props) {
     age: '',
     name: 'hai'
   });
-
 
   const handleChange = (event) => {
     setValues(oldValues => ({
