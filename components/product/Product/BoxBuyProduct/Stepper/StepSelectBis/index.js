@@ -4,15 +4,12 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 // MATERIAL-UI
-import { makeStyles } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-// to access m-UI styles
-// import { withStyles } from '@material-ui/core/styles';
 
 import PropTypes from 'prop-types';
 
@@ -23,7 +20,7 @@ import { dataFormat, priceCalc } from '../../../../../../utils';
 import { Image } from '../../../../../common';
 import WrapperStep from '../WrapperStep';
 
-// OVERRIDING MUI COMPONENT STYLES https://material-ui.com/customization/globals/#css
+// "OVERRIDING" MUI COMPONENT STYLES https://material-ui.com/customization/globals/#css
 const theme = createMuiTheme({
   overrides: {
     // Style sheet name ⚛
@@ -90,32 +87,36 @@ const theme = createMuiTheme({
 });
 
 function StepSelectBis(props) {
-  // this.onChange = this.onChange.bind(this);
-  // this.onMouseEnter = this.onMouseEnter.bind(this);
-  // this.onMouseLeave = this.onMouseLeave.bind(this);
-  // const onAddAttr = bindActionCreators(configAttrActs, props.dispatch);
-  // const onShowImg = bindActionCreators(showImgAttributeActs, props.dispatch);
+  const [selection, setSelection] = React.useState('');
 
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai'
-  });
+  // FUNCION ORIGINAL
+  // onChange(e, index, key) {
+  //   const { item, pathKey } = this.props;
+  //   const { values } = item;
 
-  const handleChange = (event) => {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value
-    }));
-  };
+  //   const elem = values.filter(el => el.key === key);
+  //   const price = priceCalc.attribute(elem[0], item);
 
-  const onChange = (e, index, key) => {
+  //   this.onAddAttr.add({ [pathKey]: { item, key, price, value: elem[0] } });
+  // }
+
+  // FUNCION DE MATERIAL UI
+  // const handleChange = (event) => {
+  //   setValues(oldValues => ({
+  //     ...oldValues,
+  //     [event.target.name]: event.target.value
+  //   }));
+  // };
+
+  const onSubmit = (e, index, key) => {
+    console.log('onChange launched', e.target.value);
+    console.log('selection state = ', selection);
     const { item, pathKey } = props;
-    const { values } = item;
+    // const { selection } = item;
+    // const elem = values.filter(el => el.key === key);
+    // const price = priceCalc.attribute(elem[0], item);
 
-    const elem = values.filter(el => el.key === key);
-    const price = priceCalc.attribute(elem[0], item);
-
-    props.add({ [pathKey]: { item, key, price, value: elem[0] } });
+    // props.add({ [pathKey]: { item, key, price, value: elem[0] } });
   };
 
   const onMouseEnter = (elem) => {
@@ -137,9 +138,9 @@ function StepSelectBis(props) {
   };
 
   // const { config, title, item, screen } = this.props;
-  const { config, item, screen } = props;
+  const { config, screen } = props;
 
-  // const item = { values: ['item 1', 'item 2', 'item 3'] };
+  const item = { values: ['item 1', 'item 2', 'item 3'] };
   const title = 'Título jarcodeado para pruebas con material UI';
 
   return (
@@ -148,74 +149,6 @@ function StepSelectBis(props) {
     >
       <div className="step-select">
         <div className="select_ui">
-
-
-          {/* <form
-            variant="standard"
-            className={classes.form}
-            autoComplete="off"
-          >
-            // https://material-ui.com/es/api/form-control/
-            <FormControl
-              className={classes.formControl}
-            >
-              <InputLabel
-                // focused
-                disableAnimation={false}// solo desactiva la transición
-                // shrink={false} // solo desactiva el efecto
-                // disabled
-                htmlFor="age-simple"
-                claYssName={classes.labelField}
-              >
-                PERSONALIZA TU PRODUCTO
-              </InputLabel>
-
-              <Select
-                value={_.get(config, 'key', '')}
-                disableUnderline
-                fullWidth
-                onChange={onChange}
-              >
-                <MenuItem value={10}>Ten</MenuItem>
-                {/* {
-                  item.values.map((v) => {
-                    console.log('v / item ', v, '/', item);
-
-                    const elem = dataFormat.getDefaultProperties(v, item);
-                    console.log('elem: ', elem);
-
-                    const isAvailable = _.get(elem, 'properties.availability', false);
-                    if (!isAvailable) return null;
-
-                    const price = priceCalc.attribute(elem, item);
-                    const img = _.get(elem, 'properties.imgMini', '');
-
-                    const mouseEvents = {};
-                    if (screen === 'lg') {
-                      mouseEvents.onMouseEnter = () => this.onMouseEnter(elem);
-                      mouseEvents.onMouseLeave = () => this.onMouseLeave(elem);
-                    }
-
-                    return (
-                      <MenuItem
-                        innerdivs0tyle={this.innerDivStyle}
-                        key={elem.key}
-                        leftIcon={img ? <Image className="select_ui-item_img" src={img} size="mobile" /> : null}
-                        onClick={() => this.onMouseLeave(elem)}
-                        primaryText={<span>{`${_.get(elem, 'name.es', '')} ${price === 0 ? '' : `+${dataFormat.formatCurrency(price, true)}`}`}</span>}
-                        value={elem.key}
-                        {...mouseEvents}
-                      />
-                    );
-                  })
-                }
-
-              </Select>
-
-            </FormControl>
-          </form>
-         */}
-
           <ThemeProvider theme={theme}>
             <form
               variant="standard"
@@ -224,58 +157,63 @@ function StepSelectBis(props) {
               {/* https://material-ui.com/es/api/form-control/ */}
               <FormControl>
                 <InputLabel
+                  // hintText=
                   htmlFor="age-simple"
                 >
-                PERSONALIZA TU PRODUCTO
+                  {title.length > 25 ? `${title.substr(0, 25)}...` : title}
                 </InputLabel>
 
                 <Select
-                  value={values.age}
-                // value={_.get(config, 'key', '')}
+                  // value={values.age}
+                  value={_.get(config, 'key', '')}
                   disableUnderline
                   fullWidth
-                  onChange={handleChange}
-                  inputProps={{
-                    name: 'age',
-                    id: 'age-simple'
-                  }}
+                  onChange={onSubmit}
+                  // inputProps={{
+                  //   name: 'age',
+                  //   id: 'age-simple'
+                  // }}
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
+                  {/* <MenuItem value={10}>Ten</MenuItem>
                   <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem> */}
 
-                  {/* {
-                item.values.map((v) => {
-                  console.log('v / item ', v, '/', item);
+                  {
+                    item.values.map((v, index) => {
+                      const elem = dataFormat.getDefaultProperties(v, item);
 
-                  const elem = dataFormat.getDefaultProperties(v, item);
-                  console.log('elem: ', elem);
 
-                  const isAvailable = _.get(elem, 'properties.availability', false);
-                  if (!isAvailable) return null;
+                      const isAvailable = _.get(elem, 'properties.availability', false);
+                      // if (!isAvailable) return null;
 
-                  const price = priceCalc.attribute(elem, item);
-                  const img = _.get(elem, 'properties.imgMini', '');
+                      const price = priceCalc.attribute(elem, item);
+                      const img = _.get(elem, 'properties.imgMini', '');
 
-                  const mouseEvents = {};
-                  if (screen === 'lg') {
-                    mouseEvents.onMouseEnter = () => this.onMouseEnter(elem);
-                    mouseEvents.onMouseLeave = () => this.onMouseLeave(elem);
+                      const mouseEvents = {};
+                      if (screen === 'lg') {
+                        mouseEvents.onMouseEnter = () => onMouseEnter(elem);
+                        mouseEvents.onMouseLeave = () => onMouseLeave(elem);
+                      }
+
+                      return (
+                        <MenuItem
+                          // key={elem.key}
+                          key={index}
+                          onClick={() => onMouseLeave(elem)}
+                          onChange={e => setSelection(e.target.value)}
+                          // value={elem.key}
+                          value={v}
+                          {...mouseEvents}
+                        >
+                          {v}
+
+                          {/* {leftIcon={img ? <Image className="select_ui-item_img" src={img} size="mobile" /> : null} */}
+                          {/* {primaryText={<span>{`${_.get(elem, 'name.es', '')} ${price === 0 ? '' : `+${dataFormat.formatCurrency(price, true)}`}`}</span>} */}
+
+                        </MenuItem>
+                      );
+                    })
                   }
-
-                  return (
-                    <MenuItem
-                      innerdivs0tyle={this.innerDivStyle}
-                      key={elem.key}
-                      leftIcon={img ? <Image className="select_ui-item_img" src={img} size="mobile" /> : null}
-                      onClick={() => this.onMouseLeave(elem)}
-                      primaryText={<span>{`${_.get(elem, 'name.es', '')} ${price === 0 ? '' : `+${dataFormat.formatCurrency(price, true)}`}`}</span>}
-                      value={elem.key}
-                      {...mouseEvents}
-                    />
-                  );
-                })
-              } */}
 
                 </Select>
 
