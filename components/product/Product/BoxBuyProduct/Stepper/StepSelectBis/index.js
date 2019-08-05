@@ -17,7 +17,7 @@ import { withWindowResize } from '../../../../../hoc';
 
 import { configAttrActs, showImgAttributeActs } from '../../../../../../redux/actions';
 import { dataFormat, priceCalc } from '../../../../../../utils';
-import { Image } from '../../../../../common';
+// import { Image } from '../../../../../common';
 import WrapperStep from '../WrapperStep';
 
 // "OVERRIDING" MUI COMPONENT STYLES https://material-ui.com/customization/globals/#css
@@ -87,13 +87,11 @@ const theme = createMuiTheme({
 });
 
 function StepSelectBis(props) {
-  const [selection, setSelection] = React.useState('');
+  // const [selection, setSelection] = React.useState('');
   const [value, setValue] = React.useState('');
 
   const onSubmit = (e, index, key) => {
-    console.log('onChange launched', e.target.value);
-    console.log('selection state = ', selection);
-    const { item, pathKey } = props;
+    // const { item, pathKey } = props;
 
     setValue(e.target.value);
     // const { selection } = item;
@@ -122,7 +120,7 @@ function StepSelectBis(props) {
   };
 
   // const { config, title, item, screen } = this.props;
-  const { config, screen } = props;
+  const { screen } = props;
 
   const item = { values: ['item 1', 'item 2', 'item 3'] };
   const title = 'Título jarcodeado para pruebas con material UI';
@@ -167,11 +165,11 @@ function StepSelectBis(props) {
                       const elem = dataFormat.getDefaultProperties(v, item);
 
 
-                      const isAvailable = _.get(elem, 'properties.availability', false);
+                      // const isAvailable = _.get(elem, 'properties.availability', false);
                       // if (!isAvailable) return null;
 
-                      const price = priceCalc.attribute(elem, item);
-                      const img = _.get(elem, 'properties.imgMini', '');
+                      // const price = priceCalc.attribute(elem, item);
+                      // const img = _.get(elem, 'properties.imgMini', '');
 
                       const mouseEvents = {};
                       if (screen === 'lg') {
@@ -184,7 +182,7 @@ function StepSelectBis(props) {
                           // key={elem.key}
                           key={index}
                           onClick={() => onMouseLeave(elem)}
-                          onChange={e => setSelection(e.target.value)}
+                          // onChange={e => setSelection(e.target.value)}
                           // value={elem.key}
                           value={v}
                           {...mouseEvents}
