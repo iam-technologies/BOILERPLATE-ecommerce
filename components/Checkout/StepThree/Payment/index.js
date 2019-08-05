@@ -6,8 +6,11 @@ import { RadioInput } from '../../../common';
 import CreditCard from './CreditCard';
 import Paypal from './Paypal';
 import WireTransfer from './WireTransfer';
-import Terms from '../Terms';
-import Privacy from '../Privacy';
+// import Terms from '../Terms';
+import TermsBis from '../TermsBis';
+
+// import Privacy from '../Privacy';
+import PrivacyBis from '../PrivacyBis';
 
 export default class Payment extends Component {
   constructor(props) {
@@ -30,7 +33,8 @@ export default class Payment extends Component {
           path="acceptTerms"
           value={_.get(item, 'acceptTerms', false)}
           active={acceptTerms === true}
-        >Acepto los términos de servicio (<Terms />) y la política de privacidad (<Privacy />).
+        // >Acepto los términos de servicio (<Terms />) y la política de privacidad (<Privacy />).
+        >Acepto los términos de servicio (<TermsBis />) y la política de privacidad (<PrivacyBis />).
         </RadioInput>
 
         <RadioInput

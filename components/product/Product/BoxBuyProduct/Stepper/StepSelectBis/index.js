@@ -89,25 +89,6 @@ const theme = createMuiTheme({
 function StepSelectBis(props) {
   const [selection, setSelection] = React.useState('');
 
-  // FUNCION ORIGINAL
-  // onChange(e, index, key) {
-  //   const { item, pathKey } = this.props;
-  //   const { values } = item;
-
-  //   const elem = values.filter(el => el.key === key);
-  //   const price = priceCalc.attribute(elem[0], item);
-
-  //   this.onAddAttr.add({ [pathKey]: { item, key, price, value: elem[0] } });
-  // }
-
-  // FUNCION DE MATERIAL UI
-  // const handleChange = (event) => {
-  //   setValues(oldValues => ({
-  //     ...oldValues,
-  //     [event.target.name]: event.target.value
-  //   }));
-  // };
-
   const onSubmit = (e, index, key) => {
     console.log('onChange launched', e.target.value);
     console.log('selection state = ', selection);

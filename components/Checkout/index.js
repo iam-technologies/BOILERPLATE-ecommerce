@@ -7,10 +7,9 @@ import { bindActionCreators } from 'redux';
 import React, { Component, Fragment } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { trackEvent } from 'react-with-analytics';
-
+import priceCalc from '../../utils/priceCalc';
 import { api } from '../../serverServices';
 import { isClient } from '../../serverServices/utils';
-import { priceCalc } from '../../utils';
 import { cartsActs, showLoginActs } from '../../redux/actions';
 import { MobileHeader } from '../common';
 import CartAside from '../shoppingCart/CartAside';
@@ -20,7 +19,6 @@ import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import OrderMessage from './OrderMessage';
 import LegalInfo from './LegalInfo';
-
 
 class Checkout extends Component {
   constructor(props) {
@@ -272,6 +270,7 @@ class Checkout extends Component {
               <div
                 className={`step_header ${indexTab === 0 ? 'active' : ''}`}
               >01 INFORMACIÓN DE ENVÍO
+
               </div>
               {
                 !country && (
@@ -288,6 +287,7 @@ class Checkout extends Component {
                   </Fragment>
                 )
               }
+
             </div>
 
             <SwipeableViews
