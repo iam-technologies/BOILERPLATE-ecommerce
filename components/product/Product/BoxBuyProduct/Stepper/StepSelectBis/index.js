@@ -88,11 +88,14 @@ const theme = createMuiTheme({
 
 function StepSelectBis(props) {
   const [selection, setSelection] = React.useState('');
+  const [value, setValue] = React.useState('');
 
   const onSubmit = (e, index, key) => {
     console.log('onChange launched', e.target.value);
     console.log('selection state = ', selection);
     const { item, pathKey } = props;
+
+    setValue(e.target.value);
     // const { selection } = item;
     // const elem = values.filter(el => el.key === key);
     // const price = priceCalc.attribute(elem[0], item);
@@ -145,8 +148,8 @@ function StepSelectBis(props) {
                 </InputLabel>
 
                 <Select
-                  // value={values.age}
-                  value={_.get(config, 'key', '')}
+                  // value={_.get(config, 'key', '')}
+                  value={value}
                   disableUnderline
                   fullWidth
                   onChange={onSubmit}
