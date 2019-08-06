@@ -2,12 +2,13 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+
 import { dataFormat } from '../../../utils';
 // import SelectInput from '../SelectInput';
 import SelectInputBis from '../SelectInputBis';
 
 
-export default class SelectAddress extends Component {
+export default class SelectAddressBis extends Component {
   constructor(props) {
     super(props);
 
@@ -48,7 +49,7 @@ export default class SelectAddress extends Component {
 }
 
 
-SelectInputBis.propTypes = {
+SelectInput.propTypes = {
   className: PropTypes.string,
   items: PropTypes.array.isRequired,
   label: PropTypes.string,
@@ -56,7 +57,7 @@ SelectInputBis.propTypes = {
   value: PropTypes.any.isRequired
 };
 
-SelectInputBis.defaultProps = {
+SelectInput.defaultProps = {
   className: '',
   label: ''
 };

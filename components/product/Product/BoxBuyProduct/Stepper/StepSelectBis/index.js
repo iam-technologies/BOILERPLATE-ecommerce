@@ -26,7 +26,6 @@ const theme = createMuiTheme({
     // Style sheet name ⚛
     root: {
       maxHeight: '200px',
-      backgroundColor: 'brown',
       width: '325px',
       display: 'flex',
       justifyContent: 'center',
@@ -35,8 +34,7 @@ const theme = createMuiTheme({
     formControl: {
       root: {
         minWidth: '120px',
-        width: '280px',
-        backgroundColor: 'purple'
+        width: '280px'
       }
     },
     MuiInputLabel: {
@@ -69,9 +67,6 @@ const theme = createMuiTheme({
       root: {
         color: 'rgb(109, 109, 109)',
         width: '100%'
-        // '&$hover': {
-        //   color: 'rgba(109, 109, 109)'
-        // }
       }
     },
     MuiInput: {
@@ -139,7 +134,6 @@ function StepSelectBis(props) {
               {/* https://material-ui.com/es/api/form-control/ */}
               <FormControl>
                 <InputLabel
-                  // hintText=
                   htmlFor="age-simple"
                 >
                   {title.length > 25 ? `${title.substr(0, 25)}...` : title}
@@ -151,10 +145,6 @@ function StepSelectBis(props) {
                   disableUnderline
                   fullWidth
                   onChange={onSubmit}
-                  // inputProps={{
-                  //   name: 'age',
-                  //   id: 'age-simple'
-                  // }}
                 >
                   {/* <MenuItem value={10}>Ten</MenuItem>
                   <MenuItem value={20}>Twenty</MenuItem>

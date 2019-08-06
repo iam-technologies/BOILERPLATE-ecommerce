@@ -8,6 +8,7 @@ import {
   SelectInput, SelectAddress, AddressBox
 } from '../../common';
 
+import SelectInputBis from '../../common/SelectInputBis';
 
 export default class SendToOther extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ export default class SendToOther extends Component {
           disabled={disabled}
         />
 
-        <SelectInput
+        <SelectInputBis
           className="select_input"
           error={msgUI.get(errors, 'sendOrder.country')}
           items={countries}
@@ -66,7 +67,7 @@ export default class SendToOther extends Component {
 
         {
           country === 'España' && (
-            <SelectInput
+            <SelectInputBis
               className="select_input"
               error={msgUI.get(errors, 'sendOrder.state')}
               items={this.provincies}

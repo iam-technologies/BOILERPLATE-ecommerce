@@ -210,8 +210,6 @@ class Checkout extends Component {
   }
 
   render() {
-    console.log('checkout state = ', this.state);
-
     const {
       indexTab, item, errors, redirect, method, userName, amountTotal, numOrder
     } = this.state;
@@ -236,7 +234,6 @@ class Checkout extends Component {
 
     const country = _.get(item, 'sendOrder.country', '') === 'Otros';
 
-    console.log('isLogin :', isLogin);
     return (
       <section className="app_checkout" ref={this.refCheckout}>
         <MobileHeader
