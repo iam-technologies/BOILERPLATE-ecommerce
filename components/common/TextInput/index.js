@@ -27,7 +27,7 @@ export default class TextInput extends Component {
         className={`text_input_ui${maxWidth ? '-max_width' : ''} ${error ? 'error' : ''} ${className}`}
       >
         {
-          !label ? null : (<p className="text_input_ui-label" >{label}</p>)
+          !label ? null : (<p className="text_input_ui-label">{label}</p>)
         }
         <input
           className="text_input_ui-field"

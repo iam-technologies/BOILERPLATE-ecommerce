@@ -75,6 +75,7 @@ export default class ItemCart extends Component {
     const price = priceCalc.get(_.get(item, 'product', {}), _.get(item, 'config', {}));
     const itemConfig = this.getConfig(item);
 
+    console.log('index = ', index);
     const Transition = React.forwardRef((props, ref) => {
       return <Slide direction="down" ref={ref} {...props} />;
     });
