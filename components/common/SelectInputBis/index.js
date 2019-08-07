@@ -84,16 +84,16 @@ const theme = createMuiTheme({
   }
 });
 
-export default function SelectInputBis(props) {
-  const [value, setValue] = React.useState('');
+const SelectInputBis = (props) => {
+  const {
+ onChange, address, className, items, label, error, value, disabled 
+} = props;
 
-  const onSubmit = (e, index, key) => {
+  const onSubmit = (e) => {
     const { path } = props;
-    setValue(e.target.value);
-    props.onChange(path, key);
+    onChange(path, e.target.value);
   };
 
-  const { address, className, items, label, error } = props;
 
   return (
     <div
@@ -110,17 +110,17 @@ export default function SelectInputBis(props) {
           </InputLabel>
 
           <Select
-            // value={_.get(config, 'key', '')}
             value={value}
             disableUnderline
             fullWidth
             onChange={onSubmit}
+            disabled={disabled}
           >
             {
           items.map((elem, i) => (
             <MenuItem
               key={elem + i.toString()}
-              primaryText={elem}
+              primarytext={elem}
               value={address ? i : elem}
             >
               {elem}
@@ -136,7 +136,7 @@ export default function SelectInputBis(props) {
       }
     </div>
   );
-}
+};
 
 
 Select.propTypes = {
@@ -157,3 +157,4 @@ Select.defaultProps = {
   label: '',
   disabled: false
 };
+export default SelectInputBis;

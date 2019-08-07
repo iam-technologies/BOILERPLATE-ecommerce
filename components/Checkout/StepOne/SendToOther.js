@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 import { msgUI, espProvincies, countries } from '../../../utils';
 import {
-  TextInput, CheckInput, TextArea,
-  SelectInput, SelectAddress, AddressBox
+  TextInput, CheckInput, TextArea, AddressBox
 } from '../../common';
 
 import SelectInputBis from '../../common/SelectInputBis';
+import SelectAddressBis from '../../common/SelectAddressBis';
 
 export default class SendToOther extends Component {
   constructor(props) {
@@ -16,12 +16,13 @@ export default class SendToOther extends Component {
 
     this.provincies = espProvincies.map(el => el.nm).sort();
 
-    this.onChange = props.onChange.bind(this);
+    // this.onChange = props.onChange.bind(this);
     this.getFieldsOrMap = this.getFieldsOrMap.bind(this);
   }
 
+  // "showAllField" true in case send to another person false incase send to my adress
   getFieldsOrMap(address, completeName, name, lastname) {
-    const { item, showAllField, errors, disabled } = this.props;
+    const { item, showAllField, errors, disabled, onChange } = this.props;
 
     const newAddress = _.get(item, 'newAddress', true);
 
@@ -48,7 +49,7 @@ export default class SendToOther extends Component {
           hintLabel={`Dirección ${completeName}`}
           label={`Dirección ${completeName}`}
           maxWidth
-          onChange={this.onChange}
+          onChange={onChange}
           path="sendOrder.address"
           value={_.get(item, 'sendOrder.address', '')}
           disabled={disabled}
@@ -59,7 +60,7 @@ export default class SendToOther extends Component {
           error={msgUI.get(errors, 'sendOrder.country')}
           items={countries}
           label="País"
-          onChange={this.onChange}
+          onChange={onChange}
           path="sendOrder.country"
           value={country}
           disabled={disabled}
@@ -72,7 +73,7 @@ export default class SendToOther extends Component {
               error={msgUI.get(errors, 'sendOrder.state')}
               items={this.provincies}
               label="Provincia"
-              onChange={this.onChange}
+              onChange={onChange}
               path="sendOrder.state"
               value={_.get(item, 'sendOrder.state', '')}
               disabled={disabled}
@@ -86,7 +87,7 @@ export default class SendToOther extends Component {
               error={msgUI.get(errors, 'sendOrder.countryName')}
               hintLabel="Nombre del País"
               label="Nombre del País"
-              onChange={this.onChange}
+              onChange={onChange}
               path="sendOrder.countryName"
               value={_.get(item, 'sendOrder.countryName', '')}
               disabled={disabled}
@@ -98,7 +99,7 @@ export default class SendToOther extends Component {
           error={msgUI.get(errors, 'sendOrder.city')}
           hintLabel="Ciudad"
           label="CIUDAD"
-          onChange={this.onChange}
+          onChange={onChange}
           path="sendOrder.city"
           value={_.get(item, 'sendOrder.city', '')}
           disabled={disabled}
@@ -108,7 +109,7 @@ export default class SendToOther extends Component {
           error={msgUI.get(errors, 'sendOrder.codePostal')}
           hintLabel="Código Postal"
           label="Código Postal"
-          onChange={this.onChange}
+          onChange={onChange}
           path="sendOrder.codePostal"
           value={_.get(item, 'sendOrder.codePostal', '')}
           disabled={disabled}
@@ -119,7 +120,7 @@ export default class SendToOther extends Component {
 
 
   render() {
-    const { item, errors, showAllField, user, disabled } = this.props;
+    const { item, errors, showAllField, user, disabled, onChange } = this.props;
 
     const name = _.get(item, 'sendOrder.name', '');
     const lastname = _.get(item, 'sendOrder.lastname', '');
@@ -140,7 +141,7 @@ export default class SendToOther extends Component {
                 error={msgUI.get(errors, 'sendOrder.name')}
                 hintLabel="Nombre de la persona que recibirá el envío"
                 label="NOMBRE DE LA PERSONA QUE RECIBIRÁ EL ENVÍO"
-                onChange={this.onChange}
+                onChange={onChange}
                 path="sendOrder.name"
                 value={name}
                 disabled={disabled}
@@ -150,7 +151,7 @@ export default class SendToOther extends Component {
                 error={msgUI.get(errors, 'sendOrder.lastname')}
                 hintLabel="Apellidos de la persona que recibirá el envío"
                 label="APELLIDOS DE LA PERSONA QUE RECIBIRÁ EL ENVÍO"
-                onChange={this.onChange}
+                onChange={onChange}
                 path="sendOrder.lastname"
                 value={lastname}
                 disabled={disabled}
@@ -161,10 +162,10 @@ export default class SendToOther extends Component {
 
         {
           !showAllField && address.length > 0 && !disabled ? (
-            <SelectAddress
+            <SelectAddressBis
               items={address}
               label="Seleccionar una dirección de envío"
-              onChange={this.onChange}
+              onChange={onChange}
               path="sendOrder"
               value={_.get(item, 'selectedAddress', '')}
               selectedAddress="selectedAddress"
@@ -182,7 +183,7 @@ export default class SendToOther extends Component {
               error={msgUI.get(errors, 'sendOrder.phone')}
               hintLabel={`Teléfono de contacto ${completeName}`}
               label={`Teléfono de contacto ${completeName}`}
-              onChange={this.onChange}
+              onChange={onChange}
               path="sendOrder.phone"
               value={_.get(item, 'sendOrder.phone', '')}
               disabled={disabled}
@@ -196,7 +197,7 @@ export default class SendToOther extends Component {
               error={msgUI.get(errors, 'deliveryPeriod')}
               hintLabel="Plazo de entrega"
               label="Plazo de entrega"
-              onChange={this.onChange}
+              onChange={onChange}
               path="deliveryPeriod"
               value={_.get(item, 'deliveryPeriod', '')}
               disabled={disabled}
@@ -208,7 +209,7 @@ export default class SendToOther extends Component {
           hintLabel="Escribe aquí tus observaciones sobre el envío..."
           label="OBSERVACIONES SOBRE EL ENVÍO"
           maxWidth
-          onChange={this.onChange}
+          onChange={onChange}
           path="sendOrder.comment"
           value={_.get(item, 'sendOrder.comment', '')}
           disabled={disabled}
@@ -221,7 +222,7 @@ export default class SendToOther extends Component {
                 className="check_dedication"
                 label="Escribir una dedicatoria"
                 path="sendOrder.showDedication"
-                onChange={this.onChange}
+                onChange={onChange}
                 value={_.get(item, 'sendOrder.showDedication', false)}
                 disabled={disabled}
               />
@@ -233,7 +234,7 @@ export default class SendToOther extends Component {
                     hintLabel="Escribe aquí tu dedicatoría..."
                     label="DEDICATORIA"
                     maxWidth
-                    onChange={this.onChange}
+                    onChange={onChange}
                     path="sendOrder.message"
                     value={_.get(item, 'sendOrder.message', '')}
                     disabled={disabled}

@@ -12,18 +12,19 @@ export default class StepOne extends Component {
   constructor(props) {
     super(props);
 
-    this.onChange = props.onChange.bind(this);
+    // this.onChange = props.onChange.bind(this);
     this.getForm = this.getForm.bind(this);
   }
 
 
   getForm(item, errors, type, user, disabled = false) {
+    const { onChange } = this.props;
     switch (type) {
       case 'anotherPerson': return (
         <SendToOther
           errors={errors}
           item={item}
-          onChange={this.onChange}
+          onChange={onChange}
           showAllField
           disabled={disabled}
         />
@@ -33,7 +34,7 @@ export default class StepOne extends Component {
         <SendToOther
           errors={errors}
           item={item}
-          onChange={this.onChange}
+          onChange={onChange}
           user={user}
           disabled={disabled}
         />
@@ -46,7 +47,7 @@ export default class StepOne extends Component {
   }
 
   render() {
-    const { item, errors, user, disabled } = this.props;
+    const { item, errors, user, disabled, onChange } = this.props;
 
     const sendOrderType = _.get(item, 'sendOrderType', '');
     const renderForm = this.getForm(item, errors, sendOrderType, user, disabled);
@@ -59,7 +60,7 @@ export default class StepOne extends Component {
           error={msgUI.get(errors, 'name')}
           hintLabel="Nombre"
           label="NOMBRE"
-          onChange={this.onChange}
+          onChange={onChange}
           path="name"
           value={_.get(item, 'name', '')}
           disabled={disabled}
@@ -69,7 +70,7 @@ export default class StepOne extends Component {
           error={msgUI.get(errors, 'lastname')}
           hintLabel="Apellidos"
           label="APELLIDOS"
-          onChange={this.onChange}
+          onChange={onChange}
           path="lastname"
           value={_.get(item, 'lastname', '')}
           disabled={disabled}
@@ -79,7 +80,7 @@ export default class StepOne extends Component {
           error={msgUI.get(errors, 'email')}
           hintLabel="Email"
           label="EMAIL"
-          onChange={this.onChange}
+          onChange={onChange}
           path="email"
           type="email"
           value={_.get(item, 'email', '')}
@@ -90,7 +91,7 @@ export default class StepOne extends Component {
           error={msgUI.get(errors, 'phone')}
           hintLabel="Teléfono de contacto"
           label="TU TELÉFONO DE CONTACTO"
-          onChange={this.onChange}
+          onChange={onChange}
           path="phone"
           value={_.get(item, 'phone', '')}
           disabled={disabled}
@@ -104,7 +105,7 @@ export default class StepOne extends Component {
               <RadioInput
                 active={sendOrderType === 'anotherPerson'}
                 path="sendOrderType"
-                onChange={this.onChange}
+                onChange={onChange}
                 value="anotherPerson"
               >Sí, quiero enviarlo directamente a otra persona.
               </RadioInput>
@@ -112,7 +113,7 @@ export default class StepOne extends Component {
               <RadioInput
                 active={sendOrderType === 'myAddress'}
                 path="sendOrderType"
-                onChange={this.onChange}
+                onChange={onChange}
                 value="myAddress"
               >No, quiero recibirlo en mi dirección.
               </RadioInput>
@@ -120,7 +121,7 @@ export default class StepOne extends Component {
               <RadioInput
                 active={sendOrderType === 'cocholate'}
                 path="sendOrderType"
-                onChange={this.onChange}
+                onChange={onChange}
                 value="cocholate"
               >Quiero recogerlo en las oficinas de Your Company.
               </RadioInput>

@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import { msgUI, espProvincies, countries } from '../../../utils';
-import { TextInput, SelectInput, SelectAddress, AddressBillingBox } from '../../common';
+import { TextInput, AddressBillingBox } from '../../common';
+import SelectInputBis from '../../common/SelectInputBis';
+import SelectAddressBis from '../../common/SelectAddressBis';
+
 
 export default class FormBusiness extends Component {
   constructor(props) {
@@ -71,7 +74,7 @@ export default class FormBusiness extends Component {
           value={_.get(item, 'paymentInfo.address', '')}
         />
 
-        <SelectInput
+        <SelectInputBiss
           className="select_input"
           error={msgUI.get(errors, 'paymentInfo.country')}
           items={countries}
@@ -83,7 +86,7 @@ export default class FormBusiness extends Component {
 
         {
           country === 'España' && (
-            <SelectInput
+            <SelectInputBis
               className="select_input"
               error={msgUI.get(errors, 'paymentInfo.state')}
               items={this.provincies}
@@ -153,7 +156,7 @@ export default class FormBusiness extends Component {
       <div className="container_send_addres">
         {
           address.length > 0 ? (
-            <SelectAddress
+            <SelectAddressBis
               items={address}
               label="Seleccionar una dirección de facturación"
               onChange={this.onChange}
