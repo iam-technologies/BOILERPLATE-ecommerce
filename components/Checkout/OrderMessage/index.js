@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Router from 'next/router';
 import settings from '../../../settings';
 
 import { dataFormat } from '../../../utils';
@@ -15,9 +16,7 @@ export default class OrderMessage extends Component {
   }
 
   onClick() {
-    const { history } = this.props;
-
-    history.push('/');
+    Router.push('/');
   }
 
   render() {
@@ -40,7 +39,7 @@ export default class OrderMessage extends Component {
             type === 'success' ? (
               <div className="order_message_success">
                 <div className="order_message_img">
-                  <img src="/images/order_success.png" alt="Compra realizada" />
+                  <img src="../../../static/images/order_success.png" alt="Compra realizada" />
                 </div>
 
                 <p className="text first">Enhorabuena {userName}!</p>
@@ -78,7 +77,7 @@ export default class OrderMessage extends Component {
             type === 'wireTransfer' ? (
               <div className="order_message_transfer">
                 <div className="order_message_img">
-                  <img src="/images/order_transfer.png" alt="Información sobre transferencia" />
+                  <img src="../../static/images/order_transfer.png" alt="Información sobre transferencia" />
                 </div>
 
                 <p className="text title">PAGO MEDIANTE TRANSFERENCIA BANCARIA</p>
@@ -100,7 +99,7 @@ export default class OrderMessage extends Component {
             type === 'error' ? (
               <div className="order_message_error">
                 <div className="order_message_img">
-                  <img src="/images/order_error.png" alt="Error en el pago" />
+                  <img src="../../../static/images/order_error.png" alt="Error en el pago" />
                 </div>
 
                 <p className="text">Ups!! {userName} algo ha fallado en el proceso de pago y tu pedido no ha sido procesado. Vuelve a intentarlo o ponte en contacto con nosotros.</p>

@@ -74,7 +74,7 @@ export default class FormBusiness extends Component {
           value={_.get(item, 'paymentInfo.address', '')}
         />
 
-        <SelectInputBiss
+        <SelectInputBis
           className="select_input"
           error={msgUI.get(errors, 'paymentInfo.country')}
           items={countries}
