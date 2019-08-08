@@ -121,6 +121,7 @@ export default class Filter extends React.Component {
     products.map((item) => {
       if (selected.indexOf(item._id) !== -1) selectedItems.push(item);
     });
+    console.log('selectedItems = ', selectedItems);
     return selectedItems;
   }
 

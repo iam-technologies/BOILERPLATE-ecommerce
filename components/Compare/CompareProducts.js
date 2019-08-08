@@ -9,9 +9,8 @@ import { MobileHeader, Image, Badge, ButtonInput } from '../common';
 import { dataFormat, texts, priceCalc, urlUtils } from '../../utils';
 
 class CompareProducts extends PureComponent {
+  
   goBack = e => {
-    // const { history } = this.props;
-    // history.goBack();
     Router.push('/');
   };
 

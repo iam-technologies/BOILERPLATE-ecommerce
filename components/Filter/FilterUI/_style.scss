@@ -25,10 +25,7 @@
     width           : 100%;
     padding         : 0 35px;
     position        : absolute;
-    z-index         : 1;
-    //ORIGINAL
-    //z-index         : 30;
-    //NavBar z-index = 1002 --> ???
+    z-index         : 7;  // badge_ui-products (6) > y < NavBar (10)
 
     @media #{$sm} {
       @include border-radius(0);

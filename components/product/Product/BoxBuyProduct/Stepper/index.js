@@ -64,7 +64,6 @@ class Stepper extends Component {
   componentDidMount() {
     // index !== -1 means that is an update cart product
     const { isPack, config, index } = this.props;
-    console.log('config', config);
 
     // If isPack and has mandatory products attributes,
     // make the same actions than onCheck

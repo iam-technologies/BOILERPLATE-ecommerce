@@ -14,7 +14,6 @@ export default class StepThree extends Component {
     this.onChangeSelect = this.onChangeSelect.bind(this);
   }
 
-
   onChangeSelect(path, value) {
     this.props.onChange(path, !value);
   }
@@ -34,7 +33,7 @@ export default class StepThree extends Component {
             onChange={this.onChange}
             path="paymentType"
             value="particular"
-          >No, soy particular y con el ticket de compra es suficiente.
+          > No, soy particular y con el ticket de compra es suficiente.
           </RadioInput>
 
           <RadioInput
@@ -43,7 +42,7 @@ export default class StepThree extends Component {
             onChange={this.onChange}
             path="paymentType"
             value="business"
-          >Sí, soy empresa o autónomo y quiero factura.
+          > Sí, soy empresa o autónomo y quiero factura.
           </RadioInput>
         </div>
 
@@ -57,8 +56,8 @@ export default class StepThree extends Component {
         />
 
         {
-          paymentType === 'business' &&
-          <FormBusiness
+          paymentType === 'business'
+          && <FormBusiness
             errors={errors}
             item={item}
             onChange={this.onChange}
@@ -67,8 +66,8 @@ export default class StepThree extends Component {
         }
 
         {
-          paymentType !== '' &&
-          <Fragment>
+          paymentType !== ''
+          && <Fragment>
 
             <Payment
               errors={errors}

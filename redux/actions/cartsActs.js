@@ -52,7 +52,6 @@ const addProduct = (newProduct = '', isPopup = true) => (dispatch, getOldState) 
   }
 };
 
-
 const addRepeatOrder = (products = []) => (dispatch, getOldState) => {
   const item = getOldState().carts.item || {};
   const newItem = { ...item };
