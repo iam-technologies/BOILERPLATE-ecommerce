@@ -1,7 +1,7 @@
 import _ from 'lodash';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import React from 'react';
+import React, { useState } from 'react';
 
 // MATERIAL-UI
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -17,7 +17,7 @@ import { withWindowResize } from '../../../../../hoc';
 
 import { configAttrActs, showImgAttributeActs } from '../../../../../../redux/actions';
 import { dataFormat, priceCalc } from '../../../../../../utils';
-// import { Image } from '../../../../../common';
+import { Image } from '../../../../../common';
 import WrapperStep from '../WrapperStep';
 
 // "OVERRIDING" MUI COMPONENT STYLES https://material-ui.com/customization/globals/#css
@@ -81,19 +81,22 @@ const theme = createMuiTheme({
   }
 });
 
-function StepSelectBis(props) {
-  // const [selection, setSelection] = React.useState('');
-  const [value, setValue] = React.useState('');
+const StepSelectBis = (props) => {
+  const onAddAttr = bindActionCreators(configAttrActs, props.dispatch);
+  const onShowImg = bindActionCreators(showImgAttributeActs, props.dispatch);
+  const { config, title, item, screen } = props;
 
-  const onSubmit = (e, index, key) => {
-    // const { item, pathKey } = props;
+  const titleToShow = title.length > 25 ? `${title.substr(0, 25)}...` : title;
 
-    setValue(e.target.value);
-    // const { selection } = item;
-    // const elem = values.filter(el => el.key === key);
-    // const price = priceCalc.attribute(elem[0], item);
 
-    // props.add({ [pathKey]: { item, key, price, value: elem[0] } });
+  const onChange = (e) => {
+    const selectedValue = e.target.value;
+    const { item, pathKey } = props;
+    const { values } = item;
+    const elem = values.filter(el => el.key === selectedValue);
+    const price = priceCalc.attribute(elem[0], item);
+
+    onAddAttr.add({ [pathKey]: { item, key: selectedValue, price, value: elem[0] } });
   };
 
   const onMouseEnter = (elem) => {
@@ -101,7 +104,7 @@ function StepSelectBis(props) {
     const img = dataFormat.getPreviewImg(item, elem);
 
     if (img) {
-      props.show(img);
+      onShowImg.show(img);
     }
   };
 
@@ -110,15 +113,10 @@ function StepSelectBis(props) {
     const img = dataFormat.getPreviewImg(item, elem);
 
     if (img) {
-      props.remove();
+      onShowImg.remove();
     }
   };
 
-  // const { config, title, item, screen } = this.props;
-  const { screen } = props;
-
-  const item = { values: ['item 1', 'item 2', 'item 3'] };
-  const title = 'Título jarcodeado para pruebas con material UI';
 
   return (
     <WrapperStep
@@ -131,35 +129,29 @@ function StepSelectBis(props) {
               variant="standard"
               autoComplete="off"
             >
-              {/* https://material-ui.com/es/api/form-control/ */}
               <FormControl>
                 <InputLabel
                   htmlFor="age-simple"
                 >
-                  {title.length > 25 ? `${title.substr(0, 25)}...` : title}
+                  {titleToShow}
                 </InputLabel>
 
                 <Select
-                  // value={_.get(config, 'key', '')}
-                  value={value}
+                  value={_.get(config, 'key', 'testing')}
                   disableUnderline
                   fullWidth
-                  onChange={onSubmit}
+                  onChange={onChange}
                 >
-                  {/* <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem> */}
-
                   {
-                    item.values.map((v, index) => {
+                    item.values.map((v) => {
                       const elem = dataFormat.getDefaultProperties(v, item);
 
 
-                      // const isAvailable = _.get(elem, 'properties.availability', false);
-                      // if (!isAvailable) return null;
+                      const isAvailable = _.get(elem, 'properties.availability', false);
+                      if (!isAvailable) return null;
 
-                      // const price = priceCalc.attribute(elem, item);
-                      // const img = _.get(elem, 'properties.imgMini', '');
+                      const price = priceCalc.attribute(elem, item);
+                      const img = _.get(elem, 'properties.imgMini', '');
 
                       const mouseEvents = {};
                       if (screen === 'lg') {
@@ -169,18 +161,13 @@ function StepSelectBis(props) {
 
                       return (
                         <MenuItem
-                          // key={elem.key}
-                          key={index}
+                          key={elem.key}
+                          leftIcon={img ? <Image className="select_ui-item_img" src={img} size="mobile" /> : null}
                           onClick={() => onMouseLeave(elem)}
-                          // onChange={e => setSelection(e.target.value)}
-                          // value={elem.key}
-                          value={v}
+                          value={elem.key}
                           {...mouseEvents}
                         >
-                          {v}
-
-                          {/* {leftIcon={img ? <Image className="select_ui-item_img" src={img} size="mobile" /> : null} */}
-                          {/* {primaryText={<span>{`${_.get(elem, 'name.es', '')} ${price === 0 ? '' : `+${dataFormat.formatCurrency(price, true)}`}`}</span>} */}
+                          {<span>{`${_.get(elem, 'name.es', '')} ${price === 0 ? '' : `+${dataFormat.formatCurrency(price, true)}`}`}</span>}
 
                         </MenuItem>
                       );
@@ -199,7 +186,7 @@ function StepSelectBis(props) {
 
     </WrapperStep>
   );
-}
+};
 
 
 StepSelectBis.propTypes = {

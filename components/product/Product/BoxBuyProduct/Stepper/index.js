@@ -64,6 +64,7 @@ class Stepper extends Component {
   componentDidMount() {
     // index !== -1 means that is an update cart product
     const { isPack, config, index } = this.props;
+    console.log('config', config);
 
     // If isPack and has mandatory products attributes,
     // make the same actions than onCheck
@@ -341,9 +342,9 @@ class Stepper extends Component {
               if (!typeNotAvailable) this.onNextTab();
             }}
           >{
-            typeNotAvailable 
-            ? <span>No disponible</span>
-            : (indexTab === maxTab ? <span>Añadir al carrito</span> : <span>Continuar <span className="icon_stepper" /></span>)
+            typeNotAvailable
+              ? <span>No disponible</span>
+              : (indexTab === maxTab ? <span>Añadir al carrito</span> : <span>Continuar <span className="icon_stepper" /></span>)
             }
           </button>
         </div>

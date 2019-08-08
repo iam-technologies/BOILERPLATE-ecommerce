@@ -32,6 +32,7 @@ class BoxBuyProduct extends Component {
     this.onClickMoreInfo = this.onClickMoreInfo.bind(this);
     this.onAddToCart = this.onAddToCart.bind(this);
     this.getConfig = this.getConfig.bind(this);
+    console.log('props.item del BoxBuyProduct', this.props.item);
   }
 
   componentDidMount() {
@@ -83,12 +84,10 @@ class BoxBuyProduct extends Component {
 
     if (!cart.loading) {
       const config = _.get(cart, `item.products.${index}.config`, {});
-
       this.setState({ loading: false });
       this.onConfigAttr.add(config);
     }
   }
-
 
   render() {
     const { index, loading } = this.state;
@@ -101,7 +100,6 @@ class BoxBuyProduct extends Component {
 
     const isPack = _.get(item, 'type') === 'pack';
     const btnText = index >= 0 ? 'Actualizar producto' : 'Añadir al carrito';
-
 
     return (
       <div className="a_p-buy_p">

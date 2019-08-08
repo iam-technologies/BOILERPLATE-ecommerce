@@ -49,7 +49,7 @@ class StepSelect extends Component {
     this.onAddAttr = bindActionCreators(configAttrActs, props.dispatch);
     this.onShowImg = bindActionCreators(showImgAttributeActs, props.dispatch);
 
-    // this.styleLabel = { color: '#9B9B9B', fontSize: '16px', letterSpacing: '0.98px' };
+    this.styleLabel = { color: '#9B9B9B', fontSize: '16px', letterSpacing: '0.98px' };
     this.innerDivStyle = { padding: '0px 20px 0px 20px', marginBottom: '5px', color: 'red' };
   }
 
@@ -82,11 +82,7 @@ class StepSelect extends Component {
   }
 
   render() {
-    // const { config, title, item, screen } = this.props;
-    const { config, item, screen } = this.props;
-
-    // const item = { values: ['item 1', 'item 2', 'item 3'] };
-    const title = 'Título jarcodeado para pruebas con material UI';
+    const { config, title, item, screen } = this.props;
 
     return (
       <WrapperStep
@@ -96,21 +92,18 @@ class StepSelect extends Component {
           <div className="select_ui">
             <StyledSelect
               fullWidth
-              // hintText={title.length > 25 ? `${title.substr(0, 25)}...` : title}
-              // labelStyle={this.styleLabel}
-              // maxHeight={200}
-              // menuItemStyle={this.styleLabel}
+              hintText={title.length > 25 ? `${title.substr(0, 25)}...` : title}
+              labelStyle={this.styleLabel}
+              maxHeight={200}
+              menuItemStyle={this.styleLabel}
               onChange={this.onChange}
-              // selectedMenuItemStyle={{ color: '#323C47' }}
+              selectedMenuItemStyle={{ color: '#323C47' }}
               disableUnderline
               value={_.get(config, 'key', '')}
             >
               {
                 item.values.map((v) => {
-                  console.log('v / item ', v, '/', item);
-
                   const elem = dataFormat.getDefaultProperties(v, item);
-                  console.log('elem: ', elem);
 
                   const isAvailable = _.get(elem, 'properties.availability', false);
                   if (!isAvailable) return null;
@@ -152,10 +145,40 @@ StepSelect.propTypes = {
   pathKey: PropTypes.string.isRequired,
   title: PropTypes.string
 };
-
 StepSelect.defaultProps = {
   config: {},
   title: ''
 };
-
 export default withWindowResize(StepSelect);
+
+
+{
+  item.values.map((v) => {
+    const elem = dataFormat.getDefaultProperties(v, item);
+
+    const isAvailable = _.get(elem, 'properties.availability', false);
+    if (!isAvailable) return null;
+
+    const price = priceCalc.attribute(elem, item);
+    const img = _.get(elem, 'properties.imgMini', '');
+
+    const mouseEvents = {}
+    if (screen === 'lg') {
+      mouseEvents.onMouseEnter = () => this.onMouseEnter(elem);
+      mouseEvents.onMouseLeave = () => this.onMouseLeave(elem);
+    }
+
+    return (
+      <MenuItem
+        innerDivStyle={this.innerDivStyle}
+        key={elem.key}
+        leftIcon={img ? <Image className="select_ui-item_img" src={img} size="mobile" /> : null}
+        onClick={() => this.onMouseLeave(elem)}
+        primaryText={<span>{`${_.get(elem, 'name.es', '')} ${price === 0 ? '' : `+${dataFormat.formatCurrency(price, true)}`}`}</span>}
+        value={elem.key}
+        {...mouseEvents}
+      />
+    );
+  })
+}
+</SelectField>
