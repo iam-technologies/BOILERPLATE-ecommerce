@@ -18,7 +18,6 @@ class CompareProducts extends PureComponent {
     const { /* location, */ screen, selectedItems, catName } = this.props;
     // const { selectedItems, catName } = location.state;
     const title = `Comparador de ${catName}`;
-
     return (
       <section className="app-compare">
 

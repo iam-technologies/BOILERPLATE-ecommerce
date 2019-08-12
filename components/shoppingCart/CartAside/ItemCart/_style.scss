@@ -11,21 +11,29 @@
   }
 
   .left {
-    background-color   : $color16;
+    // background-color   : $color16;
     background-position: center;
     background-repeat  : no-repeat;
     background-size    : cover;
-    color              : $color04;
+    // color              : $color04;
     height             : 90px;
     max-width          : 90px;
+    min-width          : 80px;
     text-decoration    : none;
-    width              : 90px;
 
     @media #{$xs} {
       height   : 70px;
       max-width: 70px;
       min-width: 70px;
       width    : 70px;
+    }
+    .left-img{
+      height             : 90px;
+      max-width          : 90px;
+      min-width          : 80px;
+      background-position: center;
+      background-repeat  : no-repeat;
+      background-size    : cover;
     }
   }
 

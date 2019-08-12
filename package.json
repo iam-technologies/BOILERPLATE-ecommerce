@@ -1,5 +1,5 @@
 {
-  "name": "enantio",
+  "name": "Cocholate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,16 +7,15 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "restart": "rm -rf ./node_modules && rm -rf ./.next && npm install && npm run dev"
+    "restart": "rm -rf ./node_modules && rm -rf ./.next && rm package-lock.json && npm install && npm run dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://EsteveMillan@bitbucket.org/iamtech/enantio.git"
+    "url": "https://bitbucket.org/iamtech/boilerplate-__nextjs-router-redux-sass/src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/iamtech/enantio#readme",
   "dependencies": {
     "@material-ui/core": "^4.3.0",
     "@material-ui/styles": "^4.3.0",
@@ -26,6 +25,7 @@
     "cookies-js": "^1.2.3",
     "currency-formatter": "^1.4.3",
     "express": "^4.16.4",
+    "fs": "0.0.1-security",
     "loaders.css": "^0.1.2",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",

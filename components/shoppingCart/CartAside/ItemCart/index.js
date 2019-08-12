@@ -114,12 +114,16 @@ export default class ItemCart extends Component {
 
         <div
           onClick={this.onClosePopup}
+          className="left"
         >
           <a
-            className="left"
             href={linkTo}
-            style={{ backgroundImage: `url(${imgServices.getUrl(_.get(item, 'product.img.0', ''), 'mobile_2x')})` }}
-          />
+          >
+            <div
+              className="left-img"
+              style={{ backgroundImage: `url(${imgServices.getUrl(_.get(item, 'product.img.0', ''), 'mobile_2x')})` }}
+            />
+          </a>
         </div>
         <div
           onClick={this.onClosePopup}
