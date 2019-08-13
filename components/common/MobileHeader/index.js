@@ -1,9 +1,8 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import Link from 'next/link';
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Link } from '../../../routes';
 
 import { navMobileActs } from '../../../redux/actions';
 import { withWindowResize } from '../../hoc';
@@ -43,7 +42,7 @@ class MobileHeader extends Component {
         }
         {
           lastLocation && (
-            <Link href={lastLocation}>
+            <Link route={lastLocation}>
               <a className="header_mobile_ui-icon_previous">
                 <img src="../../../static/images/icon_nav_previouw.png" alt="previos" />
               </a>
@@ -52,7 +51,7 @@ class MobileHeader extends Component {
         }
         {
           logo && (
-            <Link href="/">
+            <Link route="/">
               <a className="header_mobile_ui-logo">
                 <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
               </a>

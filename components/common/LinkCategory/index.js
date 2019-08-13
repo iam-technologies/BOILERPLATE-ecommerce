@@ -1,20 +1,17 @@
-
-import Link from 'next/link';
-
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
+import { Link } from '../../../routes';
 import { urlUtils } from '../../../utils';
 
 const LinkCategory = ({ id, className, children, onClick }) => {
   const pathname = urlUtils.linkToCategory(id);
-
   return (
-    <Link
-      href={pathname}
-      onClick={onClick}
-    >
-      <a className={className}>
+    <Link route={`${pathname}`}>
+      <a
+        className={className}
+        onClick={onClick}
+      >
         {children}
       </a>
     </Link>

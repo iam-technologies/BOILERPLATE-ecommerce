@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import ProductItem from '../ProductItem';
 
 
-const ProductList = ({ items, title, location, clickCompare, onSelect, selected }) => (
-  <section className="product_list_ui">
-    {
+const ProductList = ({ items = [], title, location, clickCompare, onSelect, selected }) => {
+  return (
+    <section className="product_list_ui">
+      {
       title && <div className="product_list_ui-title">{title}</div>
     }
 
-    <div className="product_list_ui-container">
-      {
+      <div className="product_list_ui-container">
+        {
         items && items.map(item => (
           <ProductItem
             item={item}
@@ -23,9 +24,10 @@ const ProductList = ({ items, title, location, clickCompare, onSelect, selected 
           />
         ))
       }
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};
 
 
 ProductList.propTypes = {
@@ -33,7 +35,6 @@ ProductList.propTypes = {
   location: PropTypes.string,
   title: PropTypes.string
 };
-
 
 ProductList.defaultProps = {
   title: '',

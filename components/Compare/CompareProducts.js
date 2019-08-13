@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React, { PureComponent } from 'react';
-import Link from 'next/link';
 import Router from 'next/router'
 
+import { Link } from '../../routes';
 //import Name from './Name';
 import { withWindowResize } from '../hoc';
 import { MobileHeader, Image, Badge, ButtonInput } from '../common';
@@ -104,7 +104,7 @@ class CompareProducts extends PureComponent {
                         </ul> */}
                       </div>
                     </div>
-                    <Link href={{ pathname: urlUtils.linkToProduct('', item) }}>
+                    <Link route={{ pathname: urlUtils.linkToProduct('', item) }}>
                       <a>
                         <ButtonInput
                           label="AÑADIR AL CARRITO"

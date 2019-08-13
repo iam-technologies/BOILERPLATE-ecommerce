@@ -1,6 +1,5 @@
 import _ from 'lodash';
 // import { Link, Redirect } from 'react-router-dom';
-import Link from 'next/link';
 import Router from 'next/router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -19,6 +18,7 @@ import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import OrderMessage from './OrderMessage';
 import LegalInfo from './LegalInfo';
+import { Link } from '../../routes';
 
 class Checkout extends Component {
   constructor(props) {
@@ -245,7 +245,7 @@ class Checkout extends Component {
         <div className="app_checkout-left">
 
           <header className="app_checkout-header">
-            <Link href="/">
+            <Link route="/">
               <a className="link">
                 <img src="../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
               </a>

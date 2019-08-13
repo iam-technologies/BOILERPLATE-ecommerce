@@ -328,24 +328,29 @@ class Stepper extends Component {
         </div>
 
         <div className="stepper-bottom">
+
           <button
             type="button"
             className={`stepper-prev ${indexTab === 0 ? 'disable' : ''}`}
             onClick={this.onPrevTab}
-          ><span className="icon_stepper" />
+          >
+            <span className="icon_stepper" />
           </button>
+
           <button
             type="button"
             className="stepper-next"
             onClick={() => {
               if (!typeNotAvailable) this.onNextTab();
             }}
-          >{
+          >
+            {
             typeNotAvailable
               ? <span>No disponible</span>
               : (indexTab === maxTab ? <span>Añadir al carrito</span> : <span>Continuar <span className="icon_stepper" /></span>)
             }
           </button>
+
         </div>
       </section>
     );

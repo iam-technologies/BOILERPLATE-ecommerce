@@ -1,10 +1,11 @@
 import React from 'react';
 
+import Router from 'next/router';
 import { isClient } from '../../../../serverServices/utils';
 import { SocialNav } from '../../../common';
 
 const goBack = () => {
-  window.history.back();
+  Router.back();
 };
 
 const Nav = ({ item }) => {

@@ -1,3 +1,4 @@
+
 const ROUTES = [];
 
 const addRoutes = (routes) => {
@@ -13,10 +14,8 @@ const getRoute = (id) => {
     const pathLastSegment = `/${path.split('/').pop()}`;
     return pathLastSegment;
   }
-
   return '';
 };
-
 
 const isCategory = (url, routes) => {
   const category = routes.filter((elem) => {

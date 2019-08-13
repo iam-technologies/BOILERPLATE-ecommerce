@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import { Redirect, Link } from 'react-router-dom';
-import Link from 'next/link';
 
+import { Link } from '../../routes';
 import { ButtonInput } from '../common';
 
 class Compare extends Component {
@@ -21,7 +20,7 @@ class Compare extends Component {
   // }
 
   render() {
-    const { clickCompare, selected, catName, selectedItems } = this.props;
+    const { clickCompare, selected, catName, selectedItems, category } = this.props;
     const showCompare = (selected && selected.length > 1) || false;
     const pathname = `/comparador-de-productos/${catName}`;
     // const idString = selectedItems.map(el => el._id).join('-'); // TODO
@@ -33,7 +32,7 @@ class Compare extends Component {
           {
             showCompare && (
               <React.Fragment>
-                <Link href={{ pathname, query: { selectedItems: idString, catName } }}>
+                <Link route={{ pathname, query: { selectedItems: idString, catName } }}>
                   <a>
                     <ButtonInput
                       label="VER COMPARATIVA"

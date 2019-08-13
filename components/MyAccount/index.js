@@ -1,7 +1,8 @@
-import Link from 'next/link';
 import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+import { Link } from '../../routes';
 
 import { MobileHeader } from '../common';
 import { showLoginActs } from '../../redux/actions';
@@ -28,28 +29,28 @@ class MyAccount extends PureComponent {
         <p className="title">Mi cuenta</p>
 
         <div className="my_account-section">
-          <Link href="/orders">
+          <Link route="/orders">
             <a className="my_account-link">
               <span className="icon icon_orders" />
               <p>Mis Pedidos</p>
             </a>
           </Link>
 
-          <Link href="/favourites">
+          <Link route="/favourites">
             <a className="my_account-link">
               <span className="icon icon_favorites" />
               <p>Mis Favoritos</p>
             </a>
           </Link>
 
-          <Link href="/addresses">
+          <Link route="/addresses">
             <a className="my_account-link">
               <span className="icon icon_address" />
               <p>Mis Direcciones</p>
             </a>
           </Link>
 
-          <Link href="/profile">
+          <Link route="/profile">
             <a className="my_account-link">
               <span className="icon icon_profile" />
               <p>Mis Datos</p>
@@ -57,7 +58,7 @@ class MyAccount extends PureComponent {
           </Link>
         </div>
       </section>
-    )
+    );
   }
 }
 

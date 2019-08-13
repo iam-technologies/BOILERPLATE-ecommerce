@@ -37,19 +37,22 @@ export default class Filter extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { textId, callServices } = this.props;
+    const { textId, callServices, category } = this.props;
     const prevTextId = prevProps.textId;
     const prevCallServices = prevProps.callServices;
+    const prevCategory = prevProps.category;
 
     const { filters, options, loaded } = this.state;
     const prevFilters = prevState.filters;
     const prevOptions = prevState.options;
     const prevLoaded = prevState.loaded;
 
+
     if (prevTextId !== textId
       || callServices !== prevCallServices
       || loaded !== prevLoaded
-      || !_.isEqual(options, prevOptions)
+      || category !== prevCategory
+      || !_.isEqual(options, prevOptions)
       || !_.isEqual(filters, prevFilters)
     ) {
       this.getProducts();
@@ -71,7 +74,6 @@ export default class Filter extends React.Component {
     this.setState({ loaded: false, filters: { ...filters }, options });
   }
 
-
   onClick() {
     const { options } = this.state;
 
@@ -80,11 +82,9 @@ export default class Filter extends React.Component {
     this.setState({ loaded: false, options });
   }
 
-
   onClickCompare() {
     this.setState({ clickCompare: true });
   }
-
 
   onSelect(e, id) {
     e.stopPropagation();
@@ -101,12 +101,12 @@ export default class Filter extends React.Component {
     }
   }
 
-
   getProducts() {
     const { textId, callServices } = this.props;
     const { filters, options, loaded } = this.state;
 
     if (loaded) return;
+
 
     api.products[callServices](textId, { filters, options }, (error, res) => {
       const { products = [], numProducts = 0 } = res.data;
@@ -121,7 +121,6 @@ export default class Filter extends React.Component {
     products.map((item) => {
       if (selected.indexOf(item._id) !== -1) selectedItems.push(item);
     });
-    console.log('selectedItems = ', selectedItems);
     return selectedItems;
   }
 
@@ -149,6 +148,7 @@ export default class Filter extends React.Component {
               clickCompare={clickCompare}
               selected={selected}
               catName={_.get(category, 'name.es', '')}
+              catId={category}
               selectedItems={selectedItems}
             />
           )
@@ -162,6 +162,7 @@ export default class Filter extends React.Component {
               clickCompare={clickCompare}
               onSelect={this.onSelect}
               selected={selected}
+              category={category}
             />
           ) : (
             category.minPrice ? <h3 className="app-filter-info">Lo sentimos, actualmente no hay productos en este rango de precios.</h3>

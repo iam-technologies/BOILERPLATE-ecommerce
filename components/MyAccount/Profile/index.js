@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Alert from 'react-s-alert';
 import React, { Component } from 'react';
+import { Link } from '../../../routes';
 
 import { userActs } from '../../../redux/actions';
 import { api } from '../../../serverServices';
@@ -158,7 +158,7 @@ class Profile extends Component {
         />
 
         <div className="app-my_account-container link_container">
-          <Link href="/my-account">
+          <Link route="/my-account">
             <a className="link_return">
               <img src="../../../static/images/icon_back_checkout.png" alt="Volver a mi cuenta" />
               <span>Volver a mi cuenta</span>

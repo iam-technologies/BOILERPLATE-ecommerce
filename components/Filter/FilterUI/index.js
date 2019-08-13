@@ -40,6 +40,7 @@ class FilterUI extends React.PureComponent {
 
   render() {
     const { category, filters, priceRange, screen } = this.props;
+
     const { show, styleHeight } = this.state;
 
     const minPrice = _.get(category, 'minPrice', null);

@@ -1,13 +1,13 @@
 import _ from 'lodash';
-import Link from 'next/link';
 import React from 'react';
+import { Link } from '../../../routes';
 
 import { urlUtils } from '../../../utils';
 import { Image } from '../../common';
 
 
 export default ({ item, onRemove }) => (
-  <Link href={urlUtils.linkToProduct('', item)}>
+  <Link route={urlUtils.linkToProduct('', item)}>
     <a className="favourite_item">
       <div className="favourite_item__img">
         <Image

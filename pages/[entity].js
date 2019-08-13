@@ -7,6 +7,7 @@ import { routes as utilsRoutes } from '../utils';
 import { SEO } from '../components/common';
 
 const dynamicPage = ({ content = {}, serverUrl, categoryId = '' }) => {
+  // console.log('content: ', content);
   const title = _get(content, categoryId ? 'titleSeo.es' : 'seoTitle.es', '');
   const desc = _get(content, categoryId ? 'descSeo.es' : 'seoDesc.es', '');
   const attachment = _get(content, 'seoImg.attachment', '');

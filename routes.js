@@ -1,6 +1,7 @@
 const routes = require('next-routes');
 
 module.exports = routes()
+
   // LOGIN
   .add('/login-to', 'login-to')
   .add('/forgot-password', 'forgot-password')

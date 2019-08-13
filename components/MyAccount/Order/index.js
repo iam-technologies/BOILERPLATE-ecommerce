@@ -1,10 +1,9 @@
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import { Link, Redirect } from 'react-router-dom';
-import Link from 'next/link';
 import Router from 'next/router';
 import React, { Component } from 'react';
+import { Link } from '../../../routes';
 
 import { api } from '../../../serverServices';
 import { urlUtils } from '../../../utils';
@@ -177,7 +176,7 @@ class Order extends Component {
         </div>
 
         <div className="my_order_item-container link_container">
-          <Link href="/orders">
+          <Link route="/orders">
             <a className="link_return">
               <img src="../../../static/images/icon_back_checkout.png" alt="Volver a mi cuenta" />
               <span>Volver a Mis Pedidos</span>

@@ -1,8 +1,9 @@
-import Link from 'next/link';
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import settings from '../../../settings';
+import { Link } from '../../../routes';
 
 import { dataFormat } from '../../../utils';
 import { ButtonInput } from '../../common';
@@ -28,7 +29,7 @@ export default class OrderMessage extends Component {
       <section className="app_checkout">
         <div className="order_message">
           <header className="app_checkout-header">
-            <Link href="/">
+            <Link route="/">
               <a className="link">
                 <img src="../../../static/images/logo_search.png" alt="your company" />
               </a>

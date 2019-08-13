@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import Link from 'next/link';
+import { Link } from '../../../routes';
 
 
 import CartNavBtn from '../../shoppingCart/CartNavBtn';
@@ -72,7 +72,7 @@ export default class NavbarDesktop extends React.Component {
 
         <div className="nav_top">
           <div className="logo">
-            <Link href="/">
+            <Link route="/">
               <a>
                 <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
               </a>
@@ -96,7 +96,9 @@ export default class NavbarDesktop extends React.Component {
                   className="item_link"
                   key={elem._id}
                 >
-                  <LinkCategory id={elem._id}>{_.get(elem, 'name.es', '')}</LinkCategory>
+                  <LinkCategory id={elem._id}>
+                    {_.get(elem, 'name.es', '')}
+                  </LinkCategory>
                   {
                     _.get(elem, 'childrens', []).length > 0 && (
                       <ListSubCategory items={elem.childrens} />

@@ -1,12 +1,11 @@
 // import _ from 'lodash';
-import Link from 'next/link';
-
 import React, { Component } from 'react';
 
 import { api } from '../../serverServices';
 import { withWindowResize } from '../hoc';
 import { Rating } from '../common';
 import MailChimpForm from './MailChimpForm';
+import { Link } from '../../routes';
 
 const contactoFooter = (
   <div className="contact">
@@ -66,6 +65,7 @@ class Footer extends Component {
     });
   }
 
+
   render() {
     const { avg, total, loading, legal } = this.state;
     const { screen } = this.props;
@@ -78,7 +78,7 @@ class Footer extends Component {
 
             <div>
               <div className="logo">
-                <Link href="/">
+                <Link route="/">
                   <a>
                     <img src="../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
                   </a>
@@ -118,13 +118,13 @@ class Footer extends Component {
             <div className="app_footer-legal">
               <p className="app_footer-title">INFORMACIÓN DE COMPRA</p>
               <p>
-                <Link href="/legal/refunds"><a>Envío y devoluciones</a></Link>
+                <Link route="/legal/refunds"><a>Envío y devoluciones</a></Link>
               </p>
               <p>
-                <Link href="/legal/terms-and-conditions"><a>Términos y condiciones</a></Link>
+                <Link route="/legal/terms-and-conditions"><a>Términos y condiciones</a></Link>
               </p>
               <p>
-                <Link href="/legal/cookies"><a>Política de Cookies</a></Link>
+                <Link route="/legal/cookies"><a>Política de Cookies</a></Link>
               </p>
             </div>
 

@@ -1,7 +1,7 @@
 import _get from 'lodash/get';
-import Link from 'next/link';
 import ImageGallery from 'react-image-gallery';
 import React from 'react';
+import { Link } from '../../../routes';
 
 import { imgServices } from '../../../serverServices';
 import { urlUtils } from '../../../utils';
@@ -28,7 +28,7 @@ const Carousel = ({ items }) => {
         {
           (link && btnText)
           && (
-          <Link href={link}>
+          <Link route={link}>
             <a className="carousel_btn">{btnText}</a>
           </Link>
           )

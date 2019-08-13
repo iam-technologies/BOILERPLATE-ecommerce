@@ -1,9 +1,9 @@
-import _ from 'lodash';
-import Link from 'next/link';
-import Alert from 'react-s-alert';
-import Loader from 'react-loaders';
-import PropsTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropsTypes from 'prop-types';
+import Loader from 'react-loaders';
+import _ from 'lodash';
+import Alert from 'react-s-alert';
+import { Link } from '../../../routes';
 
 import { api } from '../../../serverServices';
 import { validateStep } from '../helpers';
@@ -108,7 +108,7 @@ export default class FooterCheckout extends Component {
 
         {
           (indexTab === 0) && !disabled && (
-            <Link href="/">
+            <Link route="/">
               <a className="link">
                 <img src="../../../static/images/icon_back_checkout.png" alt="Volver a la tienda" />
                 <span>Volver a la tienda</span>

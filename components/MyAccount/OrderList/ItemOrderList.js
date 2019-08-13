@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import Link from 'next/link';
 import moment from 'moment';
 import React from 'react';
+import { Link } from '../../../routes';
 
 import { dataFormat, texts } from '../../../utils';
 import { Badge } from '../../common';
@@ -14,8 +14,8 @@ export default ({ item, onClickBill }) => {
   const billUrl = _.get(item, 'bill.url', '');
 
   return (
-    <Link href={`/orders/${item._id}`}>
-      <a className="orders_item" >
+    <Link route={`/orders/${item._id}`}>
+      <a className="orders_item">
         <p className="cell">{orderNumber}</p>
 
         <p className="cell">{moment(_.get(item, 'createAt', '')).format('DD-MM-YYYY')}</p>

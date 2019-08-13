@@ -12,13 +12,11 @@ import Filter from '../Filter';
 class Category extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       categoryId: '',
       category: {},
       loaded: false
     };
-
     this.getCategory = this.getCategory.bind(this);
   }
 
@@ -76,6 +74,7 @@ class Category extends React.Component {
 
   render() {
     const { category } = this.state;
+
     const { /* location, */ pathname, screen } = this.props;
 
     const descMain = _.get(category, 'descMain.es', '');
@@ -103,6 +102,7 @@ class Category extends React.Component {
               <p className="app-category-description">{ _.get(category, 'descMain.es', '') }</p>
             )
           }
+
         </div>
 
         {
@@ -119,7 +119,7 @@ class Category extends React.Component {
 
         <div
           className="app-category-info app-category-more_info"
-          dangerouslySetInnerHTML={{ __html: _.get(category, 'desc.es', '') }}
+          dangerouslySetInnerHTML={{ __html: _.get(category, '_id', '') }}
         />
       </section>
     );

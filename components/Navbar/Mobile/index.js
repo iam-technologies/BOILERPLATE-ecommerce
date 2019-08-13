@@ -1,7 +1,7 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Link from 'next/link';
-import React from 'react';
+import { Link } from '../../../routes';
 
 import { navMobileActs } from '../../../redux/actions';
 import NavFooter from './NavFooter';
@@ -34,11 +34,8 @@ class NavbarMobile extends React.Component {
         onClick={this.onClickNav}
       >
         <nav className="nav_left">
-          <div className="logo">
-            <Link
-              href="/"
-              onClick={this.onCloseNav}
-            >
+          <div className="logo" onClick={this.onCloseNav}>
+            <Link route="/">
               <a>
                 <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
               </a>

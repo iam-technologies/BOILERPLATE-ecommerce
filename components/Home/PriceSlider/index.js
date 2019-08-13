@@ -1,6 +1,6 @@
 import Slider from 'rc-slider/lib/Slider';
 import React, { Component } from 'react';
-import Link from 'next/link';
+import { Link } from '../../../routes';
 
 import 'rc-slider/dist/rc-slider.min.css';
 
@@ -63,7 +63,7 @@ export default class PriceSlider extends Component {
             <p>{`${value}€`}</p>
           </div>
 
-          <Link href={`/budget/${value}`}>
+          <Link route={`/budget/${value}`}>
             <a className="button_ui">Buscar</a>
           </Link>
 
