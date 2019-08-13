@@ -86,8 +86,8 @@ const theme = createMuiTheme({
 
 const SelectInputBis = (props) => {
   const {
- onChange, address, className, items, label, error, value, disabled 
-} = props;
+    onChange, address, className, items, label, error, value, disabled
+  } = props;
 
   const onSubmit = (e) => {
     const { path } = props;

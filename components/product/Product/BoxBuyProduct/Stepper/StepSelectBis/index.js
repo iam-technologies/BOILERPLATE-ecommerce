@@ -47,10 +47,14 @@ const theme = createMuiTheme({
         fontSize: '14px',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        '&$focused': { // increase the specificity for the pseudo class
+          color: 'transparent'
+        }
       },
       shrink: {
-        display: 'none'
+        transform: 'none',
+        top: '24px'
       }
     },
     MuiSelect: {
@@ -88,6 +92,7 @@ const StepSelectBis = (props) => {
 
   const titleToShow = title.length > 25 ? `${title.substr(0, 25)}...` : title;
 
+  console.log('title / toShow = ', title, '/', titleToShow);
 
   const onChange = (e) => {
     const selectedValue = e.target.value;
@@ -130,9 +135,7 @@ const StepSelectBis = (props) => {
               autoComplete="off"
             >
               <FormControl>
-                <InputLabel
-                  htmlFor="age-simple"
-                >
+                <InputLabel>
                   {titleToShow}
                 </InputLabel>
 
