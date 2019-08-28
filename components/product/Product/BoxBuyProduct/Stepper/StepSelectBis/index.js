@@ -23,7 +23,6 @@ import WrapperStep from '../WrapperStep';
 // "OVERRIDING" MUI COMPONENT STYLES https://material-ui.com/customization/globals/#css
 const theme = createMuiTheme({
   overrides: {
-    // Style sheet name ⚛
     root: {
       maxHeight: '200px',
       width: '325px',
@@ -40,7 +39,7 @@ const theme = createMuiTheme({
     MuiInputLabel: {
       root: {
         disableAnimation: 'false',
-        marginTop: '-30px',
+        marginTop: '-27px',
         width: '280px',
         height: '40px',
         color: 'rgb(217,217,217)',
@@ -65,6 +64,11 @@ const theme = createMuiTheme({
       icon: {
         color: 'rgb(217,217,217)',
         top: '-10px'
+      },
+      select: {
+        '&:focus': {
+          background: 'red'
+        }
       }
     },
     MuiMenuItem: {
@@ -73,13 +77,18 @@ const theme = createMuiTheme({
         width: '100%'
       }
     },
+
     MuiInput: {
       root: {
+        height: '20px',
         width: '100%'
       },
       input: {
         marginLeft: '5px',
-        color: 'rgb(109, 109, 109)'
+        color: 'rgb(109, 109, 109)',
+        '&$focused': { // increase the specificity for the pseudo class
+          backgroundColor: 'green'
+        }
       }
     }
   }
@@ -91,8 +100,6 @@ const StepSelectBis = (props) => {
   const { config, title, item, screen } = props;
 
   const titleToShow = title.length > 25 ? `${title.substr(0, 25)}...` : title;
-
-  console.log('title / toShow = ', title, '/', titleToShow);
 
   const onChange = (e) => {
     const selectedValue = e.target.value;
@@ -122,6 +129,7 @@ const StepSelectBis = (props) => {
     }
   };
 
+  const value = _.get(config, 'key', null);
 
   return (
     <WrapperStep
@@ -136,11 +144,11 @@ const StepSelectBis = (props) => {
             >
               <FormControl>
                 <InputLabel>
-                  {titleToShow}
+                  {value ? '' : titleToShow}
                 </InputLabel>
 
                 <Select
-                  value={_.get(config, 'key', 'testing')}
+                  value={value}
                   disableUnderline
                   fullWidth
                   onChange={onChange}

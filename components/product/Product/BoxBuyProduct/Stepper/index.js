@@ -308,7 +308,6 @@ class Stepper extends Component {
 
     if (items.length < 1) return null;
 
-
     return (
       <section className="a_p-stepper">
         <div className="stepper-top">

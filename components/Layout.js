@@ -8,7 +8,6 @@ import { windowResizeActs } from '../redux/actions';
 import Footer from './Footer';
 import NavBar from './Navbar';
 
-
 class Layout extends React.Component {
   constructor(props) {
     super(props);

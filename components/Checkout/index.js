@@ -64,8 +64,6 @@ class Checkout extends Component {
 
   // Update info in item
   onChange(path, value, changeState = false) {
-    console.log('CheckOut path, value: ', path, ' /', value);
-
     const { item } = this.state;
     let finalValue = value;
 

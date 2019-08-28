@@ -16,7 +16,6 @@ export default class StepOne extends Component {
     this.getForm = this.getForm.bind(this);
   }
 
-
   getForm(item, errors, type, user, disabled = false) {
     const { onChange } = this.props;
     switch (type) {

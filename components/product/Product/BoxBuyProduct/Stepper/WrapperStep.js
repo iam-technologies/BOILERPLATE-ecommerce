@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 
 const WrapperStep = ({ title, children }) => (
+
   <div className="step-wrapper">
-    <p className="step-title">{title}</p>
+    <div className="step-title"><p>{title}</p></div>
 
     <div className="step-container">
       {children}
     </div>
   </div>
+
 );
 
 WrapperStep.propTypes = {

@@ -8,6 +8,7 @@ import '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
 // Modules Libraries CSS
+import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import 'slick-carousel/slick/slick.css';
@@ -45,6 +46,7 @@ class MyApp extends App {
         <CartPopup />
         <CookiesPopup />
         <Login />
+        <Alert position="top-left" stack timeout={3000} effect="slide" />
         <MuiThemeProvider>
           <Component {...pageProps} />
         </MuiThemeProvider>

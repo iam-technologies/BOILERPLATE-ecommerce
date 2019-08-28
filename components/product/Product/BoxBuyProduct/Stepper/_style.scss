@@ -50,8 +50,10 @@
       
       .step-title {
         font-size    : 15px;
-        margin-bottom: 15px;
-        text-align   : center;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
       }
     
       .step-container {
@@ -81,16 +83,16 @@
       outline         : none;
       width           : 14px;
 
+      &.disable {
+        @include opacity(0.2);
+      }
+
       .icon_stepper {
         @include transition(background-image 400ms cubic-bezier(0.165, 0.84, 0.44, 1));
         display: inline-block;
         height : 23px;
         width  : 14px;
       }
-
-      // &.disable {
-      //   @include opacity(0.2);
-      // }
     }
 
     .stepper-prev {
