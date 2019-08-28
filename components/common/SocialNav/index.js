@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import infoSource from '../../../utils/infoSource';
 
 export default class SocialNav extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export default class SocialNav extends Component {
   componentDidMount() {
     const location = window.location.pathname;
     const subject = location.split('/').slice(-1)[0].replace(/-/g, '%20');
-    const itemText = `@COCHOLATE%20-%20${subject}%0D%0A`;
+    const itemText = `${infoSource.itemText}%20-%20${subject}%0D%0A`;
 
     this.setState({ location, subject, itemText });
   }
@@ -32,7 +33,7 @@ export default class SocialNav extends Component {
       <div className="social_ui">
         <a
           className="social_ui-link facebook"
-          href={`https://www.facebook.com/sharer/sharer.php?u=http://cocholate.es${location}`}
+          href={`https://www.facebook.com/sharer/sharer.php?u=http://${infoSource.socialUrl}${location}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -41,7 +42,7 @@ export default class SocialNav extends Component {
         </a>
         <a
           className="social_ui-link twitter"
-          href={`https://twitter.com/intent/tweet?url=http://cocholate.es${location}&text=${itemText}`}
+          href={`https://twitter.com/intent/tweet?url=http://${infoSource.socialUrl}${location}&text=${itemText}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -58,7 +59,7 @@ export default class SocialNav extends Component {
         </a> */}
         <a
           className="social_ui-link email"
-          href={`mailto:?subject=${subject}&body=https://cocholate.es${location}`}
+          href={`mailto:?subject=${subject}&body=https://${infoSource.socialUrl}${location}`}
           target="_blank"
           rel="noopener noreferrer"
         >

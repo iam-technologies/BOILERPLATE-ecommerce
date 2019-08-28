@@ -19,6 +19,7 @@ import StepThree from './StepThree';
 import OrderMessage from './OrderMessage';
 import LegalInfo from './LegalInfo';
 import { Link } from '../../routes';
+import infoSource from '../../utils/infoSource';
 
 class Checkout extends Component {
   constructor(props) {
@@ -87,7 +88,7 @@ class Checkout extends Component {
         item.amountTotal = item.amount + _.get(finalValue, 'price', 0);
       }
 
-      if (path === 'sendOrderType' && finalValue === 'cocholate') {
+      if (path === 'sendOrderType' && finalValue === infoSource.companyName) {
         item.amountTotal = item.amount;
       }
 
@@ -134,7 +135,7 @@ class Checkout extends Component {
 
     if (indexTab > 0) {
       this.scrollView();
-      this.setState({ indexTab: _.get(item, 'sendOrderType') !== 'cocholate' ? indexTab - 1 : 0 });
+      this.setState({ indexTab: _.get(item, 'sendOrderType') !== infoSource.companyName ? indexTab - 1 : 0 });
     }
   }
 
@@ -143,7 +144,7 @@ class Checkout extends Component {
 
     if (indexTab < 2) {
       this.scrollView();
-      this.setState({ indexTab: _.get(item, 'sendOrderType') !== 'cocholate' ? indexTab + 1 : num });
+      this.setState({ indexTab: _.get(item, 'sendOrderType') !== infoSource.companyName ? indexTab + 1 : num });
     }
   }
 

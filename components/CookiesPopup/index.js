@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import infoSource from '../../utils/infoSource';
 
 import { isClient } from '../../serverServices/utils';
 
@@ -15,7 +16,7 @@ export default class CookiesPopup extends Component {
 
   acceptCookies() {
     if (isClient && window.localStorage) {
-      window.localStorage.cocholate__accept__cookies = true;
+      window.localStorage.infoSource.name__accept__cookies = true;
     }
 
     this.setState({ show: false });

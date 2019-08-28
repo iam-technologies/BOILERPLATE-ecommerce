@@ -1,19 +1,17 @@
 import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+import infoSource from '../../utils/infoSource';
 
 const defaultSeo = {
-  siteName: 'Cocholate',
-  title: `Canastillas y cestas regalo bebé | Regalos 
-    personalizados recién nacidos - Cocholate Decoración S.L.`,
-  desc: `Canastillas y cestas regalo personalizadas para bebé, 
-    regalos para recién nacidos y para la familia, cesta gemelar, 
-    cuadros nombre, detalles bordados,...y mucho más`,
+  siteName: `${infoSource.siteName}`,
+  title: `${infoSource.title}`,
+  desc: `${infoSource.compDesc}`,
   img: '',
-  content: '',
+  content: `${infoSource.content}`,
   type: 'website',
-  rootUrl: 'www.cocholate.es',
-  path: ''
+  rootUrl: `${infoSource.rootUrl}`,
+  path: `${infoSource.path}`
 };
 
 const SEO = (props) => {

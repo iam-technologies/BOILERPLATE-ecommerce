@@ -7,12 +7,14 @@ import { Rating } from '../common';
 import MailChimpForm from './MailChimpForm';
 import { Link } from '../../routes';
 
+import infoSource from '../../utils/infoSource';
+
 const contactoFooter = (
   <div className="contact">
     <p className="app_footer-title">CONTACTO</p>
-    <p>914 415 645 | 654 633 778 | 673 608 997 (WhatsApp)</p>
-    <p className="direction">C/ Espronceda 27, 1ºC – 28003 Madrid</p>
-    <p className="mail"><a href="mailto:pedidos@ourcompany.es">pedidos@cocholate.es</a></p>
+    <p>{infoSource.tel}</p>
+    <p className="direction">{infoSource.tel}</p>
+    <p className="mail"><a href={`mailto:{${infoSource.emailPurcahseAddress}}`}>{infoSource.emailPurcahseAddress}</a></p>
 
   </div>
 );
@@ -106,10 +108,10 @@ class Footer extends Component {
             }
 
             <div className="app_footer-social">
-              <a href="https://www.facebook.com/Cocholate.es/" target="_blank" rel="noopener noreferrer"><span className="facebook" /></a>
-              <a href="https://twitter.com/cocholateD" target="_blank" rel="noopener noreferrer"><span className="twitter" /></a>
-              <a href="https://www.instagram.com/regalosbebecocholate/" target="_blank" rel="noopener noreferrer"><span className="instagram" /></a>
-              <a href="https://www.pinterest.com/cocholated/" target="_blank" rel="noopener noreferrer"><span className="pinterest" /></a>
+              <a href={`${infoSource.fbUrl}`} target="_blank" rel="noopener noreferrer"><span className="facebook" /></a>
+              <a href={`${infoSource.twitterUrl}`} target="_blank" rel="noopener noreferrer"><span className="twitter" /></a>
+              <a href={`${infoSource.instagramUrl}`} target="_blank" rel="noopener noreferrer"><span className="instagram" /></a>
+              <a href={`${infoSource.pinterestUrl}`} target="_blank" rel="noopener noreferrer"><span className="pinterest" /></a>
             </div>
           </div>
 

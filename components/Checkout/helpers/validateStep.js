@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Alert from 'react-s-alert';
+import infoSource from '../../../utils/infoSource';
 
 import { checkFields, msgUI } from '../../../utils';
 
@@ -68,7 +69,7 @@ const validateStepOne = (item, callback) => {
 
   if (errors.length > 0) return callback(errors, null);
   // If there aren't errors
-  if (orderType === 'cocholate') {
+  if (orderType === infoSource.companyName) {
     delete newItem.sendOrder;
     delete newItem.shipping;
   }

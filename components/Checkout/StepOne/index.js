@@ -7,6 +7,7 @@ import { TextInput, RadioInput } from '../../common';
 import SendToOther from './SendToOther';
 import SendOffice from './SendOffice';
 
+import infoSource from '../../../utils/infoSource';
 
 export default class StepOne extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ export default class StepOne extends Component {
         />
       );
 
-      case 'cocholate': return <SendOffice />;
+      case `${infoSource.companyName}`: return <SendOffice />;
 
       default: return null;
     }
@@ -118,11 +119,11 @@ export default class StepOne extends Component {
               </RadioInput>
 
               <RadioInput
-                active={sendOrderType === 'cocholate'}
+                active={sendOrderType === `${infoSource.companyName}`}
                 path="sendOrderType"
                 onChange={onChange}
-                value="cocholate"
-              >Quiero recogerlo en las oficinas de Your Company.
+                value={`${infoSource.companyName}`}
+              >Quiero recogerlo en las oficinas de {`${infoSource.companyName}`}.
               </RadioInput>
             </div>
           ) : (

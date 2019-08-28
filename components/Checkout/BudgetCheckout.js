@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
@@ -14,6 +13,8 @@ import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import OrderMessage from './OrderMessage';
+
+import infoSource from '../../utils/infoSource';
 
 
 class BudgetCheckout extends Component {
@@ -75,7 +76,7 @@ class BudgetCheckout extends Component {
     if (!changeState) {
       _.set(item, path, finalValue);
 
-      if (path === 'sendOrderType' && finalValue === 'cocholate') {
+      if (path === 'sendOrderType' && finalValue === infoSource.companyName) {
         item.amountTotal = item.amount;
       }
 
@@ -122,7 +123,7 @@ class BudgetCheckout extends Component {
 
     if (indexTab > 0) {
       this.scrollView();
-      this.setState({ indexTab: _.get(item, 'sendOrderType') !== 'cocholate' ? indexTab - 1 : 0 });
+      this.setState({ indexTab: _.get(item, 'sendOrderType') !== infoSource.companyName ? indexTab - 1 : 0 });
     }
   }
 
@@ -131,7 +132,7 @@ class BudgetCheckout extends Component {
 
     if (indexTab < 2) {
       this.scrollView();
-      this.setState({ indexTab: _.get(item, 'sendOrderType') !== 'cocholate' ? indexTab + 1 : num });
+      this.setState({ indexTab: _.get(item, 'sendOrderType') !== infoSource.companyName ? indexTab + 1 : num });
     }
   }
 
@@ -183,7 +184,7 @@ class BudgetCheckout extends Component {
           <header className="app_checkout-header">
             <Link route="/">
               <a className="link">
-                <img src="/images/logo_search.png" alt="Cocholate" />
+                <img src="/images/logo_search.png" alt={infoSource.companyName} />
               </a>
             </Link>
           </header>

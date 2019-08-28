@@ -7,6 +7,7 @@ import { AddressBox } from '../../common';
 import { dataFormat } from '../../../utils';
 import SelectShipping from './SelectShipping';
 
+import infoSource from '../../../utils/infoSource';
 
 export default class StepTwo extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ export default class StepTwo extends Component {
       const { sendOrderType } = nextProps.item.sendOrderType;
       const { address, city, country, codePostal } = _.get(nextProps.item, 'sendOrder', {});
 
-      if (sendOrderType !== 'cocholate') {
+      if (sendOrderType !== {`${infoSource.companyName}`}) {
         if (prevState.address !== address || prevState.city !== city
           || prevState.country !== country || prevState.codePostal !== codePostal) {
           return {

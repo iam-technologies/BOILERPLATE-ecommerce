@@ -8,6 +8,8 @@ import { Link } from '../../../routes';
 import { dataFormat } from '../../../utils';
 import { ButtonInput } from '../../common';
 
+import infoSource from '../../../utils/infoSource';
+
 export default class OrderMessage extends Component {
   constructor(props) {
     super(props);
@@ -86,7 +88,7 @@ export default class OrderMessage extends Component {
                 <p className="text">Nombre: Your Company</p>
                 <p className="text num_account">{settings.bank_account}</p>
                 <p className="text">No olvides poner el número de pedido &#34;<strong>{lastNum}</strong>&#34; en el concepto de la transferencia para que sepamos a quién pertenece el pago.</p>
-                <p className="text">Si quieres agilizar el proceso envianos el justificante de la transferencia a <a href="mailto:info@ycocholate.es" target="_blank" rel="noopener noreferrer">pedidos@cocholate.es</a></p>
+                <p className="text">Si quieres agilizar el proceso envianos el justificante de la transferencia a <a href={`mailto:${infoSource.emailInfoAddress}`} target="_blank" rel="noopener noreferrer">{`${infoSource.emailPurcahseAddress}`}</a></p>
 
                 <ButtonInput
                   className="order_message_btn"
