@@ -33,7 +33,7 @@ export default class OrderMessage extends Component {
           <header className="app_checkout-header">
             <Link route="/">
               <a className="link">
-                <img src="../../../static/images/logo_search.png" alt="your company" />
+                <img src="../../../static/images/logo_search.png" alt={infoSource.companyName} />
               </a>
             </Link>
           </header>
@@ -85,10 +85,10 @@ export default class OrderMessage extends Component {
 
                 <p className="text title">PAGO MEDIANTE TRANSFERENCIA BANCARIA</p>
                 <p className="text">Deberás realizar el ingreso de <strong>{dataFormat.formatCurrency(amountTotal)}</strong> en la cuenta:</p>
-                <p className="text">Nombre: Your Company</p>
+                <p className="text">Nombre: {infoSource.compNameCap}</p>
                 <p className="text num_account">{settings.bank_account}</p>
                 <p className="text">No olvides poner el número de pedido &#34;<strong>{lastNum}</strong>&#34; en el concepto de la transferencia para que sepamos a quién pertenece el pago.</p>
-                <p className="text">Si quieres agilizar el proceso envianos el justificante de la transferencia a <a href={`mailto:${infoSource.emailInfoAddress}`} target="_blank" rel="noopener noreferrer">{`${infoSource.emailPurcahseAddress}`}</a></p>
+                <p className="text">Si quieres agilizar el proceso envianos el justificante de la transferencia a <a href={`mailto:${infoSource.emailInfoAddress}`} target="_blank" rel="noopener noreferrer">{infoSource.emailPurcahseAddress}</a></p>
 
                 <ButtonInput
                   className="order_message_btn"

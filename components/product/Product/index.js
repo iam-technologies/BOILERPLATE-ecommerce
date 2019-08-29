@@ -82,8 +82,8 @@ class Product extends React.Component {
     const { product, loaded, refundsText } = this.state;
     const { location, url } = this.props;
 
-    // const productName = _.get(product, 'name.es', 'Producto de cocholate');
-    // const productDesc = _.get(product, 'shortDesc.es', 'Producto de cocholate');
+    // const productName = _.get(product, 'name.es', `Producto de ${infoSource.companyName}`);
+    // const productDesc = _.get(product, 'shortDesc.es', `Producto de ${infoSource.companyName}`);
 
     if (!loaded) return null;
 

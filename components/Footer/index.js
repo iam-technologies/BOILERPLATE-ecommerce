@@ -82,7 +82,7 @@ class Footer extends Component {
               <div className="logo">
                 <Link route="/">
                   <a>
-                    <img src="../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
+                    <img src="../../static/images/company/icon_logotipo_neutro.png" alt={infoSource.companyName} />
                   </a>
                 </Link>
               </div>
@@ -108,10 +108,10 @@ class Footer extends Component {
             }
 
             <div className="app_footer-social">
-              <a href={`${infoSource.fbUrl}`} target="_blank" rel="noopener noreferrer"><span className="facebook" /></a>
-              <a href={`${infoSource.twitterUrl}`} target="_blank" rel="noopener noreferrer"><span className="twitter" /></a>
-              <a href={`${infoSource.instagramUrl}`} target="_blank" rel="noopener noreferrer"><span className="instagram" /></a>
-              <a href={`${infoSource.pinterestUrl}`} target="_blank" rel="noopener noreferrer"><span className="pinterest" /></a>
+              <a href={infoSource.fbUrl} target="_blank" rel="noopener noreferrer"><span className="facebook" /></a>
+              <a href={infoSource.twitterUrl} target="_blank" rel="noopener noreferrer"><span className="twitter" /></a>
+              <a href={infoSource.instagramUrl} target="_blank" rel="noopener noreferrer"><span className="instagram" /></a>
+              <a href={infoSource.pinterestUrl} target="_blank" rel="noopener noreferrer"><span className="pinterest" /></a>
             </div>
           </div>
 

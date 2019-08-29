@@ -258,7 +258,7 @@ class BudgetCheckout extends Component {
 
           <div className="app_checkout-legal">
             <strong>Información básica sobre protección de datos</strong><br />
-            <strong>Responsable:</strong> YOUR COMPANY &nbsp;(
+            <strong>Responsable:</strong> {infoSource.compNameCap} &nbsp;(
             <Link route="/legal/cookies" target="_blank">
               <a>+info</a>
             </Link>)<br />

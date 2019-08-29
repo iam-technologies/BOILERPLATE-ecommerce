@@ -9,6 +9,7 @@ import { showLoginActs, isLoginActs, userActs } from '../../../redux/actions';
 import { msgUI, checkFields } from '../../../utils';
 import { api } from '../../../serverServices';
 import { TextInput, ButtonInput } from '../../common';
+import infoSource from '../../../utils/infoSource';
 
 class Login extends Component {
   constructor(props) {
@@ -82,7 +83,7 @@ class Login extends Component {
         <header className="header_login">
           <Link route="/">
             <a onClick={this.onClose} className="header_login-logo">
-              <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
+              <img src="../../../static/images/company/icon_logotipo_neutro.png" alt={infoSource.compNameCap} />
             </a>
           </Link>
 

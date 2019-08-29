@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { trackEvent } from 'react-with-analytics';
+import infoSource from '../../utils/infoSource';
 
 export default class MailChimpForm extends Component {
   constructor(props) {
@@ -65,10 +66,10 @@ export default class MailChimpForm extends Component {
       <div id="mc_embed_signup">
         <p className="app_footer-title">Suscríbete a nuestro newsletter:</p>
 
-        <form action="https://cocholate.us6.list-manage.com/subscribe/post" method="POST" target="_blank">
+        <form action={infoSource.action} method="POST" target="_blank">
 
-          <input type="hidden" name="u" value="a42e3ed506f04dbf9af8abcfc" />
-          <input type="hidden" name="id" value="4da271a25c" />
+          <input type="hidden" name="u" value={infoSource.uValue} />
+          <input type="hidden" name="id" value={infoSource.idValue} />
 
           <div className="container">
 
@@ -83,7 +84,7 @@ export default class MailChimpForm extends Component {
             />
 
             <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-              <input type="text" name="b_a42e3ed506f04dbf9af8abcfc_4da271a25c" tabIndex="-1" />
+              <input type="text" name={`b_${infoSource.uValue}_${infoSource.idValue}`} tabIndex="-1" />
             </div>
 
             <div className="clear">

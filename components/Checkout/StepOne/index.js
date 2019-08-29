@@ -119,10 +119,10 @@ export default class StepOne extends Component {
               </RadioInput>
 
               <RadioInput
-                active={sendOrderType === `${infoSource.companyName}`}
+                active={sendOrderType === infoSource.companyName}
                 path="sendOrderType"
                 onChange={onChange}
-                value={`${infoSource.companyName}`}
+                value={infoSource.companyName}
               >Quiero recogerlo en las oficinas de {`${infoSource.companyName}`}.
               </RadioInput>
             </div>

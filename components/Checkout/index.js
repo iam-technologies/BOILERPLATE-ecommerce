@@ -246,7 +246,7 @@ class Checkout extends Component {
           <header className="app_checkout-header">
             <Link route="/">
               <a className="link">
-                <img src="../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
+                <img src="../../static/images/company/icon_logotipo_neutro.png" alt={infoSource.companyName} />
               </a>
             </Link>
 

@@ -6,6 +6,7 @@ import { Link } from '../../../routes';
 import { navMobileActs } from '../../../redux/actions';
 import NavFooter from './NavFooter';
 import ListCategories from './ListCategories';
+import infoSource from '../../../utils/infoSource';
 
 
 class NavbarMobile extends React.Component {
@@ -37,7 +38,7 @@ class NavbarMobile extends React.Component {
           <div className="logo" onClick={this.onCloseNav}>
             <Link route="/">
               <a>
-                <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
+                <img src="../../../static/images/company/icon_logotipo_neutro.png" alt={infoSource.companyName} />
               </a>
             </Link>
           </div>

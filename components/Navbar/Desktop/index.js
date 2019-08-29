@@ -8,6 +8,7 @@ import SearchNavBtn from '../../search/SearchNavBtn';
 import MyAccountButton from './MyAccountButton';
 import { LinkCategory } from '../../common';
 import ListSubCategory from './ListSubCategory';
+import infoSource from '../../../utils/infoSource';
 
 export default class NavbarDesktop extends React.Component {
   constructor(props) {
@@ -74,7 +75,7 @@ export default class NavbarDesktop extends React.Component {
           <div className="logo">
             <Link route="/">
               <a>
-                <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
+                <img src="../../../static/images/company/icon_logotipo_neutro.png" alt={infoSource.companyName} />
               </a>
             </Link>
           </div>

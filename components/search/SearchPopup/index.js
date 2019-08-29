@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { showSearchActs } from '../../../redux/actions';
 import FormSearch from './FormSearch';
 import FindResults from './FindResults';
+import infoSource from '../../../utils/infoSource';
 
 
 class Search extends Component {
@@ -48,7 +49,7 @@ class Search extends Component {
                 onClick={this.onClose}
               >
                 <a className="app-s_p-logo" href="/">
-                  <img src="/images/logo_search.png" style={{ color: 'gray' }} alt="YOUR COMPANY" />
+                  <img src="/images/logo_search.png" style={{ color: 'gray' }} alt={infoSource.companyName} />
                 </a>
               </Link>
 

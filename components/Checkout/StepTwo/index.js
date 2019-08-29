@@ -51,7 +51,7 @@ export default class StepTwo extends Component {
       const { sendOrderType } = nextProps.item.sendOrderType;
       const { address, city, country, codePostal } = _.get(nextProps.item, 'sendOrder', {});
 
-      if (sendOrderType !== {`${infoSource.companyName}`}) {
+      if (sendOrderType !== infoSource.companyName) {
         if (prevState.address !== address || prevState.city !== city
           || prevState.country !== country || prevState.codePostal !== codePostal) {
           return {

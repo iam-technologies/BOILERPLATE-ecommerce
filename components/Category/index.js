@@ -82,8 +82,8 @@ class Category extends React.Component {
     return (
       <section className="app-category">
         {/* <Helmet>
-          <title>{_.get(category, 'titleSeo.es', 'categoría de productos de your company')}</title>
-          <meta name="description" content={_.get(category, 'descSeo.es', 'categoría de productos de your company')} />
+          <title>{_.get(category, 'titleSeo.es', {`categoría de productos de ${infoSource.compNameCap}`})}</title>
+          <meta name="description" content={_.get(category, 'descSeo.es', {`categoría de productos de ${infoSource.compNameCap}`})} />
         </Helmet> */}
 
         <MobileHeader

@@ -8,6 +8,7 @@ import { navMobileActs } from '../../../redux/actions';
 import { withWindowResize } from '../../hoc';
 import SearchNavBtn from '../../search/SearchNavBtn';
 import CartNavBtn from '../../shoppingCart/CartNavBtn';
+import infoSource from '../../../utils/infoSource';
 
 class MobileHeader extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class MobileHeader extends Component {
           logo && (
             <Link route="/">
               <a className="header_mobile_ui-logo">
-                <img src="../../../static/images/icon_logotipo_neutro.png" alt="YOUR COMPANY" />
+                <img src="../../../static/images/company/icon_logotipo_neutro.png" alt={infoSource.companyName} />
               </a>
             </Link>
           )
