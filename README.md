@@ -1,4 +1,4 @@
-### Steps to to customize de eCommerce_Boilerplate
+### Steps to customize de eCommerce_Boilerplate
 
 1) Change "name" value in package-lock.json
 2) Change "name" value in package.json
