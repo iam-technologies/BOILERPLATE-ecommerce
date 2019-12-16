@@ -1,58 +1,56 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { changeTheme } from '../redux/actions/pageActions';
-import {Link} from '../routes'
+import React from 'react';
+import _get from 'lodash/get';
 
-import Layout from '../components/Layout';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
-class Index extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: ''
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    const { color } = this.props;
-
-    if (prevProps.color !== color) {
-      this.setState({ color })
-    }
-  }
-
-  handleClick = (color) => {
-    this.props.changeTheme(color)
-  }
-
-  render() {
-
-    const { color } = this.state
-    return (
-      <Layout>
-        <div>
-          <h1 className="main-title " style={{ color }}>home</h1>
-          <button onClick={() => this.handleClick('red')}>red</button>
-          <button onClick={() => this.handleClick('aqua')}>aqua</button>
-          <Link  href={`/blog`}>
-            <a>go to post</a>
-          </Link>
-          <Link  href={`/blog/1`}>
-            <a>go to first post</a>
-          </Link>
-        </div>
-      </Layout>
-    )
-  }
-}
-
-function mapStateToProps(state) {
-  const { pageReducer } = state;
-  return pageReducer
-}
+import { api, getImageUrl } from '../serverServices';
+import { Home, Layout } from '../components';
+import { SEO } from '../components/common';
 
 
+const HomePage = ({ content = {}, selection = {}, loaded = true, imgUrl = '' }) => {
+  const title = _get(content, 'seoTitle.es', '');
+  const desc = _get(content, 'seoDesc.es', '');
+  const attachment = _get(content, 'seoImg.attachment', '');
+  const pathname = '/';
 
+  return (
+    <Layout pathname={pathname}>
+      <SEO
+        title={title}
+        description={desc}
+        image={attachment}
+      />
+      <Home
+        content={content}
+        selection={selection}
+        loaded={loaded}
+        imgUrl={imgUrl}
+      />
+      <MessengerCustomerChat
+        pageId="184615748241837"
+        appId="324538924791012"
+        themeColor="#97DECC"
+        loggedInGreeting="¡Hola! ¿Cómo podemos ayudarte?"
+        loggedOutGreeting="¡Hola! ¿Cómo podemos ayudarte?"
+        minimized
+      />
+    </Layout>
+  );
+};
 
-export default connect(mapStateToProps, { changeTheme })(Index);
+HomePage.getInitialProps = async () => {
+  const content = await api.contents.getByKey('home', (err, res) => {
+    return res ? res.data : null;
+  });
+
+  const imgUrl = await getImageUrl(content);
+
+  const selection = await api.selections.getByKey('home', (err, res) => {
+    return res ? res.data : null;
+  });
+
+  return { content, selection, loaded: true, imgUrl };
+};
+
+export default HomePage;

@@ -23,16 +23,15 @@
 //   process.exit(1)
 // })
 
-// With express 
-const express = require('express'); 
+// With express
+const express = require('express');
 // server.js
- const next = require('next'); 
-const routes = require('./routes'); 
+const next = require('next');
+const routes = require('./routes');
 
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
- const handle = routes.getRequestHandler(app); 
+const handle = routes.getRequestHandler(app);
 
-app.prepare().then(() => {   
-    express().use(handle).listen(3000); 
-}); 
- 
+app.prepare().then(() => {
+  express().use(handle).listen(3000);
+});
